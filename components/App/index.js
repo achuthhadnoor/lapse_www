@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { AppIcon, BatteryIcon, CheckIcon, ChevronRight, CommandIcon, ListIcon, MoreIcon, OptionIcon, SearchIcon, WifiIcon } from '../icons';
 
-export default function App() {
+export default function App({ setTheme, theme }) {
     const [selectedFormat, setSelectedFormat] = React.useState('mp4')
     const [selectedQuality, setSelectedQuality] = React.useState('Auto')
     const [selectedFramerate, setSelectedFramerat] = React.useState('30')
-    return (
+    return (<>
         <Wrapper>
             <ListIcon />
             <span style={{ marginRight: '10px' }}>Mon 28 Dec 7:57 PM</span>
@@ -17,13 +17,13 @@ export default function App() {
             <Options>
                 <AppIcon />
                 <UL>
-                    <li style={{paddingLeft: '20px'}}>
+                    <li style={{ paddingLeft: '20px' }}>
                         <span>Start recording</span>
-                        <a style={{color:'#f3f3f3',alignItems:'center'}}>
-                         <OptionIcon/> {''} <CommandIcon/> {''} L
+                        <a style={{ color: '#f3f3f3', alignItems: 'center' }}>
+                            <OptionIcon /> {''} <CommandIcon /> {''} L
                         </a>
                     </li>
-                    <Submenu style={{paddingLeft: '20px'}}>
+                    <Submenu style={{ paddingLeft: '20px' }}>
                         <div style={{ flex: 1, display: 'flex' }}>
                             <span style={{ flex: 1 }}>Export format</span>
                             <ChevronRight style={{ padding: '0px' }} />
@@ -34,21 +34,21 @@ export default function App() {
                                 <span style={{ paddingLeft: '5px' }}>mp4</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedFormat === 'mkv' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedFormat === 'mkv' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>mkv</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedFormat === 'webm' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedFormat === 'webm' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>webm</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedFormat === 'avi' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedFormat === 'avi' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>avi</span>
                             </li>
                         </Sul>
 
                     </Submenu>
-                    <Submenu style={{paddingLeft: '20px'}}>
+                    <Submenu style={{ paddingLeft: '20px' }}>
                         <div style={{ flex: 1, display: 'flex' }}>
                             <span style={{ flex: 1 }}>Quality</span>
                             <ChevronRight style={{ padding: '0px' }} />
@@ -59,41 +59,41 @@ export default function App() {
                                 <span style={{ paddingLeft: '5px' }}>Auto</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '8k' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '8k' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>8k</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '4k' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '4k' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>4k</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '1080p' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '1080p' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>1080p</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '720p' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '720p' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>720p</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '480p' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '480p' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>480p</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '360p' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '360p' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>360p</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '240p' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '240p' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>240p</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedQuality === '144p' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedQuality === '144p' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>144p</span>
-                            </li> 
+                            </li>
                         </Sul>
 
                     </Submenu>
-                    <Submenu style={{paddingLeft: '20px'}}>
+                    <Submenu style={{ paddingLeft: '20px' }}>
                         <div style={{ flex: 1, display: 'flex' }}>
                             <span style={{ flex: 1 }}>Speed (framerate)</span>
                             <ChevronRight style={{ padding: '0px' }} />
@@ -104,40 +104,41 @@ export default function App() {
                                 <span style={{ paddingLeft: '5px' }}>12</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedFramerate === '24' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedFramerate === '24' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>24</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedFramerate === '30' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedFramerate === '30' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>30</span>
                             </li>
                             <li>
-                            <i style={{ opacity: selectedFramerate === '60' ? 1 : 0 }}><CheckIcon /></i>
+                                <i style={{ opacity: selectedFramerate === '60' ? 1 : 0 }}><CheckIcon /></i>
                                 <span style={{ paddingLeft: '5px' }}>60</span>
                             </li>
                         </Sul>
 
                     </Submenu>
                     <hr style={{ border: '1px solid #1f1f1f' }} />
-                    <li><CheckIcon/>
-                        <span>Reset</span> 
+                    <li><CheckIcon />
+                        <span>Reset</span>
                     </li>
-                    <li style={{paddingLeft:'20px'}}>
+                    <li style={{ paddingLeft: '20px' }}>
                         <span>Auto launch</span>
                     </li>
                     <hr style={{ border: '1px solid #1f1f1f' }} />
-                    <li style={{paddingLeft: '20px'}}>
-                        <span>About Lapse</span> 
+                    <li style={{ paddingLeft: '20px' }}>
+                        <span>About Lapse</span>
                     </li>
-                    <li style={{paddingLeft: '20px'}}>
+                    <li style={{ paddingLeft: '20px' }}>
                         <span>Quit lapse</span>
-                        <a style={{color:'#f3f3f3'}}>
-                            <CommandIcon/> <OptionIcon/> L
+                        <a style={{ color: '#f3f3f3' }}>
+                            <CommandIcon /> <OptionIcon /> L
                         </a>
                     </li>
                 </UL>
             </Options>
         </Wrapper>
+    </>
     )
 };
 

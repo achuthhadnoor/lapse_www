@@ -9,7 +9,7 @@ const Title = styled.h1`
 
 export default function Home() {
   return <div>
-  <Header/>
+  {/* <Header/> */}
   <Content/>
   <Footer/>
   </div>

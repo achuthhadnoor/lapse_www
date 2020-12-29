@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import AppComponent from './../components/App'
+import Image from 'next/image'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -9,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     background: #121212;
     color:#fff;
+    background:url('/light.png')
   }
 `
 
@@ -21,8 +23,8 @@ const theme = {
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+      <GlobalStyle />
         <AppComponent/>
         <Component {...pageProps} />
       </ThemeProvider>
