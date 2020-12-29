@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { AppIcon, BatteryIcon, CheckIcon, ChevronRight, ListIcon, MoreIcon, SearchIcon, WifiIcon } from '../icons';
+import { AppIcon, BatteryIcon, CheckIcon, ChevronRight, CommandIcon, ListIcon, MoreIcon, OptionIcon, SearchIcon, WifiIcon } from '../icons';
 
 export default function App() {
     const [selectedFormat, setSelectedFormat] = React.useState('mp4')
     const [selectedQuality, setSelectedQuality] = React.useState('Auto')
+    const [selectedFramerate, setSelectedFramerat] = React.useState('30')
     return (
         <Wrapper>
             <ListIcon />
@@ -16,10 +17,13 @@ export default function App() {
             <Options>
                 <AppIcon />
                 <UL>
-                    <li>
+                    <li style={{paddingLeft: '20px'}}>
                         <span>Start recording</span>
+                        <a style={{color:'#f3f3f3',alignItems:'center'}}>
+                         <OptionIcon/> {''} <CommandIcon/> {''} L
+                        </a>
                     </li>
-                    <Submenu >
+                    <Submenu style={{paddingLeft: '20px'}}>
                         <div style={{ flex: 1, display: 'flex' }}>
                             <span style={{ flex: 1 }}>Export format</span>
                             <ChevronRight style={{ padding: '0px' }} />
@@ -44,7 +48,7 @@ export default function App() {
                         </Sul>
 
                     </Submenu>
-                    <Submenu >
+                    <Submenu style={{paddingLeft: '20px'}}>
                         <div style={{ flex: 1, display: 'flex' }}>
                             <span style={{ flex: 1 }}>Quality</span>
                             <ChevronRight style={{ padding: '0px' }} />
@@ -89,25 +93,47 @@ export default function App() {
                         </Sul>
 
                     </Submenu>
-                    <li>
-                        <span>Speed (framerate)</span>
-                        <ChevronRight style={{ padding: '0px' }} />
-                    </li>
+                    <Submenu style={{paddingLeft: '20px'}}>
+                        <div style={{ flex: 1, display: 'flex' }}>
+                            <span style={{ flex: 1 }}>Speed (framerate)</span>
+                            <ChevronRight style={{ padding: '0px' }} />
+                        </div>
+                        <Sul>
+                            <li>
+                                <i style={{ opacity: selectedFramerate === '12' ? 1 : 0 }}><CheckIcon /></i>
+                                <span style={{ paddingLeft: '5px' }}>12</span>
+                            </li>
+                            <li>
+                            <i style={{ opacity: selectedFramerate === '24' ? 1 : 0 }}><CheckIcon /></i>
+                                <span style={{ paddingLeft: '5px' }}>24</span>
+                            </li>
+                            <li>
+                            <i style={{ opacity: selectedFramerate === '30' ? 1 : 0 }}><CheckIcon /></i>
+                                <span style={{ paddingLeft: '5px' }}>30</span>
+                            </li>
+                            <li>
+                            <i style={{ opacity: selectedFramerate === '60' ? 1 : 0 }}><CheckIcon /></i>
+                                <span style={{ paddingLeft: '5px' }}>60</span>
+                            </li>
+                        </Sul>
+
+                    </Submenu>
                     <hr style={{ border: '1px solid #1f1f1f' }} />
-                    <li>
-                        <span>Reset</span>
-                        <ChevronRight style={{ padding: '0px' }} />
+                    <li><CheckIcon/>
+                        <span>Reset</span> 
                     </li>
-                    <li>
+                    <li style={{paddingLeft:'20px'}}>
                         <span>Auto launch</span>
                     </li>
                     <hr style={{ border: '1px solid #1f1f1f' }} />
-                    <li>
-                        <span>About Lapse</span>
-                        <ChevronRight style={{ padding: '0px' }} />
+                    <li style={{paddingLeft: '20px'}}>
+                        <span>About Lapse</span> 
                     </li>
-                    <li>
+                    <li style={{paddingLeft: '20px'}}>
                         <span>Quit lapse</span>
+                        <a style={{color:'#f3f3f3'}}>
+                            <CommandIcon/> <OptionIcon/> L
+                        </a>
                     </li>
                 </UL>
             </Options>
