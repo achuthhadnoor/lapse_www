@@ -64,19 +64,29 @@ export const ChevronRight = (props) => (
 export const BatteryIcon = () => (
     <IconWrapper>
         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0)">
-            <path d="M17.6807 6.40192H3.68066C2.57609 6.40192 1.68066 7.29735 1.68066 8.40192V16.4019C1.68066 17.5065 2.57609 18.4019 3.68066 18.4019H17.6807C18.7852 18.4019 19.6807 17.5065 19.6807 16.4019V8.40192C19.6807 7.29735 18.7852 6.40192 17.6807 6.40192Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M23.6807 13.4019V11.4019" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </g>
-        <defs>
-            <clipPath id="clip0">
-                <rect width="24" height="24" fill="white" transform="translate(0.680664 0.401917)" />
-            </clipPath>
-        </defs>
-    </svg>
+            <g clip-path="url(#clip0)">
+                <path d="M17.6807 6.40192H3.68066C2.57609 6.40192 1.68066 7.29735 1.68066 8.40192V16.4019C1.68066 17.5065 2.57609 18.4019 3.68066 18.4019H17.6807C18.7852 18.4019 19.6807 17.5065 19.6807 16.4019V8.40192C19.6807 7.29735 18.7852 6.40192 17.6807 6.40192Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M23.6807 13.4019V11.4019" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </g>
+            <defs>
+                <clipPath id="clip0">
+                    <rect width="24" height="24" fill="white" transform="translate(0.680664 0.401917)" />
+                </clipPath>
+            </defs>
+        </svg>
 
     </IconWrapper>
 )
+
+export const CheckIcon = () => (
+    <>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.3332 4L5.99984 11.3333L2.6665 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+
+    </>
+)
+
 const IconWrapper = styled.i`
     padding:0px 10px;
 `;
