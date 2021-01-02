@@ -7,8 +7,8 @@ const Title = styled.h1`
 `
 
 export default function Home() {
-  return <div> 
+  return <>
   <Content/>
   <Footer/>
-  </div>
+  </>
 }
