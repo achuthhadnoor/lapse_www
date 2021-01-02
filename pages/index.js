@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import Header from './../components/Header'
+import styled from 'styled-components' 
 import Footer from './../components/Footer'
 import Content from './../components/Content'
 const Title = styled.h1`
@@ -8,8 +7,7 @@ const Title = styled.h1`
 `
 
 export default function Home() {
-  return <div>
-  {/* <Header/> */}
+  return <div> 
   <Content/>
   <Footer/>
   </div>

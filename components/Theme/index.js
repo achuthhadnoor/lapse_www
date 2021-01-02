@@ -34,9 +34,9 @@ export const GlobalStyle = createGlobalStyle`
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-            
+            sans-serif; 
           background:${(props) => props.theme === theme.light ? 'url(/light.png)' : 'url(dark.png)'};
+          backround-size:cover;
           scroll-behavior: smooth;
         } 
         * {
@@ -173,11 +173,17 @@ export const GlobalStyle = createGlobalStyle`
             flex-direction: column;
           }
         }
+        #__next{
+          position:absolute;
+          height:100%;
+          width:100%;
+        }
 `;
 
 export const ThemedButton = () => (
   <ThemeContext.Consumer>
     {({ themed, setThemed }) => (
+      <>
       <Button
         onClick={() => {
           themed === theme.light
@@ -188,6 +194,7 @@ export const ThemedButton = () => (
       >
         {themed === theme.light ? 'light' : 'dark'}
       </Button>
+      </>
     )}
   </ThemeContext.Consumer>
 );
@@ -203,7 +210,7 @@ const Button = styled.button`
 `;
 
 export const ThemeWrapper = ({ children }) => {
-  const [themed, setThemed] = React.useState(theme.light);
+  const [themed, setThemed] = React.useState(theme.dark);
   return (
     <ThemeContext.Provider value={{ themed, setThemed }}>
       <ThemeProvider theme={themed}>
