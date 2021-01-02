@@ -19,8 +19,8 @@ export default function App({ setTheme, theme }) {
                 <UL>
                     <li style={{ paddingLeft: '20px' }}>
                         <span>Start recording</span>
-                        <a style={{ color: '#f3f3f3', alignItems: 'center' }}>
-                            <OptionIcon /> {''} <CommandIcon /> {''} L
+                        <a style={{  display:'flex',alignItems: 'center' }}>
+                            <OptionIcon /> {''} <CommandIcon /> {''} <span>L</span>
                         </a>
                     </li>
                     <Submenu style={{ paddingLeft: '20px' }}>
@@ -131,8 +131,8 @@ export default function App({ setTheme, theme }) {
                     </li>
                     <li style={{ paddingLeft: '20px' }}>
                         <span>Quit lapse</span>
-                        <a style={{ color: '#f3f3f3' }}>
-                            <CommandIcon /> <OptionIcon /> L
+                        <a style={{  display:'flex',alignItems: 'center' }}>
+                            <CommandIcon /> <OptionIcon /> <span>L</span>
                         </a>
                     </li>
                 </UL>
@@ -143,13 +143,28 @@ export default function App({ setTheme, theme }) {
 };
 
 
+// backdrop-filter:blur(10px);
+const Wrapper = styled.div`
+width:100%; 
+text-align:right;
+display:flex;
+align-items:center;
+flex-direction:row-reverse;
+background: ${props=>props.theme.blurBack};
+    font-size:14px;
+    color:#fff
+`;
+
 const UL = styled.ul`
-    display:none;
-    padding:5px;
-    margin:0;
-    list-style:none;
-    width:200px;
-    text-align:left;
+display:none;
+padding:5px;
+margin:0;
+list-style:none;
+width:200px;
+text-align:left;
+background: ${props=>props.theme.blur};
+color: ${props=>props.theme.accent};
+backdrop-filter:blur(10px);
     li{
         display:flex; 
         margin:0;
@@ -159,25 +174,26 @@ const UL = styled.ul`
         user-select:none;
         span{
             flex:1;
-        
         }
     }
     li:hover{
-        background:#404040;
+        background: #5aa0fe;
+        color:${props=>props.theme.color}
+    }
+    a{
+        color:${props=>props.theme.tint}
     }
     `;
 const Options = styled.div`
     padding-top:5px;
     border-radius:5px;
     :hover{
-        background: rgba(56, 56, 56, 0.6);
+        background: rgba(255, 255, 255, 0.22);
     }
     :hover ${UL}{
         display:block;
         position:absolute;
-        background: rgba(30, 30, 30, 0.37);
-        border: 1px solid #1F1F1D; 
-        backdrop-filter: blur(5px); 
+        box-shadow:1px 2px 4px 0px rgba(0,0,0,.5);        
         border-radius: 4px; 
     }   
 `;
@@ -190,8 +206,8 @@ const Sul = styled.ul`
     list-style:none;
     width:auto;
     text-align:left;
-    border-radius:5px;
-`;
+    border-radius:5px; 
+    `;
 
 const Submenu = styled.li`
     display:flex;
@@ -203,18 +219,9 @@ const Submenu = styled.li`
     :hover ${Sul}{
         display:block;
         left:98%;
-        background: rgba(30, 30, 30, 0.8);
+        background: ${props=>props.theme.blur};
+        color: ${props=>props.theme.accent};
         border: 1px solid #1F1F1D; 
-        backdrop-filter: blur(10px); 
+        backdrop-filter: blur(25px); 
     }
-`;
-
-const Wrapper = styled.div`
-    width:100%; 
-    text-align:right;
-    display:flex;
-    align-items:center;
-    flex-direction:row-reverse;
-    background: rgba(30, 30, 30, 0.37);  
-    font-size:14px;
 `;

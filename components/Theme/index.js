@@ -4,26 +4,30 @@ import SEO from '../../next-seo.config';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 export const theme = {
-    light: {
-      background: '#F8F8F8',
-      color: '#121212',
-      tint: 'rgba(247 247 247 / 80%)',
-      accent: '#121212'
-    },
-    dark: {
-      background: '#001321',
-      color: '#fefefe',
-      tint: 'rgb(0 16 29 / 60%)',
-      accent: 'palegreen'
-    }
-  };
-  
-export const ThemeContext = React.createContext({
-    themed: {},
-    setThemed: () => {}
-  });
+  dark: {
+    background: '#F8F8F8',
+    color: '#121212', 
+    tint: 'rgba(247 247 247 / 80%)',
+    accent: '#fefefe',
+    blurBack:'rgb(29 31 71 / 61%)',
+    blur:'rgba(65, 82, 101, 0.48)'
+  },
+  light: {
+    background: '#001321',
+    color: '#fefefe', 
+    tint: 'rgb(0 16 29 / 60%)',
+    accent: '#121212',
+    blurBack:'#4ca5da66',
+    blur:'rgba(255, 255, 255, 0.59)',
+  }
+};
 
-  export const GlobalStyle = createGlobalStyle`
+export const ThemeContext = React.createContext({
+  themed: {},
+  setThemed: () => { }
+});
+
+export const GlobalStyle = createGlobalStyle`
         html,
         body {
           padding: 0;
@@ -31,7 +35,8 @@ export const ThemeContext = React.createContext({
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
-          background:${(props) => props.theme === theme.light ? 'url(/light.png)':'url(dark.png)'};
+            
+          background:${(props) => props.theme === theme.light ? 'url(/light.png)' : 'url(dark.png)'};
           scroll-behavior: smooth;
         } 
         * {
@@ -171,23 +176,22 @@ export const ThemeContext = React.createContext({
 `;
 
 export const ThemedButton = () => (
-    <ThemeContext.Consumer>
-      {({ themed, setThemed }) => (
-        <Button
-          onClick={() => {
-            themed === theme.light
-              ? localStorage.setItem('theme', 'dark')
-              : localStorage.setItem('theme', 'light');
-            setThemed(themed === theme.light ? theme.dark : theme.light);
-          }}
-        >
-          {' '}
-          {themed === theme.light ? 'light' : 'dark'}
-        </Button>
-      )}
-    </ThemeContext.Consumer>
-  );
-  const Button = styled.button`
+  <ThemeContext.Consumer>
+    {({ themed, setThemed }) => (
+      <Button
+        onClick={() => {
+          themed === theme.light
+            ? localStorage.setItem('theme', 'dark')
+            : localStorage.setItem('theme', 'light');
+          setThemed(themed === theme.light ? theme.dark : theme.light);
+        }}
+      >
+        {themed === theme.light ? 'light' : 'dark'}
+      </Button>
+    )}
+  </ThemeContext.Consumer>
+);
+const Button = styled.button`
   background: inherit;
   outline: none;
   border: none;
@@ -198,15 +202,15 @@ export const ThemedButton = () => (
   transition: all 0.1s ease-in-out;
 `;
 
-export const ThemeWrapper = ({children}) => {
-    const [themed, setThemed] = React.useState(theme.light);
-    return (
-        <ThemeContext.Provider  value={{ themed, setThemed }}>
-        <ThemeProvider theme={themed}>
-            <GlobalStyle />
-            <DefaultSeo {...SEO} />
-            {children}
-        </ThemeProvider>
-        </ThemeContext.Provider>
-    )
+export const ThemeWrapper = ({ children }) => {
+  const [themed, setThemed] = React.useState(theme.light);
+  return (
+    <ThemeContext.Provider value={{ themed, setThemed }}>
+      <ThemeProvider theme={themed}>
+        <GlobalStyle />
+        <DefaultSeo {...SEO} />
+        {children}
+      </ThemeProvider>
+    </ThemeContext.Provider>
+  )
 } 
