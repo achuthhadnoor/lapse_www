@@ -5,7 +5,7 @@ export default function Content() {
     return (
         <>
             <main style={{
-                paddingLeft: 20
+                paddingLeft: 30
             }}>
                 <h1 style={{ color: '#fff' }}>
                     Capture your work in timelapse

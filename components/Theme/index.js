@@ -3,39 +3,40 @@ import { DefaultSeo } from 'next-seo';
 import SEO from '../../next-seo.config';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
+
 export const theme = {
-  dark: {
-    background: '#F8F8F8',
-    color: '#121212', 
-    tint: 'rgba(247 247 247 / 80%)',
-    accent: '#fefefe',
-    blurBack:'rgb(29 31 71 / 61%)',
-    blur:'rgba(65, 82, 101, 0.48)'
-  },
-  light: {
-    background: '#001321',
-    color: '#fefefe', 
-    tint: 'rgb(0 16 29 / 60%)',
-    accent: '#121212',
-    blurBack:'#4ca5da66',
-    blur:'rgba(255, 255, 255, 0.59)',
-  }
+    dark: {
+        background: '#F8F8F8',
+        color: '#121212',
+        tint: 'rgba(247 247 247 / 80%)',
+        accent: '#fefefe',
+        blurBack: 'rgb(29 31 71 / 61%)',
+        blur: 'rgba(65, 82, 101, 0.48)'
+    },
+    light: {
+        background: '#001321',
+        color: '#fefefe',
+        tint: 'rgb(0 16 29 / 60%)',
+        accent: '#121212',
+        blurBack: '#4ca5da66',
+        blur: 'rgba(255, 255, 255, 0.59)',
+    }
 };
 
 export const ThemeContext = React.createContext({
-  themed: {},
-  setThemed: () => { }
+    themed: {},
+    setThemed: () => { }
 });
 
 export const GlobalStyle = createGlobalStyle`
         html,
-        body {
+        body,#__next {
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif; 
-          background:${(props) => props.theme === theme.light ? 'url(/light.png)' : 'url(dark.png)'};
+          background:${(props) => props.theme === theme.light ? ' linear-gradient(70.18deg, #F60452 0%, #FD635A 52.85%, #F63B67 99.98%)' : ' linear-gradient(70.18deg, #FF4D6B 0%, #772BA0 49.22%, #143793 100%)'};
           backround-size:cover;
           scroll-behavior: smooth;
         } 
@@ -181,22 +182,22 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const ThemedButton = () => (
-  <ThemeContext.Consumer>
-    {({ themed, setThemed }) => (
-      <>
-      <Button
-        onClick={() => {
-          themed === theme.light
-            ? localStorage.setItem('theme', 'dark')
-            : localStorage.setItem('theme', 'light');
-          setThemed(themed === theme.light ? theme.dark : theme.light);
-        }}
-      >
-        {themed === theme.light ? 'light' : 'dark'}
-      </Button>
-      </>
-    )}
-  </ThemeContext.Consumer>
+    <ThemeContext.Consumer>
+        {({ themed, setThemed }) => (
+            <>
+                <Button
+                    onClick={() => {
+                        themed === theme.light
+                            ? localStorage.setItem('theme', 'dark')
+                            : localStorage.setItem('theme', 'light');
+                        setThemed(themed === theme.light ? theme.dark : theme.light);
+                    }}
+                >
+                    {themed === theme.light ? 'light' : 'dark'}
+                </Button>
+            </>
+        )}
+    </ThemeContext.Consumer>
 );
 const Button = styled.button`
   background: inherit;
@@ -210,14 +211,14 @@ const Button = styled.button`
 `;
 
 export const ThemeWrapper = ({ children }) => {
-  const [themed, setThemed] = React.useState(theme.dark);
-  return (
-    <ThemeContext.Provider value={{ themed, setThemed }}>
-      <ThemeProvider theme={themed}>
-        <GlobalStyle />
-        <DefaultSeo {...SEO} />
-        {children}
-      </ThemeProvider>
-    </ThemeContext.Provider>
-  )
+    const [themed, setThemed] = React.useState(theme.dark);
+    return (
+        <ThemeContext.Provider value={{ themed, setThemed }}>
+            <ThemeProvider theme={themed}> 
+                <GlobalStyle />
+                <DefaultSeo {...SEO} />
+                {children}
+            </ThemeProvider>
+        </ThemeContext.Provider>
+    )
 } 
