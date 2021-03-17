@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><button id="generate">Generate</button> <code id="output"></code></p>
+<div id="codes"></div>
+    <script>
+        (function () {
+    let x = 5000;
+    let codesArray = [];  
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function generateProductKey() {
+        var tokens = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            chars = 5,
+            segments = 4,
+            keyString = "";
+
+        for (var i = 0; i < segments; i++) {
+            var segment = "";
+
+            for (var j = 0; j < chars; j++) {
+                var k = getRandomInt(0, 35);
+                segment += tokens[k];
+            }
+
+            keyString += segment;
+
+            if (i < (segments - 1)) {
+                keyString += "-";
+            }
+        }
+
+        return keyString;
+
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var generate = document.querySelector("#generate"),
+            output = document.querySelector("#output");
+        codes = document.querySelector("#codes");
+
+        generate.addEventListener("click", function () {
+            for (let y = 0; y < x; y++) {
+                var productKey = generateProductKey();
+                const br = document.createElement('br');
+                        codes.appendChild(br);
+                        const code = document.createElement('code');
+                        code.innerHTML = productKey;
+                        codes.appendChild(code);
+            //   codesArray[`${productKey}`] = { key: productKey, used: false, email: '' } 
+            codesArray.push( { key: productKey, used: false, email: '' } )
+            }
+            let JSONkeys = JSON.stringify(codesArray)
+            debugger;
+            console.log(JSONkeys);
+            
+
+        }, false);
+    });
+})();
+/*
+    - coupon code redeemed
+    - email + coupon ( if combination exists: success if not then ask for valid email or code combination to be entered)
+*/
+        </script>
+</body>
+</html>
