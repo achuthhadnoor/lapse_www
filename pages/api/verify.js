@@ -28,7 +28,7 @@ export default async (req, res) => {
                         })
                         return res.json({ success: 200, message: "successful" });
                     }
-                    return res({ code: 503, message: "enter valid email or license key" })
+                    return res.json({ code: 503, message: "enter valid email or license key" })
                 }
             }
             else {
