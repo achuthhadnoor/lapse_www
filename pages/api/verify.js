@@ -3,9 +3,7 @@ import database from '../../lib/firebase'
 export default async (req, res) => {
     // let email = "achuth.hadnoor123@gmail.com";
     // let phrase = '00MTI-TGPS1-4WP7J-CTGYL';
-    const {
-        query: { email, phrase }
-    } = req;
+    const { email, phrase }  = req.body;
     try {
         let dataref = database.ref(phrase);
        await  dataref.once('value').then((snapshot) => {
