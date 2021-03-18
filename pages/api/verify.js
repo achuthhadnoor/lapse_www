@@ -1,8 +1,8 @@
-import api from '../../config/firebase'
+import api from '../../lib/firebase'
 module.exports = (req, res) => {
     const {
         query: { email,phrase }
-    } = req
+    } = req; 
     api.verifyUser(email,phrase).then(()=>{
         return res.json({
             status:200,
@@ -10,6 +10,7 @@ module.exports = (req, res) => {
         })
     })
     .catch((e)=>{
-        
+        console.log(e);
     })
+    res.send({name:'achuth'})
 }
