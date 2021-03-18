@@ -13,24 +13,24 @@ export default async (req, res) => {
                     dataref.set({
                         email: email,
                         key: data.key,
-                        user: true,
+                        used: true,
                     })
-                    return res.json({ success: 200, message: "successful again" });
+                    return res.json({ status: 200, message: "successful again" });
                 }
                 else {
                     if (data.email === '') {
                         dataref.set({
                             email: email,
                             key: data.key,
-                            user: true
+                            used: true
                         })
-                        return res.json({ success: 200, message: "successful" });
+                        return res.json({ status: 200, message: "successful" });
                     }
-                    return res.json({ code: 503, message: "enter valid email or license key" })
+                    return res.json({ status: 503, message: "enter valid email or license key" })
                 }
             }
             else {
-                res.json({ code: 503, message: "enter valid email or license key" })
+                res.json({ status: 503, message: "enter valid email or license key" })
             }
         })
 
