@@ -30,7 +30,7 @@ export default async (req, res) => {
                 }
             }
             else {
-                res({ code: 503, message: "enter valid email or license key" })
+                res.json({ code: 503, message: "enter valid email or license key" })
             }
         })
 
