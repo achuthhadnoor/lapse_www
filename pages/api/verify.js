@@ -3,10 +3,10 @@ import database from '../../lib/firebase'
 export default async (req, res) => {
     // let email = "achuth.hadnoor123@gmail.com";
     // let phrase = '00MTI-TGPS1-4WP7J-CTGYL';
-    const { email, phrase }  = req.body;
+    const { email, phrase } = req.body;
     try {
         let dataref = database.ref(phrase);
-       await  dataref.once('value').then((snapshot) => {
+        await dataref.once('value').then((snapshot) => {
             const data = snapshot.val();
             if (data) {
                 if (data.email === email) {
@@ -15,7 +15,7 @@ export default async (req, res) => {
                         key: data.key,
                         used: true,
                     })
-                    return res.json({ status: 200, message: "successful again" });
+                    return res.json({ status: 200, message: `welcome back ${email}` });
                 }
                 else {
                     if (data.email === '') {
@@ -24,13 +24,13 @@ export default async (req, res) => {
                             key: data.key,
                             used: true
                         })
-                        return res.json({ status: 200, message: "successful" });
+                        return res.json({ status: 200, message: "Let's get started" });
                     }
-                    return res.json({ status: 503, message: "enter valid email or license key" })
+                    return res.json({ status: 503, message: "please check email or license key" })
                 }
             }
             else {
-                res.json({ status: 503, message: "enter valid email or license key" })
+                res.json({ status: 503, message: "please check email or license key" })
             }
         })
 
@@ -39,8 +39,3 @@ export default async (req, res) => {
     }
 }
 
-function verifyUser(email, phrase) {
-    return new Promise((resolve, reject) => {
-
-    })
-}
