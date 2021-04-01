@@ -37,7 +37,8 @@ export const GlobalStyle = createGlobalStyle`
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif; 
           background:${(props) => props.theme === theme.light ? ' linear-gradient(70.18deg, #F60452 0%, #FD635A 52.85%, #F63B67 99.98%)' : ' linear-gradient(70.18deg, #FF4D6B 0%, #772BA0 49.22%, #143793 100%)'};
-          backround-size:cover;
+          background-image:url(${(props) => props.theme === theme.light ? 'https://handmirror.app/images/big-sur-wallpaper-dark.jpg': 'https://handmirror.app/images/big-sur-wallpaper-light.jpg'});
+          background-size:cover;
           scroll-behavior: smooth;
         } 
         * {
