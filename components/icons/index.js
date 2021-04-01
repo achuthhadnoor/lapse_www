@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const AppIcon = () => (
+export const AppIcon = (props) => (
     <IconWrapper>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg {...props} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.53203 4H19C19.5523 4 20 4.44772 20 5V18.5572C20 19.1888 19.4218 19.6622 18.8026 19.5375L8.0466 17.3719C7.66422 17.2949 7.36151 17.0026 7.27117 16.6231L4.55922 5.2316C4.40962 4.60323 4.8861 4 5.53203 4Z" stroke="currentColor" strokeWidth="2" />
         </svg>
     </IconWrapper>
