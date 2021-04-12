@@ -212,7 +212,7 @@ const Button = styled.button`
 `;
 
 export const ThemeWrapper = ({ children }) => {
-    const [themed, setThemed] = React.useState(theme.dark);
+    const [themed, setThemed] = React.useState(theme.light);
     return (
         <ThemeContext.Provider value={{ themed, setThemed }}>
             <ThemeProvider theme={themed}> 
