@@ -1,21 +1,27 @@
-import styled from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import { AppPreview } from "../components/AppPreview";
-
-export const Page = ({Children})=>{
-    return(
-        <Wrapper>
-            <AppPreview/>
-            {Children}
-        </Wrapper>
+import {reset} from 'styled-reset'
+export const Page = ({ children }) => {
+    return (
+        <>
+        <GlobalStyles/>
+            <AppPreview /> 
+            {children} 
+        </>
     )
 }
-
-const Wrapper = styled.div`
+const GlobalStyles = createGlobalStyle`
+    ${reset}
     html,body,#__next{
         padding:0;
         margin:0;
-        background:blue;
+        color:#eee;
+        background:#222;
         height:100vh;
         width:100vw;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
+`
+const Wrapper = styled.div`
+    
 `;
