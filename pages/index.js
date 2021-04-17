@@ -1,7 +1,9 @@
+import { Page } from "../layouts/page";
+
 export default function Home() {
   return (
-    <div>
-      sdf
-    </div>
+    <Page>
+      yo
+    </Page>
   )
 }
