@@ -1,15 +1,5 @@
-import { ThemedButton, ThemeWrapper } from '../components/Theme'
-import AppComponent from './../components/App'
-
-
-export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <ThemeWrapper> 
-        <AppComponent/>
-        <ThemedButton/>
-        <Component {...pageProps} />
-      </ThemeWrapper>
-    </>
-  )
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
 }
+
+export default MyApp
