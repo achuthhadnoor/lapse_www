@@ -32,11 +32,11 @@ const Features = () => {
                     features.map((f, i) => (
                         <Item key={`feature-${i}`}>
                             {/* {f.align === 'left' ? <> */}
-                                <VideoEmbed id={f.id} />
-                                <Content>
-                                    <Chead>{f.title} </Chead>
-                                    <Cdesc>{f.desc} </Cdesc>
-                                </Content>
+                            <VideoEmbed id={f.id} />
+                            <Content>
+                                <Chead>{f.title} </Chead>
+                                <Cdesc>{f.desc} </Cdesc>
+                            </Content>
                             {/* </> :
                                 <>
                                     <Content>
@@ -87,12 +87,18 @@ display:flex;
     &{
         flex-direction:column;
         justify-content:center;
+        align-items:center;
     }
 } 
 `;
 const Content = styled.div`
 `;
-const Chead = styled.div``;
-const Cdesc = styled.div``;
+const Chead = styled.div`
+    font-size: 1.6rem;
+    padding: 10px;
+    `;
+const Cdesc = styled.div`
+    padding: 10px;
+`;
 
 export default Features;
