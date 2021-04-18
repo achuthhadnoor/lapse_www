@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Menu from "../components/Menu";
 import Video from './Video'
-const Header = ({ heading, subheading }) => (
+const Header = ({ heading, subheading, video }) => (
     <>
         <BackgroundColor />
         <Data>
@@ -11,9 +11,9 @@ const Header = ({ heading, subheading }) => (
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <Button>Get it now</Button> <AppleIcon /> <WindowsIcon />
             </div>
-            <div style={{background:"#fff",position:'relative',marginTop:'50px',borderRadius:'10px'}}>
-            <Video embedId="e4kv1lyq0n"/>                
-            </div>
+            {video && <div style={{ background: "#fff", position: 'relative', marginTop: '50px', borderRadius: '10px' }}>
+                <Video embedId="e4kv1lyq0n" />
+            </div>}
         </Data>
     </>
 )

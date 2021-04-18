@@ -6,13 +6,13 @@ const Features = () => {
         {
             title: "Export Format",
             desc: "Export the video in mp4, mkv, webem or avi. Saving the video onto the device depends on the time of recording",
-            id: "rias2wobv4",
+            id: "xtr4xpecax",
             align: 'left'
         },
         {
             title: "Quality of the video",
             desc: "Depending you your screen lapse suppots from 8k to 144p resolution",
-            id: "p2q18pn0r5",
+            id: "xtr4xpecax",
             align: "right"
         }, {
             title: "Export Format",

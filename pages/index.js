@@ -8,7 +8,8 @@ export default function Home() {
         heading="Record your screen in time-lapse"
         subheading="Recording a video for hours, and using diffrent tools to convert
         into time-lapse? This app records your screen in time-lpase
-directly"
+        directly"
+        video
       />
       <Features />
       <Section>
@@ -37,19 +38,19 @@ directly"
           <Item>
             <Title>Quit application</Title>
             <Content>
-            <svg width="234" height="41" viewBox="0 0 234 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="94" width="46" height="41" rx="5" fill="#363636" />
-              <path d="M109 20.5H113.5V30.5H121V20.5H125.5L117 12L109 20.5Z" stroke="#9D9D9D" />
-              <rect x="188" width="46" height="41" rx="5" fill="#363636" />
-              <path d="M209.535 26.1758H217V29H206.02V11.9375H209.535V26.1758Z" fill="#9D9D9D" />
-              <path d="M70 14.75V25.25" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M64.75 20H75.25" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M164 14.75V25.25" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M158.75 20H169.25" stroke="white" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
-              <rect width="46" height="41" rx="5" fill="#363636" />
-              <path d="M12 12H19L25 29.5H33.5" stroke="#9D9D9D" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M25 12H32.5" stroke="#9D9D9D" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+              <svg width="234" height="41" viewBox="0 0 234 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="94" width="46" height="41" rx="5" fill="#363636" />
+                <path d="M109 20.5H113.5V30.5H121V20.5H125.5L117 12L109 20.5Z" stroke="#9D9D9D" />
+                <rect x="188" width="46" height="41" rx="5" fill="#363636" />
+                <path d="M209.535 26.1758H217V29H206.02V11.9375H209.535V26.1758Z" fill="#9D9D9D" />
+                <path d="M70 14.75V25.25" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M64.75 20H75.25" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M164 14.75V25.25" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M158.75 20H169.25" stroke="white" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
+                <rect width="46" height="41" rx="5" fill="#363636" />
+                <path d="M12 12H19L25 29.5H33.5" stroke="#9D9D9D" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M25 12H32.5" stroke="#9D9D9D" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Content>
           </Item>
         </Grid>
@@ -69,7 +70,7 @@ const Section = styled.section`
 `
 
 const Grid = styled.div``
-const Item = styled.div` margin:30px 0px `
+const Item = styled.div` margin:30px 0px ;`
 const Title = styled.h2`
   padding:10px 15px
 `
