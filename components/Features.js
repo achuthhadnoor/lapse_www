@@ -31,13 +31,13 @@ const Features = () => {
                 {
                     features.map((f, i) => (
                         <Item key={`feature-${i}`}>
-                            {f.align === 'left' ? <>
+                            {/* {f.align === 'left' ? <> */}
                                 <VideoEmbed id={f.id} />
                                 <Content>
                                     <Chead>{f.title} </Chead>
                                     <Cdesc>{f.desc} </Cdesc>
                                 </Content>
-                            </> :
+                            {/* </> :
                                 <>
                                     <Content>
                                         <Chead>{f.title} </Chead>
@@ -45,7 +45,7 @@ const Features = () => {
                                     </Content>
                                     <VideoEmbed id={f.id} />
                                 </>
-                            }
+                            } */}
                         </Item>
                     ))
                 }
@@ -63,6 +63,8 @@ const VideoEmbed = ({ id }) => (
 const VideoWrapper = styled.div`
     height:200px;
     width:300px;
+    overflow:hidden;
+    margin-bottom:30px;
 `;
 
 const Wrapper = styled.div`
