@@ -19,7 +19,7 @@ const Header = ({ heading, subheading }) => (
 )
 const WindowsIcon = () => (
     <Svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0)">
+        <g clipPath="url(#clip0)">
             <path d="M6.6607 8.98215V14.7946L0.571411 13.9554V8.98215H6.6607ZM6.6607 2.34822V8.23215H0.571411V3.1875L6.6607 2.34822ZM15.4286 8.98215V16L7.33034 14.8839V8.98215H15.4286ZM15.4286 1.14286V8.23215H7.33034V2.25893L15.4286 1.14286Z" fill="white" />
         </g>
         <defs>
