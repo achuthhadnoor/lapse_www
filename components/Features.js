@@ -61,17 +61,23 @@ const VideoEmbed = ({ id }) => (
 )
 
 const VideoWrapper = styled.div`
-    height:200px;
-    width:300px;
+    height:400px;
+    width:500px;
     overflow:hidden;
     margin-bottom:30px;
+    @media(max-width:781px){
+        &{
+            width:100%;
+            height:auto;
+        }
+    }
 `;
 
 const Wrapper = styled.div`
     max-width:1024px;
     margin:auto;
     margin-top:50px;
-`
+`;
 
 const Heading = styled.h1`
     font-size:2.4rem;
@@ -83,6 +89,7 @@ const Grid = styled.div`
 `;
 const Item = styled.div` 
 display:flex;
+padding-bottom:50px;
 @media (max-width:718px){
     &{
         flex-direction:column;
@@ -94,11 +101,13 @@ display:flex;
 const Content = styled.div`
 `;
 const Chead = styled.div`
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     padding: 10px;
     `;
 const Cdesc = styled.div`
+    font-size:1.6rem;
     padding: 10px;
+    color:#5E5E5E;
 `;
 
 export default Features;
