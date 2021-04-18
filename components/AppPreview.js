@@ -28,14 +28,14 @@ const AppleIcon = () => (
 );
 
 const Svg = styled.svg`
-    margin:0px 10px
+    margin:0px 10px;
 `
 
 const PreviewWrapper = styled.div`
     display:flex;
     position:fixed;
     top:0;
-    width:100vw;
+    width:100%;
     left:0;
     padding:5px 0px;
     color:#fff;

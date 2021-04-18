@@ -17,8 +17,7 @@ const GlobalStyles = createGlobalStyle`
         margin:0;
         color:#eee;
         background:#222;
-        height:100vh;
-        width:100vw;
+        height:100vh; 
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
 `
