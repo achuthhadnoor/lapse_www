@@ -20,6 +20,10 @@ const GlobalStyles = createGlobalStyle`
         height:100vh; 
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
+    a{
+        color:inherit;
+        text-decoration:none;
+    }
 `
 const Wrapper = styled.div`
     

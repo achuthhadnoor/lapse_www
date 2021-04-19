@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import Logo from "./Logo";
+import Link from 'next/link'
 
 const Menu = ()=>(
     <Nav>
         <Logo/>
         <span style={{flex:1}}/>
         <Wrapper>
-        <a>Home</a>
-        <a>Features</a>
-        <a>install</a>
-        <a>Affliate</a>
-        <a>Blog</a>
+        <Link href="/">Home</Link>
+        <Link href="/#features">Features</Link>
+        <Link href="/#install">install</Link>  
         </Wrapper>
     </Nav>
 )
