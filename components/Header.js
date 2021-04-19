@@ -9,7 +9,7 @@ const Header = ({ heading, subheading, video }) => (
             <Heading>{heading}</Heading>
             <SubHeading>{subheading}</SubHeading>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Button>Get it now</Button> <AppleIcon /> <WindowsIcon />
+                <a class="gumroad-button" href="https://gum.co/lapse_app"><>Get it now</></a> <AppleIcon /> <WindowsIcon />
             </div>
             {video && <div style={{ background: "#fff", position: 'relative', marginTop: '50px', borderRadius: '10px' }}>
                 <Video embedId="e4kv1lyq0n" />
