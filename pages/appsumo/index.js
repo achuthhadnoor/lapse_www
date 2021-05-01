@@ -8,34 +8,43 @@ const AppSumo = (props) => {
     const [success, setSuccess] = useState(false);
     useEffect(() => {
         setCode(props.code);
+        if (props.code) {
+            setSuccess('success')
+        }
     }, [])
-    const submitApi = async () => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+    const submitApi = async (e) => {
+        e.preventDefault()
+        if (code.trim()) {
+            setSuccess("loading")
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({ "email": email, "phrase": code });
+            var raw = JSON.stringify({ "email": email, "phrase": code });
 
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        await fetch("https://lapse.achuth.dev/api/verify", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                result = JSON.parse(result);
-                if (result.message) alert(result.message);
-            })
-            .catch(error => console.log('error', error));
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            await fetch("https://lapse.achuth.dev/api/verify", requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    debugger;
+                    result = JSON.parse(result);
+                    if (result.message) alert(result.message);
+                })
+                .catch(error => {
+                    setSuccess("Error")
+                });
+        }
     }
     return (
         <Wrapper>
             <h1>Lapse 💖 <img src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
             {/* <h3>Welcome sumo-lings!</h3> */}
             <p>
-            Hey, Sumolings thanks for choosing lapse . you get an instant discount and you can get the app for 9$ .  
+                Hey, Sumolings thanks for choosing lapse . you get an instant discount and you can get the app for 9$ .
             </p>
             <form onSubmit={submitApi}>
                 <label>
@@ -54,11 +63,17 @@ const AppSumo = (props) => {
                     onChange={({ target }) => { setWords(target.value) }} />
 
                 <label style={{ color: 'goldenrod', fontSize: '.7rem' }}>
-                    Your code has been added successfully!!
+                    {success === 'success' ? 'Your code has been added successfully!!' : 'Enter the code'}
                 </label>
-                <input type="text" value={code} disabled className="licence"/>
-                <button type="submit">Activate your licence!</button>
+                <input type="text" value={code} onChange={({ target }) => { setCode(target.value) }} disabled={success === 'success' ? true : false} className="licence" />
+                <button type="submit" disabled={success === 'loading' ? true : false}>Activate your licence!</button>
             </form>
+            {
+                success === 'success' && <span style={{padding:5,marginTop:10}}>Hurray! you are verified</span>
+            }
+            {
+                success === 'Error' && <span style={{padding:5,marginTop:10}}>Invalid Code!!</span>
+            }
         </Wrapper>
     )
 };
@@ -117,6 +132,6 @@ AppSumo.getInitialProps = async (ctx) => {
     if (ctx.query.appsumocode) {
         return { code: ctx.query.appsumocode }
     }
-    return { code: 'NO-CODE' }
+    return { code: '' }
 }
-export default AppSumo; 
+export default AppSumo;
