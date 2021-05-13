@@ -67,13 +67,19 @@ export default function Container(props) {
         )}
       </Head>
         {children}
-        <footer className="border-t-2 border-gray-100 mx-5 py-5 ">
+        <footer className="border-t-2 border-gray-100 mx-5 py-5 text-gray-200 items-center">
           <div className="flex">
-            <span>-///-</span>
+            <span> <svg className=" m-3" width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/Svg"
+            className="AppPreview__Svg-sc-1nbtuyr-0 gKzyvE">
+            <path
+              d="M7.0765 6.24507C6.9168 5.61329 7.39435 5 8.046 5H17.4775C18.0298 5 18.4775 5.44772 18.4775 6V16.2801C18.4775 16.9547 17.8233 17.4357 17.1794 17.2346L9.76078 14.9176L9.48859 15.7891L9.76078 14.9176C9.42885 14.814 9.17461 14.5453 9.08939 14.2082L7.0765 6.24507Z"
+              stroke="currentColor" stroke-width="2"></path>
+          </svg>
+         </span>
             <span className="flex-1"></span>
-            <div className="flex flex-col">
-              <h1 className="text-right text-lg py-1 px-5">Achuth Hadnoor</h1>
-
+            <div className="flex flex-col sm:flex-row ">
+              <h1 className="text-right text-lg py-1 px-5">Lapse</h1>
+              <p> made with 💖 by <a href="https://achuth.dev" target="_blank" className="text-gray-400">Achuth </a></p>
             </div>
           </div>
         </footer> 
