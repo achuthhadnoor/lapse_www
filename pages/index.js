@@ -47,7 +47,7 @@ function Home({ posts }) {
           <path d="M215.693 30.4111C215.84 29.9072 217.953 23.5946 217.604 23.4948C216.418 23.156 215.779 25.2619 215.707 26.0474C215.594 27.2901 215.753 28.7756 216.463 29.8407C217.121 30.8268 217.566 28.7989 217.69 28.4147C217.992 27.4742 216.997 27.99 216.734 28.4717C216.449 28.9941 216.614 29.8151 216.977 28.9993C217.337 28.1887 217.398 26.9113 217.176 26.0474C216.859 24.8146 216.471 26.1719 216.206 26.3041" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </span>
-      <section className="h-full bg-green-200 pb-20">
+      <section className="h-full bg-green-200">
         <div className="mx-auto max-w-2xl">
           <header className="p-5 flex items-center pt-20">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/Svg"><path d="M7.0765 6.24507C6.9168 5.61329 7.39435 5 8.046 5H17.4775C18.0298 5 18.4775 5.44772 18.4775 6V16.2801C18.4775 16.9547 17.8233 17.4357 17.1794 17.2346L9.76078 14.9176L9.48859 15.7891L9.76078 14.9176C9.42885 14.814 9.17461 14.5453 9.08939 14.2082L7.0765 6.24507Z" stroke="currentColor" stroke-width="2"></path></svg>
@@ -76,43 +76,96 @@ function Home({ posts }) {
           {/* <Video embedId="e4kv1lyq0n" /> */}
         </div>
       </section> <div className="p-10 rounded-b-full bg-green-200 "></div>
-      <section className="-t-20  mx-auto max-w-screen-lg" id="features">
+      <section className="mx-auto max-w-screen-lg" id="features">
+        <div className=" flex flex-col md:flex-row text-gray-400 p-4  items-center">
+          <video className="" width="480" height="320" src="videos/lapse.webm" autoplay controls />
+          <div className="px-4">
+            <h3 className="text-2xl font-semibold py-4 text-green-300">Timelapse recording on fingertips..</h3>
+            <p>We almost made zero UI to make it simple and easy to use. This helps you record more and learn less.</p>
+          </div>
+        </div>
         <h2 className="p-4 text-green-200 text-4xl my-10">Features</h2>
         <div className="p-4 text-white grid gap-10 lg:grid-cols-3 md:grid-cols-2 ">
-          <div className="">
-            <video width="320" height="240" src="/videos/vid-1.webm" type="video/webm"  autoplay controls/>
-          <div>
-            <h3 className="text-2xl font-semibold py-4 text-green-300">
-              Export options
+          <div className="grid ">
+            <video width="320" height="240" src="/videos/vid-1.webm" type="video/webm" autoplay controls />
+            <div>
+              <h3 className="text-2xl font-semibold py-4 text-green-300">
+                Export options
             </h3>
-            <p className="text-gray-400">
-              Export in diffrent formats as in MP4,AVI,MKV
+              <p className="text-gray-400">
+                We provide diffrent export options like .mp4 .mkv .avi  so you can use on different platforms
             </p>
-          </div>
+            </div>
           </div>
           <div>
-            <video width="320" height="240" src="/videos/vid-2.webm" type="video/webm"  autoplay controls/>
-          <div>
-            <h3 className="text-2xl font-semibold py-4 text-green-300">
-              Export options
+            <video width="320" height="240" src="/videos/vid-2.webm" type="video/webm" autoplay controls />
+            <div>
+              <h3 className="text-2xl font-semibold py-4 text-green-300">
+                Video Quality
             </h3>
-            <p className="text-gray-400">
-              Export in diffrent formats as in MP4,AVI,MKV
+              <p className="text-gray-400">
+                Based on your screen resolution the video quality can be changed from 8k to 144p
             </p>
-          </div>
+            </div>
           </div>
           <div>
-            <video width="320" height="240" autoplay controls  src="/videos/vid-3.webm" type="video/webm" />  
-          <div>
-            <h3 className="text-2xl font-semibold py-4 text-green-300">
-              Export options
+            <video width="320" height="240" autoplay controls src="/videos/vid-3.webm" type="video/webm" />
+            <div>
+              <h3 className="text-2xl font-semibold py-4 text-green-300">
+                Speed (Framerate)
             </h3>
-            <p className="text-gray-400">
-              Export in diffrent formats as in mov,AVI,MKV
+              <p className="text-gray-400">
+                Recording short / long videos ? Lapse supports slow / fast recording by changing the framerate
             </p>
+            </div>
           </div>
+        </div>
+      </section>
+      <section className="mx-auto max-w-screen-lg text-gray-400">
+        <h2 className="p-4 text-green-200 text-4xl my-10">Keyboard Shortcuts</h2>
+        <div className="grid sm:grid-cols-2">
+          <div className="p-4 mb-10">
+            <h3 className="text-xl font-semibold py-4 text-gray-400">
+              Start/pause Recording
+            </h3>
+            <div>
+              <svg width="234" height="41" viewBox="0 0 234 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="188" width="46" height="41" rx="5" fill="#363636" />
+                <path d="M209.535 26.1758H217V29H206.02V11.9375H209.535V26.1758Z" fill="#9D9D9D" />
+                <rect x="94" width="46" height="41" rx="5" fill="#363636" />
+                <path d="M123 12C122.204 12 121.441 12.3161 120.879 12.8787C120.316 13.4413 120 14.2044 120 15V27C120 27.7956 120.316 28.5587 120.879 29.1213C121.441 29.6839 122.204 30 123 30C123.796 30 124.559 29.6839 125.121 29.1213C125.684 28.5587 126 27.7956 126 27C126 26.2044 125.684 25.4413 125.121 24.8787C124.559 24.3161 123.796 24 123 24H111C110.204 24 109.441 24.3161 108.879 24.8787C108.316 25.4413 108 26.2044 108 27C108 27.7956 108.316 28.5587 108.879 29.1213C109.441 29.6839 110.204 30 111 30C111.796 30 112.559 29.6839 113.121 29.1213C113.684 28.5587 114 27.7956 114 27V15C114 14.2044 113.684 13.4413 113.121 12.8787C112.559 12.3161 111.796 12 111 12C110.204 12 109.441 12.3161 108.879 12.8787C108.316 13.4413 108 14.2044 108 15C108 15.7956 108.316 16.5587 108.879 17.1213C109.441 17.6839 110.204 18 111 18H123C123.796 18 124.559 17.6839 125.121 17.1213C125.684 16.5587 126 15.7956 126 15C126 14.2044 125.684 13.4413 125.121 12.8787C124.559 12.3161 123.796 12 123 12Z" stroke="#9D9D9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M70 15.75V26.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M64.75 21H75.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M164 15.75V26.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M158.75 21H169.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <rect width="46" height="41" rx="5" fill="#363636" />
+                <path d="M12 12H19L25 29.5H33.5" stroke="#9D9D9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M25 12H32.5" stroke="#9D9D9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
           </div>
-         </div>
+          <div className="p-4 mb-10">
+            <h3 className="text-xl font-semibold py-4 text-gray-400">
+              Quit application
+            </h3>
+            <div>
+              <svg width="234" height="41" viewBox="0 0 234 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="94" width="46" height="41" rx="5" fill="#363636" />
+                <path d="M109 20.5H113.5V30.5H121V20.5H125.5L117 12L109 20.5Z" stroke="#9D9D9D" />
+                <rect x="188" width="46" height="41" rx="5" fill="#363636" />
+                <path d="M209.535 26.1758H217V29H206.02V11.9375H209.535V26.1758Z" fill="#9D9D9D" />
+                <path d="M70 14.75V25.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M64.75 20H75.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M164 14.75V25.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M158.75 20H169.25" stroke="#C9C9C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <rect width="46" height="41" rx="5" fill="#363636" />
+                <path d="M12 12H19L25 29.5H33.5" stroke="#9D9D9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M25 12H32.5" stroke="#9D9D9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+
+            </div>
+          </div>
+        </div>
       </section>
     </Container >)
 }
