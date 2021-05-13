@@ -1,13 +1,7 @@
-import { Page } from "../layouts/page"
-import Head from 'next/head'
+import '../styles/app.css'
 
 function MyApp({ Component, pageProps }) {
-  return <Page>
-      <Head>
-        <script type="text/javascript" src="https://gumroad.com/js/gumroad.js"></script>
-      </Head>
-      <Component {...pageProps} />
-    </Page>
+  return <Component {...pageProps} />
 }
 
 export default MyApp
