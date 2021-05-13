@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { parseISO, format } from 'date-fns';
 
 import Container from '../components/Container';
-import Subscribe from '../components/Subscribe';
+// import Subscribe from '../components/Subscribe';
 
 const editUrl = (slug) =>
   `https://github.com/achuthhadnoor/www/edit/master/data/blog/${slug}.mdx`;
@@ -82,7 +82,7 @@ export default function BlogLayout({ children, frontMatter }) {
             </a>
         </div>
         <div className="mt-8">
-            <Subscribe />
+            {/* <Subscribe /> */}
         </div>
     </article>
 </Container>
