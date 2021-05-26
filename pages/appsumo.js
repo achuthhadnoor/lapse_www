@@ -36,31 +36,33 @@ const AppSumo = (props) => {
         <Container>
             <div className="mt-20 text-gray-200 max-w-5xl mx-auto">
                 <h1 className=" text-4xl flex my-10">Lapse ♥ <img className="w-200" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
-                <h3>Welcome sumo-lings!</h3>
-                <p>
+                <h3 className="mx-2 p-2">Welcome sumo-lings!</h3>
+                <p className="mx-2 p-2">
                     Please enter your email and purpose of using the app to activate the licence key!
-            </p>
+                </p>
                 <form onSubmit={submitApi} className="flex flex-col max-w-lg">
-                    <label>
+                    <label className="p-4">
                         Email ID
                     </label>
                     <input 
+                        className="mx-2 p-2"
                         type="email"
                         placeholder="Enter your email"
                         required value={email}
                         onChange={({ target }) => { setEmail(target.value) }} />
-                    <label>How do you like to use the app ?</label>
+                    <label className="p-4">How do you like to use the app ?</label>
                     <input
+                        className="mx-2 p-2"
                         type="text"
                         placeholder="Start typing.."
                         required value={words}
                         onChange={({ target }) => { setWords(target.value) }} />
 
-                    <label style={{ color: 'goldenrod', fontSize: '.7rem' }}>
+                    <label className="p-4" style={{ color: 'goldenrod', fontSize: '.7rem' }}>
                         Your code has been added successfully!!
                 </label>
-                    <input type="text" value={code} disabled />
-                    <button type="submit">Activate your licence!</button>
+                    <input className="mx-2 p-2" type="text" value={code} disabled />
+                    <button type="submit" className="p-4 rounded bg-green-300 text-gray-900 my-4">Activate your licence!</button>
                 </form>
             </div>
         </Container>
@@ -68,8 +70,8 @@ const AppSumo = (props) => {
 };
 
 AppSumo.getInitialProps = async (ctx) => {
-    if (ctx.query.id) {
-        return { code: ctx.query.id }
+    if (ctx.query.appsumocode) {
+        return { code: ctx.query.appsumocode }
     }
     return { code: 'NO-CODE' }
 }

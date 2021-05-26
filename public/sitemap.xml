@@ -5,6 +5,10 @@
   </url>
 
   <url>
+    <loc>https://achuth.dev/appsumo</loc>
+  </url>
+
+  <url>
     <loc>https://achuth.dev/blog</loc>
   </url>
 
@@ -18,10 +22,6 @@
 
   <url>
     <loc>https://achuth.dev/unsubscribe</loc>
-  </url>
-
-  <url>
-    <loc>https://achuth.dev/appsumo/[id]</loc>
   </url>
 
   <url>
