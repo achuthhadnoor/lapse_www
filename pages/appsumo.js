@@ -34,7 +34,7 @@ const AppSumo = (props) => {
     }
     return (
         <Container>
-            <div className="mt-20 text-gray-200 max-w-5xl mx-auto min-h-screen">
+            <div className="mt-20 text-gray-200 max-w-5xl mx-auto min-h-full">
                 <h1 className="mx-4 text-4xl flex my-10">Lapse 💖 <img className="w-200" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
                 <h3 className="m-4 text-2xl">Welcome sumo-lings!</h3>
                 <p className="m-4  text-xl">
