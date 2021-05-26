@@ -34,34 +34,38 @@ const AppSumo = (props) => {
     }
     return (
         <Container>
-            <div className="mt-20 text-gray-200 max-w-5xl mx-auto">
-                <h1 className=" text-4xl flex my-10">Lapse ♥ <img className="w-200" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
-                <h3 className="mx-2 p-2">Welcome sumo-lings!</h3>
-                <p className="mx-2 p-2">
+            <div className="mt-20 text-gray-200 max-w-5xl mx-auto min-h-screen">
+                <h1 className="mx-4 text-4xl flex my-10">Lapse 💖 <img className="w-200" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
+                <h3 className="m-4 text-2xl">Welcome sumo-lings!</h3>
+                <p className="m-4  text-xl">
                     Please enter your email and purpose of using the app to activate the licence key!
                 </p>
-                <form onSubmit={submitApi} className="flex flex-col max-w-lg">
-                    <label className="p-4">
-                        Email ID
+                <form onSubmit={submitApi} className="flex flex-col max-w-lg mx-4">
+                    <label className="block text-gray-200 text-sm font-bold mb-2" for="email">
+                        Email
                     </label>
-                    <input 
-                        className="mx-2 p-2"
+                    <input
+                        name="email"
                         type="email"
                         placeholder="Enter your email"
                         required value={email}
-                        onChange={({ target }) => { setEmail(target.value) }} />
-                    <label className="p-4">How do you like to use the app ?</label>
+                        onChange={({ target }) => { setEmail(target.value) }}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+                         id="email"  />
+
+                    <label className="block text-gray-200 text-sm font-bold mb-2" for="desc">How do you like to use the app ?</label>
                     <input
-                        className="mx-2 p-2"
+                        id="desc"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
                         type="text"
                         placeholder="Start typing.."
                         required value={words}
                         onChange={({ target }) => { setWords(target.value) }} />
 
-                    <label className="p-4" style={{ color: 'goldenrod', fontSize: '.7rem' }}>
+                    <label className="" style={{ color: 'goldenrod', fontSize: '.7rem' }}>
                         Your code has been added successfully!!
                 </label>
-                    <input className="mx-2 p-2" type="text" value={code} disabled />
+                    <input className=" p-2" type="text" value={code} disabled />
                     <button type="submit" className="p-4 rounded bg-green-300 text-gray-900 my-4">Activate your licence!</button>
                 </form>
             </div>
