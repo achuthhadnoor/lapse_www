@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Container from "../../components/Container";
+import Container from "../components/Container";
 
 const AppSumo = (props) => {
     const [email, setEmail] = useState("");
@@ -62,7 +62,6 @@ const AppSumo = (props) => {
                     <input type="text" value={code} disabled />
                     <button type="submit">Activate your licence!</button>
                 </form>
-
             </div>
         </Container>
     )
