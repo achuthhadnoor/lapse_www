@@ -21,6 +21,10 @@
   </url>
 
   <url>
+    <loc>https://achuth.dev/appsumo/[id]</loc>
+  </url>
+
+  <url>
     <loc>https://achuth.dev/blog/[slug]</loc>
   </url>
 </urlset>

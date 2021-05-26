@@ -1,5 +1,4 @@
 import Container from '../components/Container'
-import Video from '../components/video'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 
 function Home({ posts }) {
