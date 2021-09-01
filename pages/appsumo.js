@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Container from "../components/Container";
 
@@ -6,69 +7,69 @@ const AppSumo = (props) => {
     const [words, setWords] = useState("");
     const [code, setCode] = useState("");
     const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
-        setCode(props.code);
+        // getData();
+        setCode(props.code)
     }, [])
-    const submitApi = async () => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({ "email": email, "phrase": code });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        await fetch("https://lapse.achuth.dev/api/verify", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                result = JSON.parse(result);
-                // if (result.message) alert(result.message);
-                //https://github.com/achuthhadnoor/lapse_www/releases/download/0.0.1/lapse-0.0.1-mac.dmg
-                window.open('https://github.com/achuthhadnoor/lapse_www/releases/download/0.0.1/lapse-0.0.1-mac.dmg', '_blank');
-            })
-            .catch(error => console.log('error', error));
+    const submitApi = async (e) => {
+        e.preventDefault();
+        if (props.code !== 'NO-CODE') {
+            setLoading(true)
+            // axios.post('/api/sheet', { code: props.code }).then((res) => {
+                    axios.post('api/verify',{email:email,phrase:props.code}).then((res)=>{
+                        console.log(res.data);
+                        window.open('https://github.com/achuthhadnoor/lapse_www/releases/download/0.0.1/lapse-0.0.1-mac.dmg', '_blank');
+                        setLoading(false);
+                    })
+            // })
+        } 
     }
     return (
         <Container>
-            <div className="mt-20 text-gray-200 max-w-5xl mx-auto min-h-full">
-                <h1 className="mx-4 text-4xl flex my-10">Lapse 💖 <img className="w-200" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
-                <h3 className="m-4 text-2xl">Welcome sumo-lings!</h3>
-                <p className="m-4  text-xl">
-                    Please enter your email and purpose of using the app to activate the licence key!
-                </p>
-                <form onSubmit={submitApi} className="flex flex-col max-w-lg mx-4">
-                    <label className="block text-gray-200 text-sm font-bold mb-2" for="email">
-                        Email
-                    </label>
-                    <input
-                        name="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        required value={email}
-                        onChange={({ target }) => { setEmail(target.value) }}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
-                         id="email"  />
-
-                    <label className="block text-gray-200 text-sm font-bold mb-2" for="desc">How do you like to use the app ?</label>
-                    <input
-                        id="desc"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
-                        type="text"
-                        placeholder="Start typing.."
-                        required value={words}
-                        onChange={({ target }) => { setWords(target.value) }} />
-
-                    <label className="" style={{ color: 'goldenrod', fontSize: '.7rem' }}>
-                        Your code has been added successfully!!
-                </label>
-                    <input className=" p-2" type="text" value={code} disabled />
-                    <button type="submit" className="p-4 rounded bg-green-300 text-gray-900 my-4">Activate your licence!</button>
-                </form>
-            </div>
+            <h1 className="text-4xl text-gray-200 text-center mt-10">Lapse 💚 <img className="w-200 inline-block" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
+            <p className="text-md leading-loose text-gray-200 max-w-4xl mx-4 md:mx-auto mt-10">Hey Sumo-lings 👋,<br/>
+                Please enter your name, email and Appsumo code below to download lapse and 
+                enjoy creating amaizing time-lapse videos  
+                <span className="mx-1 p-1 bg-gray-800 rounded"> with life time access</span>.
+            </p> 
+            <br/>
+            <p className="text-gray-200 max-w-4xl mx-4 md:mx-auto my-2">
+                After submission, you will recieve the  <span className="mx-1 p-1 bg-gray-800 rounded"> dmg file </span> where you will have to enter both email and the code 
+            </p>
+            <p className="text-gray-200 max-w-4xl mx-4 md:mx-auto my-5">
+                Thank you,<br/>
+                Achuth Hadnoor
+            </p>
+            <form onSubmit={submitApi} className=" mb-20 flex flex-col max-w-4xl bg-gray-200 p-5 mx-5 md:mx-auto rounded">
+                <h2 className="text-2xl">Start recoding your amaizing digital work in time-lapse</h2>
+                {/* <span className="text-red-600 text-xl">* required</span><br/> */}
+                <input 
+                    className="p-2 rounded max-w-md my-4 "
+                    required={true}
+                    type="email" placeholder="email@address.com(Appsumo email )"
+                    value={email}
+                    onChange={({target})=>{setEmail(target.value)}}
+                />
+                    <input 
+                        className="p-2 rounded max-w-md my-4 disabled:bg-gray-300"
+                        type="text" 
+                        placeholder="Appsumo code"
+                        value={code}
+                        disabled={code !== 'NO-CODE' ? true : false} 
+                        required={true}
+                        />
+                    <div>
+                    <button 
+                        className=" bg-green-400 p-2 rounded disabled:bg-gray-400"
+                        type="submit"
+                        disabled={email === '' || code === '' ? true : false}
+                    >
+                            Download 
+                    </button>
+                    </div>
+            </form>
         </Container>
     )
 };
