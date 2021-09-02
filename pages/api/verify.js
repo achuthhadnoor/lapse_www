@@ -1,4 +1,4 @@
-import database from '../../lib/firebase'
+// import database from '../../lib/firebase'
 // Get spreadsheet npm package
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
@@ -24,17 +24,15 @@ async function verifyCode(code) {
 
         // Get row data
         const rows = await tab.getRows();
-        // Empty array for our data
-        let data = [];
 
         // If we have data
         if (rows.length > 0) {
             // Iterate through the array of rows
             // and push the clean data from your spreadsheet
             rows.forEach(row => {
-                data.push(row['Name']);
                 if (code === row._rawData[0]) {
                     valid = true;
+                    return;
                 }
             });
         } else {
@@ -46,6 +44,7 @@ async function verifyCode(code) {
         return { valid: false };
     }
 }
+
 export default async (req, res) => {
     // let email = "achuth.hadnoor123@gmail.com";
     // let phrase = '00MTI-TGPS1-4WP7J-CTGYL';
@@ -53,38 +52,52 @@ export default async (req, res) => {
     try {
         let valid = await verifyCode(phrase);
         if (valid.valid) {
-            let dataref = database.ref(phrase);
-            await dataref.once('value').then((snapshot) => {
-                const data = snapshot.val();
-                if (data) {
-                    if (data.email === email) {
-                        dataref.set({
-                            email: email,
-                            key: data.key,
-                            used: data.count + 1,
-                        })
-                        return res.json({ status: 200, message: `welcome back ${email}` });
-                    }
-                }
-                else {
-                    if (email !== '') {
-                        dataref.set({
-                            email: email,
-                            key: phrase,
-                            used: true,
-                            count:1
-                        })
-                        return res.json({ status: 200, message: "Let's get started" });
-                    }
-                    return res.json({ status: 503, message: "please check email or license key" })
-                }
-                // else {
-                //     res.json({ status: 503, message: "please check email or license key" })
-                // }
-            })
+            return res.json({ status: 200, message: "Let's get started" });
         }
+        return res.json({ status: 503, message: "please check email or license key" })
     } catch (error) {
         return res.json({ status: 403, message: `Unknown ${error}` })
     }
 }
+// export default async (req, res) => {
+//     // let email = "achuth.hadnoor123@gmail.com";
+//     // let phrase = '00MTI-TGPS1-4WP7J-CTGYL';
+//     const { email, phrase } = req.body;
+//     try {
+//         let valid = await verifyCode(phrase);
+//         if (valid.valid) {
+//             let dataref = database.ref(phrase);
+//             await dataref.once('value').then((snapshot) => {
+//                 const data = snapshot.val();
+//                 if (data) {
+//                     if (data.email === email) {
+//                         dataref.set({
+//                             email: email,
+//                             key: data.key,
+//                             used: data.count + 1,
+//                         })
+//                         return res.json({ status: 200, message: `welcome back ${email}` });
+//                     }
+//                 }
+//                 else {
+//                     if (email !== '') {
+//                         dataref.set({
+//                             email: email,
+//                             key: phrase,
+//                             used: true,
+//                             count:1
+//                         })
+//                         return res.json({ status: 200, message: "Let's get started" });
+//                     }
+//                     return res.json({ status: 503, message: "please check email or license key" })
+//                 }
+//                 // else {
+//                 //     res.json({ status: 503, message: "please check email or license key" })
+//                 // }
+//             })
+//         }
+//     } catch (error) {
+//         return res.json({ status: 403, message: `Unknown ${error}` })
+//     }
+// }
 

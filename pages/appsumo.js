@@ -57,7 +57,7 @@ const AppSumo = (props) => {
                         className="p-2 rounded max-w-md my-4 disabled:bg-gray-300"
                         type="text" 
                         placeholder="Appsumo code"
-                        value={code}
+                        value={code === 'NO-CODE' ? '' : code}
                         disabled={code !== 'NO-CODE' ? true : false} 
                         required={true}
                         />
@@ -74,8 +74,8 @@ const AppSumo = (props) => {
         
         </div> : <div className="h-screen">
                 <h1 className="text-4xl text-gray-200 text-center mt-10">Lapse 💚 <img className="w-200 inline-block" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
-            <p className="text-gray-200 max-w-4xl mx-4 xl:mx-auto my-2 h-full relative">
-                🦄 Verifying your code... 
+            <p className="mt-20 text-center text-2xl text-gray-200 max-w-4xl mx-4 xl:mx-auto my-2 h-full relative">
+                🦄 Verifying your code and preparing download... 
                 </p>
             </div>
             }
