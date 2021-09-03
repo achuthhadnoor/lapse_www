@@ -20,7 +20,7 @@ const AppSumo = (props) => {
             // axios.post('/api/sheet', { code: props.code }).then((res) => {
                     axios.post('api/verify',{email:email,phrase:props.code}).then((res)=>{
                         console.log(res.data);
-                        window.open('https://github.com/achuthhadnoor/www/releases/download/tag0.0.10/Lapse-0.0.10.dmg', '_blank');
+                        window.open('https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10.dmg', '_blank');
                         setLoading(false);
                     })
             // })
