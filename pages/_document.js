@@ -38,6 +38,7 @@ class MyDocument extends Document {
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-177599995-1"
           />
+<script async src="https://cdn.splitbee.io/sb.js"></script>
           <script type="text/javascript" src="https://gumroad.com/js/gumroad.js"></script>
           <script
             dangerouslySetInnerHTML={{
