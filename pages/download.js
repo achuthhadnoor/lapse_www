@@ -14,12 +14,11 @@ const AppSumo = (props) => {
         setCode(props.code)
     }, [])
     const submitApi = async (e) => {
+        debugger
         e.preventDefault();
         if (props.code !== 'NO-CODE') {
             setLoading(true)
             // axios.post('/api/sheet', { code: props.code }).then((res) => {
-            axios.post('api/verify', { email: email, phrase: props.code }).then((res) => {
-                console.log(res.data);
                 if(os === 'macos'){
                 window.open('https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10.dmg', '_blank');
                 setLoading(false);
@@ -27,7 +26,9 @@ const AppSumo = (props) => {
             }
                 window.open('https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe')
                 setLoading(false);
-            })
+            // axios.post('api/verify', { email: email, phrase: props.code }).then((res) => {
+            //     console.log(res.data);
+            // })
             // })
         }
     }
@@ -65,7 +66,7 @@ const AppSumo = (props) => {
                         className="p-2 rounded max-w-md my-4 disabled:bg-gray-300"
                         type="text"
                         placeholder="Licence"
-                        value={code === 'NO-CODE' ? '' : code}
+                        value={code}
                         required={true}
                         onChange={({ target }) => { setCode(target.value) }}
                     />
@@ -99,6 +100,6 @@ AppSumo.getInitialProps = async (ctx) => {
     if (ctx.query.appsumocode) {
         return { code: ctx.query.appsumocode }
     }
-    return { code: 'NO-CODE' }
+    return { code: '' }
 }
 export default AppSumo;
