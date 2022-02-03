@@ -1,27 +1,32 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 export default function Container(props) {
 
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Achuth Hadnoor – Developer, writer, maker.',
+    title: 'Lapse – A simple instant timelpase screen recorder.',
     description: 'Developer, JavaScript enthusiast, and product maker.',
-    image: 'https://achuth.dev/images/og-personal.png',
+    image: 'https://lapse.achuth.dev/images/og-personal.png',
     type: 'website',
     ...customMeta
   };
 
   return (
-    <div className=" h-500 min-h-screen bg-gray-900 ">
-      <div className="sticky flex w-full bg-green-100 backdrop-filter backdrop-blur-sm md:backdrop-blur-sm p-2">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/Svg"
-          className="AppPreview__Svg-sc-1nbtuyr-0 gKzyvE">
-          <path
-            d="M12.861 4.55483C13.3623 3.95654 13.71 3.13997 13.71 2.31531C13.71 2.20212 13.7019 2.08893 13.6776 2C12.8772 2.03234 11.907 2.5336 11.3249 3.21273C10.8722 3.73017 10.4517 4.55483 10.4517 5.37948C10.4517 5.50884 10.4679 5.63012 10.4841 5.67054C10.5326 5.67863 10.6134 5.6948 10.6943 5.6948C11.4219 5.6948 12.3274 5.2097 12.861 4.55483ZM13.4351 5.86458C12.2223 5.86458 11.2441 6.6003 10.6134 6.6003C9.9424 6.6003 9.06923 5.91309 8.01819 5.91309C6.02122 5.91309 4 7.56241 4 10.667C4 12.6074 4.74381 14.6529 5.67357 15.9707C6.46589 17.0864 7.16119 18 8.15563 18C9.15008 18 9.58666 17.3451 10.8075 17.3451C12.0606 17.3451 12.3355 17.9838 13.4351 17.9838C14.5184 17.9838 15.238 16.9894 15.9171 16.0111C16.6852 14.8873 17.0005 13.7959 17.0167 13.7393C16.952 13.7231 14.8742 12.8742 14.8742 10.5053C14.8742 8.45174 16.5073 7.53007 16.5963 7.4573C15.5291 5.91309 13.8878 5.86458 13.4351 5.86458Z"
-            fill="currentColor" fill-opacity="0.9"></path>
-        </svg>
+    <div className=" h-500 min-h-screen bg-orange-100 text-black">
+      <div className="sticky flex w-full bg-orange-200 backdrop-filter backdrop-blur-sm md:backdrop-blur-sm p-2">
+        <Link href="/">
+          <a>
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/Svg"
+              className="AppPreview__Svg-sc-1nbtuyr-0 gKzyvE">
+              <path
+                d="M12.861 4.55483C13.3623 3.95654 13.71 3.13997 13.71 2.31531C13.71 2.20212 13.7019 2.08893 13.6776 2C12.8772 2.03234 11.907 2.5336 11.3249 3.21273C10.8722 3.73017 10.4517 4.55483 10.4517 5.37948C10.4517 5.50884 10.4679 5.63012 10.4841 5.67054C10.5326 5.67863 10.6134 5.6948 10.6943 5.6948C11.4219 5.6948 12.3274 5.2097 12.861 4.55483ZM13.4351 5.86458C12.2223 5.86458 11.2441 6.6003 10.6134 6.6003C9.9424 6.6003 9.06923 5.91309 8.01819 5.91309C6.02122 5.91309 4 7.56241 4 10.667C4 12.6074 4.74381 14.6529 5.67357 15.9707C6.46589 17.0864 7.16119 18 8.15563 18C9.15008 18 9.58666 17.3451 10.8075 17.3451C12.0606 17.3451 12.3355 17.9838 13.4351 17.9838C14.5184 17.9838 15.238 16.9894 15.9171 16.0111C16.6852 14.8873 17.0005 13.7959 17.0167 13.7393C16.952 13.7231 14.8742 12.8742 14.8742 10.5053C14.8742 8.45174 16.5073 7.53007 16.5963 7.4573C15.5291 5.91309 13.8878 5.86458 13.4351 5.86458Z"
+                fill="currentColor" fill-opacity="0.9"></path>
+            </svg>
+          </a>
+        </Link>
         <span className="flex-1"></span>
         <div className="flex text-right space-x-5">
           <svg className=" m-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/Svg"
@@ -66,23 +71,22 @@ export default function Container(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-        {children}
-        <footer className="border-t-2 border-gray-100 mx-5 py-5 text-gray-200 items-center">
-          <div className="flex">
-            <span> <svg className=" m-3" width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/Svg"
-            className="AppPreview__Svg-sc-1nbtuyr-0 gKzyvE">
-            <path
-              d="M7.0765 6.24507C6.9168 5.61329 7.39435 5 8.046 5H17.4775C18.0298 5 18.4775 5.44772 18.4775 6V16.2801C18.4775 16.9547 17.8233 17.4357 17.1794 17.2346L9.76078 14.9176L9.48859 15.7891L9.76078 14.9176C9.42885 14.814 9.17461 14.5453 9.08939 14.2082L7.0765 6.24507Z"
-              stroke="currentColor" stroke-width="2"></path>
-          </svg>
-         </span>
-            <span className="flex-1"></span>
-            <div className="flex flex-col sm:flex-row ">
-              <h1 className="text-right text-lg py-1 px-5">Lapse</h1>
-              <p> made with 💖 by <a href="https://achuth.dev" target="_blank" className="text-gray-400">Achuth </a></p>
-            </div>
-          </div>
-        </footer> 
+      {children}
+      <footer className="border-t-2 border-orange-300 py-5 items-center max-w-screen-xl mx-auto">
+        <div className="flex justify-between align-baseline">
+          <span>
+            <svg className=" m-3" width="52" height="52" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/Svg"
+              className="AppPreview__Svg-sc-1nbtuyr-0 gKzyvE">
+              <path
+                d="M7.0765 6.24507C6.9168 5.61329 7.39435 5 8.046 5H17.4775C18.0298 5 18.4775 5.44772 18.4775 6V16.2801C18.4775 16.9547 17.8233 17.4357 17.1794 17.2346L9.76078 14.9176L9.48859 15.7891L9.76078 14.9176C9.42885 14.814 9.17461 14.5453 9.08939 14.2082L7.0765 6.24507Z"
+                stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </span>
+          {/* <div className="flex flex-col sm:flex-row "> */}
+          <p> made with 💖 by <a href="https://achuth.dev" target="_blank">Achuth </a></p>
+          {/* </div> */}
+        </div>
+      </footer>
     </div>
   );
 }

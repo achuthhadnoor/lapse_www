@@ -14,22 +14,16 @@ const AppSumo = (props) => {
         setCode(props.code)
     }, [])
     const submitApi = async (e) => {
-        debugger
         e.preventDefault();
         if (props.code !== 'NO-CODE') {
             setLoading(true)
-            // axios.post('/api/sheet', { code: props.code }).then((res) => {
                 if(os === 'macos'){
                 window.open('https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10.dmg', '_blank');
                 setLoading(false);
                 return;
             }
                 window.open('https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe')
-                setLoading(false);
-            // axios.post('api/verify', { email: email, phrase: props.code }).then((res) => {
-            //     console.log(res.data);
-            // })
-            // })
+                setLoading(false); 
         }
     }
     let selectOs = (os)=>{
@@ -38,21 +32,22 @@ const AppSumo = (props) => {
     return (
         <Container>
             {!loading ? <div className="relative h-full w-md">
-                <h1 className="text-4xl text-gray-200 text-center mt-10">Lapse 💚 <span className="text-green-500">You</span></h1>
-                <p className="text-md leading-loose text-gray-200 max-w-4xl mx-4 xl:mx-auto mt-10">Hey Lpsers 👋,<br />
+                <h1 className="text-4xl  text-center mt-10">Lapse 💚 <span className="text-green-500">You</span></h1>
+                <p className="text-md leading-loose  max-w-4xl mx-4 xl:mx-auto mt-10">Hey Lpsers 👋,<br />
                     Please enter your name, email and Appsumo code below to download lapse and
                     enjoy creating amaizing time-lapse videos
-                    <span className="mx-1 p-1 bg-gray-800 rounded"> with life time access</span>.
+                    <span className="mx-1 p-1 text-orange-200 bg-orange-800 rounded"> with life time access</span>.
                 </p>
                 <br />
-                <p className="text-gray-200 max-w-4xl mx-4 xl:mx-auto my-2">
-                    After submission, you will recieve the  <span className="mx-1 p-1 bg-gray-800 rounded"> dmg file </span> where you will have to enter both email and the code
+                <p className=" max-w-4xl mx-4 xl:mx-auto my-2">
+                    After submission, you will recieve the  <span className="mx-1 p-1 text-orange-200 bg-orange-800 rounded"> .dmg / .exe </span> 
+                    where you will have to enter both email and the code
                 </p>
-                <p className="text-gray-200 max-w-4xl mx-4 xl:mx-auto my-5">
+                <p className=" max-w-4xl mx-4 xl:mx-auto my-5">
                     Thank you,<br />
                     Achuth Hadnoor
                 </p>
-                <form onSubmit={submitApi} className=" mb-20 flex flex-col max-w-4xl bg-gray-200 p-5 mx-5 xl:mx-auto rounded">
+                <form onSubmit={submitApi} className=" mb-20 flex flex-col max-w-4xl bg-orange-200 p-5 mx-5 xl:mx-auto rounded">
                     <h2 className="text-2xl">Start recoding your amaizing digital work in time-lapse</h2>
                     {/* <span className="text-red-600 text-xl">* required</span><br/> */}
                     <input
@@ -86,8 +81,8 @@ const AppSumo = (props) => {
                 </form>
 
             </div> : <div className="h-screen">
-                <h1 className="text-4xl text-gray-200 text-center mt-10">Lapse 💚 <img className="w-200 inline-block" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
-                <p className="mt-20 text-center text-2xl text-gray-200 max-w-4xl mx-4 xl:mx-auto my-2 h-full relative">
+                <h1 className="text-4xl  text-center mt-10">Lapse 💚 <img className="w-200 inline-block" src="https://brandox-production.s3-eu-central-1.amazonaws.com/6e2aa086-61bb-42db-9d4e-1bb8f97c20e0/as-appsumo-logo--1200x1200.png" width="150px" /></h1>
+                <p className="mt-20 text-center text-2xl  max-w-4xl mx-4 xl:mx-auto my-2 h-full relative">
                     🦄 Verifying your code and preparing download...
                 </p>
             </div>
