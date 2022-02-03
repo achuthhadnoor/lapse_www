@@ -1,6 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+const CrispWithNoSSR = dynamic(
+  () => import('./crisp'),
+  { ssr: false }
+)
 
 export default function Container(props) {
 
@@ -8,14 +14,15 @@ export default function Container(props) {
   const router = useRouter();
   const meta = {
     title: 'Lapse – A simple instant timelpase screen recorder.',
-    description: 'Developer, JavaScript enthusiast, and product maker.',
-    image: 'https://lapse.achuth.dev/images/og-personal.png',
+    description: 'Record your timelpase videos 10x faster. No need to edit or use third party software!',
+    image: 'https://lapse.achuth.dev/images/banner.webp',
     type: 'website',
     ...customMeta
   };
 
   return (
     <div className=" h-500 min-h-screen bg-orange-100 text-black">
+      <CrispWithNoSSR/>
       <div className="sticky flex w-full bg-orange-200 backdrop-filter backdrop-blur-sm md:backdrop-blur-sm p-2">
         <Link href="/">
           <a>
