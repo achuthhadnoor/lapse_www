@@ -20043,7 +20043,7 @@ export default async (req, res) => {
     try {
         // let valid = await verifyCode(phrase);
         console.log(codes[phrase]);
-        if (codes[phrase] !== undefined) {
+        if (codes.includes(phrase)) {
             return res.json({ status: 200, message: "Let's get started" });
         }
         return res.json({ status: 503, message: "Please check the details entered" })
