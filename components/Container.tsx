@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic'
 import Header from "./header";
+import Footer from "./Footer";
 
 const CrispWithNoSSR = dynamic(
     () => import('./crisp'),
@@ -77,6 +78,7 @@ export default function Container(props: { [x: string]: any; children: any }) {
             </Head>
             <Header />
             {children}
+            <Footer/>
         </>
     )
 }

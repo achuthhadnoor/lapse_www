@@ -28,7 +28,7 @@ const Header = () => {
     }, [])
 
     return (
-        <header className='p-2 hidden md:flex sticky top-0 bg-black items-center'>
+        <header className='p-2 hidden md:flex sticky top-0 bg-black items-center z-50'>
             <div className='flex items-center align-middle gap-2'>
                 <span>
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
