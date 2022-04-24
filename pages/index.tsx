@@ -482,7 +482,7 @@ const Home: NextPage = () => {
         <h2 className='text-3xl mt-10 text-center'>Download</h2>
         <div className='items-center justify-center flex mt-5 gap-2'>
           {/* <Timer type="horizontal" /> */}
-          <a href="">
+          <a href="https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10.dmg">
             <div className="flex flex-col">
               <div className='flex align-middle items-center bg-gray-100 px-2 py-1 rounded-lg text-black gap-2'>
                 <span className='flex'>
@@ -501,7 +501,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </a>
-          <a href="">
+          <a href="https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe">
             <div className='flex flex-col'>
               <div className='flex align-middle items-center bg-gray-100 px-2 py-1 rounded-lg text-black gap-2'>
                 <span className='flex'>
