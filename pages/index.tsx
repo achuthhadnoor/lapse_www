@@ -473,15 +473,52 @@ const Home: NextPage = () => {
                 <summary className='py-1 text-xl'>Will you update Lapse?</summary>
                 <p className='font-thin max-w-xl p-2 px-4'>One year of updates with the licence purchaced.</p>
               </details>
-            </div> 
+            </div>
 
           </div>
         </div>
       </section>
       <section className='sm:px-20 px-4 relative'>
-      <h2 className='text-3xl mt-10 text-center'>Download</h2>
-      <div className='items-center justify-center flex'>
-        <Timer type="horizontal"/>
+        <h2 className='text-3xl mt-10 text-center'>Download</h2>
+        <div className='items-center justify-center flex mt-5 gap-2'>
+          {/* <Timer type="horizontal" /> */}
+          <a href="">
+            <div className="flex flex-col">
+              <div className='flex align-middle items-center bg-gray-100 px-2 py-1 rounded-lg text-black gap-2'>
+                <span className='flex'>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.4656 13.3437C18.4375 10.4637 20.8134 9.08218 20.9219 9.01331C19.5853 7.05996 17.5036 6.79179 16.7627 6.76048C14.9919 6.58101 13.3078 7.8029 12.4083 7.8029C11.513 7.8029 10.1242 6.78657 8.65709 6.81266C6.72565 6.84292 4.94551 7.93542 3.95109 9.66443C1.9466 13.1433 3.43979 18.2991 5.39419 21.1237C6.34792 22.5042 7.48842 24.0558 8.98266 23.9985C10.4237 23.9421 10.9673 23.0677 12.7078 23.0677C14.4493 23.0677 14.9377 23.9985 16.4622 23.9703C18.0107 23.9432 18.9936 22.5637 19.9411 21.178C21.0388 19.5742 21.4896 18.0236 21.5167 17.9433C21.4812 17.9266 18.4959 16.7829 18.4656 13.3437Z" fill="black"></path>
+                    <path d="M15.7876 3.83263C16.6255 2.8163 17.191 1.40658 17.0376 0C15.8303 0.0490426 14.3674 0.802421 13.5013 1.81666C12.725 2.71613 12.0457 4.15089 12.2273 5.53138C13.5744 5.63573 14.9486 4.84583 15.7876 3.83263Z" fill="black"></path>
+                  </svg>
+                </span>
+                <div className='flex flex-col'>
+                  <span className='text-sm font-semibold'>Download for </span>
+                  <span className='font-semibold'>macOS</span>
+                </div>
+              </div>
+              <div className='text-sm p-1 text-gray-500 mt-2'>
+                macOS 10.13 or higher
+              </div>
+            </div>
+          </a>
+          <a href="">
+            <div className='flex flex-col'>
+              <div className='flex align-middle items-center bg-gray-100 px-2 py-1 rounded-lg text-black gap-2'>
+                <span className='flex'>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 4.13676L9.99656 2.90616V11.5705H1V4.13676ZM11.0802 2.73539L23 1V11.4977H11.0802V2.73539ZM1 12.4872H9.99656V21.1767L1 19.921V12.4872ZM11.0802 12.6027H23V23L11.0802 21.3174" fill="black"></path>
+                  </svg>
+                </span>
+                <div className='flex flex-col'>
+                  <span className='text-xs font-semibold'>Download for </span>
+                  <span className='font-semibold text-2xl'>windows</span>
+                </div>
+              </div>
+              <div className='text-sm p-1 text-gray-500 mt-2 text-center '>
+                Windows 10
+              </div>
+            </div>
+          </a>
         </div>
       </section>
     </Container>
