@@ -385,7 +385,7 @@ const Home: NextPage = () => {
             <div>epitomi</div>
             <div>🌟🌟🌟🌟⭐️</div>
             <p className='font-thin p-2 leading-loose'>
-              Good but needs more basic features
+              Good but needs more basic features like recording single app and a particular region on the screen.
             </p>
           </div>
           <div
