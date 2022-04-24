@@ -15,7 +15,7 @@ const Header = () => {
         setTimeStamp(`${days[day - 1]} ${today} ${months[month]} ${hours}:${minutes}`);
 
         setTimeout(() => {
-            const days = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+            const days = [ "Sun","Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
             const months = ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const date = new Date();
             const day = date.getDay();
@@ -23,12 +23,12 @@ const Header = () => {
             const month = date.getMonth();
             const hours = date.getHours();
             const minutes = date.getMinutes();
-            setTimeStamp(`${days[day - 1]} ${today} ${months[month]} ${hours}:${minutes}`);
-        }, 6000);
+            setTimeStamp(`${days[day !== 0 ? day - 1 : day]} ${today} ${months[month]} ${hours}:${minutes}`);
+        }, 1000);
     }, [])
 
     return (
-        <header className='p-2 hidden md:flex sticky top-0 bg-black items-center z-50'>
+        <header className='p-2 hidden md:flex sticky top-0 bg-black/30 backdrop-blur-md items-center z-50'>
             <div className='flex items-center align-middle gap-2'>
                 <span>
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

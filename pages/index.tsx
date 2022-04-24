@@ -58,7 +58,7 @@ const Timer = ({ type }: any) => {
             </div>
             <a href="https://achuthhadnoor.gumroad.com/l/learnvim">
               <button className='px-4 py-2 mt-2 bg-orange-500 w-full rounded-lg hover:ring-2 ring-purple-900 text-xs sm:text-sm'>
-                Get It for <span className='line-through stroke-orange-600 text-purple-300'>$35</span> <span className='text-gray-900'>$25</span>
+                Get It for <span className='line-through stroke-orange-600 text-purple-300'>$35</span> <span className='ring-1 ring-gray-900'>$25</span>
               </button>
             </a>
           </div>}
@@ -139,10 +139,10 @@ const Home: NextPage = () => {
         <p className='text-gray-400 text-2xl font-thin max-w-xl'>
           A simple app to record screen in timelapse on MacOs and windows
         </p>
-        <button className='flex align-middle items-center gap-2 mt-5 text-xl' onClick={() => { setHideVideo(false) }}>
+        <button className='flex align-middle items-center gap-2 mt-5 text-xl hover:text-gray-400' onClick={() => { setHideVideo(false) }}>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.99948 16.4999C13.1416 16.4999 16.4995 13.142 16.4995 8.99985C16.4995 4.85774 13.1416 1.49988 8.99948 1.49988C4.85737 1.49988 1.49951 4.85774 1.49951 8.99985C1.49951 13.142 4.85737 16.4999 8.99948 16.4999Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M7.50049 5.99988L12.0005 8.99985L7.50049 11.9999V5.99988Z" fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8.99948 16.4999C13.1416 16.4999 16.4995 13.142 16.4995 8.99985C16.4995 4.85774 13.1416 1.49988 8.99948 1.49988C4.85737 1.49988 1.49951 4.85774 1.49951 8.99985C1.49951 13.142 4.85737 16.4999 8.99948 16.4999Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M7.50049 5.99988L12.0005 8.99985L7.50049 11.9999V5.99988Z" fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Watch now
         </button>
@@ -151,7 +151,7 @@ const Home: NextPage = () => {
           className='top-0 fixed h-screen w-screen overflow-hidden items-center flex flex-col justify-center align-middle bg-black bg-opacity-70'
 
         >
-          <span className='my-5' onClick={() => {
+          <span className='my-5 cursor-pointer' onClick={() => {
             setHideVideo(!hideVideo)
           }}>
             <svg className='scale-100' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,7 +197,7 @@ const Home: NextPage = () => {
               Save time
             </span>
             <p className='font-thin leading-loose'>
-              Recorded hours of video and waited for sometime to render again as time-lapse? Record directly in time-lapse.
+              Recorded long hours of video and waited for hours to render again as time-lapse? Record directly in time-lapse as you record a normal screen recording.
             </p>
           </div>
           <div className='flex flex-col gap-4 text-center items-center flex-1 my-10 p-4 rounded'>
@@ -260,8 +260,7 @@ const Home: NextPage = () => {
               Perfomance
             </span>
             <p className='font-thin leading-loose'>
-              Recording is paused smartly based on inactivity, unexpected shutdown and screen lock.
-              Saves battery and removes load on the processor as there is no re-rendering
+              Removes load on the processor as there is no re-rendering of the recorded video and is 5X faster.
             </p>
           </div>
         </div>
@@ -314,14 +313,12 @@ const Home: NextPage = () => {
           </svg>
 
         </div>
-        <div className='mt-5 flex flex-col lg:flex-row md:px-10 gap-4 my-10 pt-[100px] text-center align-middle justify-center'>
-          <div
-            className='bg-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'
-          >
+        <div className='mt-5 flex flex-col lg:flex-row lg:px-10 gap-4 my-10 pt-[100px] text-center align-middle justify-center'>
+          <div className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'>
             <div>
               <span className='absolute top-[-50px] left-[40%]'>
                 <Image
-                  src={"/Mikkel.png"}
+                  src={"/Mikkel.jpg"}
                   height={100}
                   width={100}
                   className="rounded-full"
@@ -336,9 +333,7 @@ const Home: NextPage = () => {
               Thanks!<br />
             </p>
           </div>
-          <div
-            className='bg-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px] '
-          >
+          <div className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'>
             <span className='absolute top-[-50px] left-[40%]'>
               <Image
                 src={"/saasMaster.png"}
@@ -354,12 +349,10 @@ const Home: NextPage = () => {
               Video example <a href='https://youtu.be/EJJOjh8pZFM' target={'_blank'} className="underline">here</a><br />
             </p>
           </div>
-          <div
-            className='bg-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'
-          >
+          <div className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'>
             <span className='absolute top-[-50px] left-[40%]'>
               <Image
-                src={"/Catz.png"}
+                src={"/Catz.jpg"}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -377,7 +370,7 @@ const Home: NextPage = () => {
 
         <div className='mt-5 flex flex-col lg:flex-row md:px-10 gap-4 my-10 pt-[100px] text-center align-middle justify-center'>
           <div
-            className='bg-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px] flex-1'
+            className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px] flex-1'
           >
             <div>
               <span className='absolute top-[-50px] left-[40%]'>
@@ -396,7 +389,7 @@ const Home: NextPage = () => {
             </p>
           </div>
           <div
-            className='bg-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px] '
+            className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px] '
           >
             <span className='absolute top-[-50px] left-[40%]'>
               <Image
@@ -419,7 +412,7 @@ const Home: NextPage = () => {
             </p>
           </div>
           <div
-            className='bg-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'
+            className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'
           >
             <span className='absolute top-[-50px] left-[40%]'>
               <Image
@@ -437,8 +430,105 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
+      <section className='sm:px-20 px-4 relative'>
+        <h2 className='text-3xl mt-10 text-center'>FAQ</h2>
+        <div className="py-10 px-2 flex flex-col sm:flex-row">
+          <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-gray-400 flex-1 gap-2 sm:gap-0">
+            <div className='p-1'>
+              <details>
+                <summary className='py-1 text-xl'>Is there an option to select monitors?</summary>
+                <p className='font-thin max-w-xl p-2 px-4'>Yes you can select one of the external monitors to start recording.<br />However, the support for single app recording is in the roadmap.</p>
+              </details>
+            </div>
+            <div className='p-1'>
+              <details>
+                <summary className='py-1 text-xl'>Do you offer a trial?</summary>
+                <p className='font-thin max-w-xl p-2 px-4'>
+                  We didn’t implement a trial yet, but no worries—feel free to purchase the app.
+                  If you’re not happy send a short message. We’ll refund your order.<br />
+                </p>
+              </details>
+            </div>
+            <div className='p-1'>
+              <details>
+                <summary className='py-1 text-xl'>The menubar app doesn’t work. What can I do?</summary>
+                <p className='font-thin max-w-xl p-2 px-4'>Lapse requires the screen Record permission in “System Preferences › Security & Privacy › Privacy › Screen Recording.
+                  For macOS 10.15 (Catalina) the screen recording permission in “System Preferences › Security & Privacy › Privacy › Screen Recording” is required too.</p>
+              </details>
+            </div>
+            <div className='p-1'>
+              <details>
+                <summary className='py-1 text-xl'>Is there a Windows app?</summary>
+                <p className='font-thin max-w-xl p-2 px-4'>Yes we support for MacOs and windows.</p>
+              </details>
+            </div>
+            <div className='p-1'>
+              <details>
+                <summary className='py-1 text-xl'>Something’s wrong. How do I get in touch?</summary>
+                <p className='font-thin max-w-xl p-2 px-4'><a href="mailto:achuth.hadnoor123@gmail.com">Drop us a line</a>, we’ll be happy to help!</p>
+              </details>
+            </div>
+            <div className='p-1'>
+              <details>
+                <summary className='py-1 text-xl'>Will you update Lapse?</summary>
+                <p className='font-thin max-w-xl p-2 px-4'>One year of updates with the licence purchaced.</p>
+              </details>
+            </div> 
+
+          </div>
+        </div>
+      </section>
+      <section className='sm:px-20 px-4 relative'>
+      <h2 className='text-3xl mt-10 text-center'>Download</h2>
+      <div className='items-center justify-center flex'>
+        <Timer type="horizontal"/>
+        </div>
+      </section>
     </Container>
   )
 }
 
 export default Home
+
+
+{/* <div className="py-10 px-2 flex flex-col sm:flex-row">
+            <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-gray-400 flex-1 gap-2 sm:gap-0">
+            <div>
+              <details>
+                <summary>Title</summary>
+                <p>body</p>
+              </details>
+            </div>
+            <div>
+              <details>
+                <summary>Title</summary>
+                <p>body</p>
+              </details>
+            </div>
+            <div>
+              <details>
+                <summary>Title</summary>
+                <p>body</p>
+              </details>
+            </div>
+            <div>
+              <details>
+                <summary>Title</summary>
+                <p>body</p>
+              </details>
+            </div>
+            <div>
+              <details>
+                <summary>Title</summary>
+                <p>body</p>
+              </details>
+            </div>
+            <div>
+              <details>
+                <summary>Title</summary>
+                <p>body</p>
+              </details>
+            </div>
+
+            </div>
+          </div> */}
