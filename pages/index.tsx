@@ -318,7 +318,7 @@ const Home: NextPage = () => {
             <div>
               <span className='absolute top-[-50px] left-[40%]'>
                 <Image
-                  src={"/Mikkel.jpg"}
+                  src={"/mikkel.jpg"}
                   height={100}
                   width={100}
                   className="rounded-full"
@@ -352,7 +352,7 @@ const Home: NextPage = () => {
           <div className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'>
             <span className='absolute top-[-50px] left-[40%]'>
               <Image
-                src={"/Catz.jpg"}
+                src={"/catz.jpg"}
                 height={100}
                 width={100}
                 className="rounded-full"
