@@ -15,7 +15,7 @@ export default function Container(props: { [x: string]: any; children: any }) {
     const meta = {
         title: "Lapse – Save instant time-lapse screen recording ✨",
         description: `A simple app to record screen in timelapse on Mac and windows`,
-        image: "https://lapse.achuth.dev/static/images/banner.png",
+        image: "https://lapse.achuth.dev/banner.png",
         type: "website",
         date: "1-1-2022",
         ...customMeta,
