@@ -21,7 +21,8 @@ export default function Footer() {
       <div className="py-10 px-2 flex flex-col sm:flex-row">
         <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-gray-400 flex-1 gap-2 sm:gap-0">
           <Link href="#feedback">Feedback</Link>
-          <ExternalLink href="https://gum.co/lapse_app">Buy</ExternalLink>
+          {/* <ExternalLink href="https://gum.co/lapse_app">Buy</ExternalLink> */}
+          <ExternalLink href="https://achuth.notion.site/Changelog-4c898f8b4ec140abb1d6a6d2e9108a15">Changelog</ExternalLink>
           <ExternalLink href="https://achuth.notion.site/Press-Kit-1a3b994e395d43efbaf6727fed4429f1">Press kit</ExternalLink >
           <ExternalLink href="https://achuth.notion.site/Privacy-Policy-ec65b78f07c443e2a3bcd46d834a263d">Privacy policy</ExternalLink >
           <ExternalLink href="https://achuth.notion.site/Terms-of-Service-cf16898198bd42eeb41f4a780f04ac94">{'Terms & conditions'}</ExternalLink >
