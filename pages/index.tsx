@@ -1,124 +1,151 @@
 import type { NextPage } from 'next'
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import Container from '../components/Container';
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import Container from '../components/Container'
 import Header from './../components/header'
 
 const Timer = ({ type }: any) => {
-  const [timer, setTimer] = useState({ days: 0, hr: 0, min: 0, sec: 0 });
+  const [timer, setTimer] = useState({ days: 0, hr: 0, min: 0, sec: 0 })
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-
-    const countDownDate = new Date("July 5, 2022 15:37:25").getTime();
+    const countDownDate = new Date('July 5, 2022 15:37:25').getTime()
     // Update the count down every 1 second
     var x = setInterval(function () {
       // Get today's date and time
-      var now = new Date().getTime();
+      var now = new Date().getTime()
 
       // Find the distance between now and the count down date
-      var distance = countDownDate - now;
+      var distance = countDownDate - now
 
       // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24))
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      )
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000)
       setTimer({ days: days, hr: hours, min: minutes, sec: seconds })
       setIsLoading(false)
 
       // If the count down is finished, write some text
       if (distance < 0) {
-        clearInterval(x);
+        clearInterval(x)
       }
-    }, 1000);
-  }, []);
+    }, 1000)
+  }, [])
 
   switch (type) {
     case 'vertical':
       return (
-        <div id="timer" className='mt-5'>
-          {!isLoading && <div className='inline-block rounded-xl bg-skin-secondary align-middle justify-center p-2'>
-            <div className='flex'>
-              <span className='flex flex-col p-2 mr-4'>
-                <span>{timer.days}</span>
-                <span className='text-xs text-indigo-500'>Days</span>
-              </span>
-              <span className='flex flex-col p-2 mr-4'>
-                <span>{timer.hr}</span>
-                <span className='text-xs text-indigo-500'>Hrs</span>
-              </span>
-              <span className='flex flex-col p-2 mr-4'>
-                <span>{timer.min}</span>
-                <span className='text-xs text-indigo-500'>mins</span>
-              </span>
-              <span className='flex flex-col p-2 mr-4'>
-                <span>{timer.sec}</span>
-                <span className='text-xs text-indigo-500'>Sec</span>
-              </span>
+        <div id="timer" className="mt-5">
+          {!isLoading && (
+            <div className="bg-skin-secondary inline-block justify-center rounded-xl p-2 align-middle">
+              <div className="flex">
+                <span className="mr-4 flex flex-col p-2">
+                  <span>{timer.days}</span>
+                  <span className="text-xs text-indigo-500">Days</span>
+                </span>
+                <span className="mr-4 flex flex-col p-2">
+                  <span>{timer.hr}</span>
+                  <span className="text-xs text-indigo-500">Hrs</span>
+                </span>
+                <span className="mr-4 flex flex-col p-2">
+                  <span>{timer.min}</span>
+                  <span className="text-xs text-indigo-500">mins</span>
+                </span>
+                <span className="mr-4 flex flex-col p-2">
+                  <span>{timer.sec}</span>
+                  <span className="text-xs text-indigo-500">Sec</span>
+                </span>
+              </div>
+              <a href="https://achuthhadnoor.gumroad.com/l/learnvim">
+                <button className="mt-2 w-full rounded-lg bg-orange-500 px-4 py-2 text-xs ring-purple-900 hover:ring-2 sm:text-sm">
+                  Get It for{' '}
+                  <span className="stroke-orange-600 text-purple-300 line-through">
+                    $35
+                  </span>{' '}
+                  <span className="ring-1 ring-gray-900">$25</span>
+                </button>
+              </a>
             </div>
-            <a href="https://achuthhadnoor.gumroad.com/l/learnvim">
-              <button className='px-4 py-2 mt-2 bg-orange-500 w-full rounded-lg hover:ring-2 ring-purple-900 text-xs sm:text-sm'>
-                Get It for <span className='line-through stroke-orange-600 text-purple-300'>$35</span> <span className='ring-1 ring-gray-900'>$25</span>
-              </button>
-            </a>
-          </div>}
+          )}
         </div>
       )
     case 'horizontal':
       return (
-        <div id="timer" className='mt-4'>
-          {!isLoading && <div className='inline-block rounded-xl bg-skin-secondary align-middle justify-center'>
-
-            <div className="mt-5 inline-block rounded-xl bg-skin-secondary align-middle justify-center ring ring-indigo-500 px-2">
-              <div className="flex">
-                <span className="flex flex-col p-2 mr-2 md:mr1">
-                  <span>{timer.days}</span>
-                  <span className="text-xs text-indigo-300">Days</span>
+        <div id="timer" className="mt-4">
+          {!isLoading && (
+            <div className="bg-skin-secondary inline-block justify-center rounded-xl align-middle">
+              <div className="bg-skin-secondary mt-5 inline-block justify-center rounded-xl px-2 align-middle ring ring-indigo-500">
+                <div className="flex">
+                  <span className="md:mr1 mr-2 flex flex-col p-2">
+                    <span>{timer.days}</span>
+                    <span className="text-xs text-indigo-300">Days</span>
+                  </span>
+                  <span className="md:mr1 mr-2 flex flex-col p-2">
+                    <span>{timer.hr}</span>
+                    <span className="text-xs text-indigo-300">Hrs</span>
+                  </span>
+                  <span className="md:mr1 mr-2 flex flex-col p-2">
+                    <span>{timer.min}</span>
+                    <span className="text-xs text-indigo-300">mins</span>
+                  </span>
+                  <span className="mr-4 flex flex-col p-2">
+                    <span>{timer.sec}</span>
+                    <span className="text-xs text-indigo-300">Sec</span>
+                  </span>
+                  <a href="https://gum.co/lapse_app" target="_blank">
+                    <button className="m-2 rounded-lg bg-indigo-800 px-4 py-2 text-xs outline-none ring-indigo-900 hover:bg-indigo-600 hover:ring-2 sm:text-sm">
+                      Get It for
+                      <span className="stroke-indigo-300 px-1 font-bold text-indigo-300 line-through">
+                        $35
+                      </span>
+                      <span className="text-indigo-100">$25</span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div className="mt-5 flex items-center justify-center gap-4 p-2 align-middle">
+                <span className="text-indigo-300">Avalilable on</span>
+                <span>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.861 4.55483C13.3623 3.95654 13.71 3.13997 13.71 2.31531C13.71 2.20212 13.7019 2.08893 13.6776 2C12.8772 2.03234 11.907 2.5336 11.3249 3.21273C10.8722 3.73017 10.4517 4.55483 10.4517 5.37948C10.4517 5.50884 10.4679 5.63012 10.4841 5.67054C10.5326 5.67863 10.6134 5.6948 10.6943 5.6948C11.4219 5.6948 12.3274 5.2097 12.861 4.55483ZM13.4351 5.86458C12.2223 5.86458 11.2441 6.6003 10.6134 6.6003C9.9424 6.6003 9.06923 5.91309 8.01819 5.91309C6.02122 5.91309 4 7.56241 4 10.667C4 12.6074 4.74381 14.6529 5.67357 15.9707C6.46589 17.0864 7.16119 18 8.15563 18C9.15008 18 9.58666 17.3451 10.8075 17.3451C12.0606 17.3451 12.3355 17.9838 13.4351 17.9838C14.5184 17.9838 15.238 16.9894 15.9171 16.0111C16.6852 14.8873 17.0005 13.7959 17.0167 13.7393C16.952 13.7231 14.8742 12.8742 14.8742 10.5053C14.8742 8.45174 16.5073 7.53007 16.5963 7.4573C15.5291 5.91309 13.8878 5.86458 13.4351 5.86458Z"
+                      fill="currentColor"
+                      fillOpacity="0.9"
+                    />
+                  </svg>
                 </span>
-                <span className="flex flex-col p-2 mr-2 md:mr1">
-                  <span>{timer.hr}</span>
-                  <span className="text-xs text-indigo-300">Hrs</span>
+                <span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0)">
+                      <path
+                        d="M6.6607 8.98214V14.7946L0.571411 13.9554V8.98214H6.6607ZM6.6607 2.34821V8.23214H0.571411V3.1875L6.6607 2.34821ZM15.4286 8.98214V16L7.33034 14.8839V8.98214H15.4286ZM15.4286 1.14286V8.23214H7.33034V2.25893L15.4286 1.14286Z"
+                        fill="currentColor"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0">
+                        <rect width="16" height="16" fill="currentColor" />
+                      </clipPath>
+                    </defs>
+                  </svg>
                 </span>
-                <span className="flex flex-col p-2 mr-2 md:mr1">
-                  <span>{timer.min}</span><span className="text-xs text-indigo-300">mins</span>
-                </span>
-                <span className="flex flex-col p-2 mr-4">
-                  <span>{timer.sec}</span>
-                  <span className="text-xs text-indigo-300">Sec</span>
-                </span>
-                <a href="https://gum.co/lapse_app" target="_blank">
-                  <button className="outline-none px-4 py-2 bg-indigo-800 hover:bg-indigo-600 m-2 rounded-lg hover:ring-2 ring-indigo-900 text-xs sm:text-sm">
-                    Get It for
-                    <span className="line-through stroke-indigo-300 text-indigo-300 font-bold px-1">$35</span>
-                    <span className="text-indigo-100">$25</span>
-                  </button>
-                </a>
               </div>
             </div>
-            <div className="p-2 flex align-middle items-center justify-center gap-4 mt-5">
-              <span className='text-indigo-300'>
-                Avalilable on
-              </span>
-              <span>
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.861 4.55483C13.3623 3.95654 13.71 3.13997 13.71 2.31531C13.71 2.20212 13.7019 2.08893 13.6776 2C12.8772 2.03234 11.907 2.5336 11.3249 3.21273C10.8722 3.73017 10.4517 4.55483 10.4517 5.37948C10.4517 5.50884 10.4679 5.63012 10.4841 5.67054C10.5326 5.67863 10.6134 5.6948 10.6943 5.6948C11.4219 5.6948 12.3274 5.2097 12.861 4.55483ZM13.4351 5.86458C12.2223 5.86458 11.2441 6.6003 10.6134 6.6003C9.9424 6.6003 9.06923 5.91309 8.01819 5.91309C6.02122 5.91309 4 7.56241 4 10.667C4 12.6074 4.74381 14.6529 5.67357 15.9707C6.46589 17.0864 7.16119 18 8.15563 18C9.15008 18 9.58666 17.3451 10.8075 17.3451C12.0606 17.3451 12.3355 17.9838 13.4351 17.9838C14.5184 17.9838 15.238 16.9894 15.9171 16.0111C16.6852 14.8873 17.0005 13.7959 17.0167 13.7393C16.952 13.7231 14.8742 12.8742 14.8742 10.5053C14.8742 8.45174 16.5073 7.53007 16.5963 7.4573C15.5291 5.91309 13.8878 5.86458 13.4351 5.86458Z" fill="currentColor" fill-opacity="0.9" />
-                </svg>
-              </span>
-              <span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0)">
-                    <path d="M6.6607 8.98214V14.7946L0.571411 13.9554V8.98214H6.6607ZM6.6607 2.34821V8.23214H0.571411V3.1875L6.6607 2.34821ZM15.4286 8.98214V16L7.33034 14.8839V8.98214H15.4286ZM15.4286 1.14286V8.23214H7.33034V2.25893L15.4286 1.14286Z" fill="currentColor" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0">
-                      <rect width="16" height="16" fill="currentColor" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </span>
-            </div>
-          </div>
-          }
+          )}
         </div>
       )
     default:
@@ -126,64 +153,165 @@ const Timer = ({ type }: any) => {
   }
 }
 const Home: NextPage = () => {
-  const [hideVideo, setHideVideo] = useState(true);
+  const [hideVideo, setHideVideo] = useState(true)
   return (
     <Container>
-      <section className='pt-10 flex flex-col text-center items-center p-2'>
-        <span className='px-2 py-5'>
-          <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.6959 2.5H44C48.1421 2.5 51.5 5.85786 51.5 10V42.3628C51.5 47.4304 46.5784 51.0393 41.7452 49.5158L14.1428 40.8151C11.6337 40.0242 9.72252 37.9765 9.10624 35.4189L3.40455 11.7569C2.26771 7.03904 5.84293 2.5 10.6959 2.5Z" stroke="white" stroke-width="5" />
+      <section className="flex flex-col items-center p-2 pt-10 text-center">
+        <span className="px-2 py-5">
+          <svg
+            width="54"
+            height="53"
+            viewBox="0 0 54 53"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.6959 2.5H44C48.1421 2.5 51.5 5.85786 51.5 10V42.3628C51.5 47.4304 46.5784 51.0393 41.7452 49.5158L14.1428 40.8151C11.6337 40.0242 9.72252 37.9765 9.10624 35.4189L3.40455 11.7569C2.26771 7.03904 5.84293 2.5 10.6959 2.5Z"
+              stroke="white"
+              strokeWidth="5"
+            />
           </svg>
         </span>
-        <h1 className='py-5 text-2xl lg:text-5xl max-w-3xl leading-loose font-bold'>Save instant time-lapse screen recording ✨.</h1>
-        <p className='text-gray-400 text-2xl font-thin max-w-xl'>
+        <h1 className="max-w-3xl py-5 text-2xl font-bold leading-loose lg:text-5xl">
+          Save instant time-lapse screen recording ✨.
+        </h1>
+        <p className="max-w-xl text-2xl font-thin text-gray-400">
           A simple app to record screen in timelapse on MacOs and windows
         </p>
-        <button className='flex align-middle items-center gap-2 mt-5 text-xl hover:text-gray-400' onClick={() => { setHideVideo(false) }}>
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.99948 16.4999C13.1416 16.4999 16.4995 13.142 16.4995 8.99985C16.4995 4.85774 13.1416 1.49988 8.99948 1.49988C4.85737 1.49988 1.49951 4.85774 1.49951 8.99985C1.49951 13.142 4.85737 16.4999 8.99948 16.4999Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M7.50049 5.99988L12.0005 8.99985L7.50049 11.9999V5.99988Z" fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+        <button
+          className="mt-5 flex items-center gap-2 align-middle text-xl hover:text-gray-400"
+          onClick={() => {
+            setHideVideo(false)
+          }}
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 18 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.99948 16.4999C13.1416 16.4999 16.4995 13.142 16.4995 8.99985C16.4995 4.85774 13.1416 1.49988 8.99948 1.49988C4.85737 1.49988 1.49951 4.85774 1.49951 8.99985C1.49951 13.142 4.85737 16.4999 8.99948 16.4999Z"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M7.50049 5.99988L12.0005 8.99985L7.50049 11.9999V5.99988Z"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
           Watch now
         </button>
         <Timer type={'horizontal'} />
-        {!hideVideo && <div
-          className='top-0 fixed h-screen w-screen overflow-hidden items-center flex flex-col justify-center align-middle bg-black bg-opacity-70'
+        {!hideVideo && (
+          <div className="fixed top-0 flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-black bg-opacity-70 align-middle">
+            <span
+              className="my-5 cursor-pointer"
+              onClick={() => {
+                setHideVideo(!hideVideo)
+              }}
+            >
+              <svg
+                className="scale-100"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M15 9L9 15"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M9 9L15 15"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
 
-        >
-          <span className='my-5 cursor-pointer' onClick={() => {
-            setHideVideo(!hideVideo)
-          }}>
-            <svg className='scale-100' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M15 9L9 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M9 9L15 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-
-          <video
-            controls={true}
-            poster="/preview1.png"
-            className="md:w-[800px] w-[400px]"
-          >
-            <source src="lapse.mp4" type="video/mp4" />
-            Your browser does not support HTML video.
-          </video>
-        </div>}
+            <video
+              controls={true}
+              poster="/preview1.png"
+              className="w-[400px] md:w-[800px]"
+            >
+              <source src="lapse.mp4" type="video/mp4" />
+              Your browser does not support HTML video.
+            </video>
+          </div>
+        )}
       </section>
-      <section className='mt-10 p-2'>
+      <section className="mt-10 p-2">
         {/* <h2 className='text-4xl text-center p-4 font-bold'>Features</h2> */}
-        <div className='flex flex-col md:flex-row gap-2 px-4'>
-          <div className='flex flex-col gap-4 text-center items-center flex-1 my-10 p-4 rounded'>
+        <div className="flex flex-col gap-2 px-4 md:flex-row">
+          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
             <span>
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_4702_369)">
-                  <path d="M38.2041 0.979584H9.79594C4.92682 0.979584 0.979614 4.92679 0.979614 9.79591V38.2041C0.979614 43.0732 4.92682 47.0204 9.79594 47.0204H38.2041C43.0732 47.0204 47.0204 43.0732 47.0204 38.2041V9.79591C47.0204 4.92679 43.0732 0.979584 38.2041 0.979584Z" stroke="#323232" stroke-width="2" />
-                  <path d="M30.3674 20.5714H31.347C32.3862 20.5714 33.3828 20.9842 34.1176 21.7191C34.8525 22.4539 35.2653 23.4506 35.2653 24.4898C35.2653 25.5291 34.8525 26.5257 34.1176 27.2605C33.3828 27.9954 32.3862 28.4082 31.347 28.4082H30.3674" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M14.6938 20.5714H30.3673V29.3878C30.3673 30.427 29.9545 31.4237 29.2196 32.1584C28.4848 32.8933 27.4882 33.3061 26.4489 33.3061H18.6122C17.573 33.3061 16.5763 32.8933 15.8415 32.1584C15.1066 31.4237 14.6938 30.427 14.6938 29.3878V20.5714Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M18.6122 13.7143V16.6531" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M22.5306 13.7143V16.6531" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M26.449 13.7143V16.6531" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_4702_369)">
+                  <path
+                    d="M38.2041 0.979584H9.79594C4.92682 0.979584 0.979614 4.92679 0.979614 9.79591V38.2041C0.979614 43.0732 4.92682 47.0204 9.79594 47.0204H38.2041C43.0732 47.0204 47.0204 43.0732 47.0204 38.2041V9.79591C47.0204 4.92679 43.0732 0.979584 38.2041 0.979584Z"
+                    stroke="#323232"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M30.3674 20.5714H31.347C32.3862 20.5714 33.3828 20.9842 34.1176 21.7191C34.8525 22.4539 35.2653 23.4506 35.2653 24.4898C35.2653 25.5291 34.8525 26.5257 34.1176 27.2605C33.3828 27.9954 32.3862 28.4082 31.347 28.4082H30.3674"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M14.6938 20.5714H30.3673V29.3878C30.3673 30.427 29.9545 31.4237 29.2196 32.1584C28.4848 32.8933 27.4882 33.3061 26.4489 33.3061H18.6122C17.573 33.3061 16.5763 32.8933 15.8415 32.1584C15.1066 31.4237 14.6938 30.427 14.6938 29.3878V20.5714Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M18.6122 13.7143V16.6531"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M22.5306 13.7143V16.6531"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M26.449 13.7143V16.6531"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </g>
                 <defs>
                   <clipPath id="clip0_4702_369">
@@ -191,61 +319,164 @@ const Home: NextPage = () => {
                   </clipPath>
                 </defs>
               </svg>
-
             </span>
-            <span className='text-xl'>
-              Save time
-            </span>
-            <p className='font-thin leading-loose'>
-              Recorded long hours of video and waited for hours to render again as time-lapse? Record directly in time-lapse as you record a normal screen recording.
+            <span className="text-xl">Save time</span>
+            <p className="font-thin leading-loose">
+              Recorded long hours of video and waited for hours to render again
+              as time-lapse? Record directly in time-lapse as you record a
+              normal screen recording.
             </p>
           </div>
-          <div className='flex flex-col gap-4 text-center items-center flex-1 my-10 p-4 rounded'>
+          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
             <span>
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M29.865 16.5H18.135C17.232 16.5 16.5 17.232 16.5 18.135V29.865C16.5 30.768 17.232 31.5 18.135 31.5H29.865C30.768 31.5 31.5 30.768 31.5 29.865V18.135C31.5 17.232 30.768 16.5 29.865 16.5Z" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M20.25 16.5V31.5" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M27.75 16.5V31.5" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M16.5 24H31.5" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M16.5 20.25H20.25" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M16.5 27.75H20.25" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M27.75 27.75H31.5" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M27.75 20.25H31.5" stroke="#FDFFFF" stroke-linecap="round" stroke-linejoin="round" />
-                <rect x="1" y="1" width="45.0204" height="46" rx="9" stroke="#323232" stroke-width="2" />
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M29.865 16.5H18.135C17.232 16.5 16.5 17.232 16.5 18.135V29.865C16.5 30.768 17.232 31.5 18.135 31.5H29.865C30.768 31.5 31.5 30.768 31.5 29.865V18.135C31.5 17.232 30.768 16.5 29.865 16.5Z"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M20.25 16.5V31.5"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M27.75 16.5V31.5"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M16.5 24H31.5"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M16.5 20.25H20.25"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M16.5 27.75H20.25"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M27.75 27.75H31.5"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M27.75 20.25H31.5"
+                  stroke="#FDFFFF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <rect
+                  x="1"
+                  y="1"
+                  width="45.0204"
+                  height="46"
+                  rx="9"
+                  stroke="#323232"
+                  strokeWidth="2"
+                />
               </svg>
-
             </span>
-            <span className='text-xl'>
-              Control output
-            </span>
-            <p className='font-thin leading-loose'>
-              Speed up or slow down video by adjusting the framerate from high to low and further more by customizing the video output.
+            <span className="text-xl">Control output</span>
+            <p className="font-thin leading-loose">
+              Speed up or slow down video by adjusting the framerate from high
+              to low and further more by customizing the video output.
             </p>
           </div>
-          <div className='flex flex-col gap-4 text-center items-center flex-1 my-10 p-4 rounded'>
+          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
             <span>
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 31.5C28.1421 31.5 31.5 28.1421 31.5 24C31.5 19.8579 28.1421 16.5 24 16.5C19.8579 16.5 16.5 19.8579 16.5 24C16.5 28.1421 19.8579 31.5 24 31.5Z" stroke="#FDFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M22.5 26.25V21.75" stroke="#FDFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M25.5 26.25V21.75" stroke="#FDFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                <rect x="1" y="1" width="46" height="46" rx="9" stroke="#323232" stroke-width="2" />
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M24 31.5C28.1421 31.5 31.5 28.1421 31.5 24C31.5 19.8579 28.1421 16.5 24 16.5C19.8579 16.5 16.5 19.8579 16.5 24C16.5 28.1421 19.8579 31.5 24 31.5Z"
+                  stroke="#FDFFFF"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M22.5 26.25V21.75"
+                  stroke="#FDFFFF"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M25.5 26.25V21.75"
+                  stroke="#FDFFFF"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <rect
+                  x="1"
+                  y="1"
+                  width="46"
+                  height="46"
+                  rx="9"
+                  stroke="#323232"
+                  strokeWidth="2"
+                />
               </svg>
-
             </span>
-            <span className='text-xl'>
-              Autopausing
-            </span>
-            <p className='font-thin leading-loose'>
-              Recording is paused smartly based on inactivity, unexpected shutdown and screen lock
+            <span className="text-xl">Autopausing</span>
+            <p className="font-thin leading-loose">
+              Recording is paused smartly based on inactivity, unexpected
+              shutdown and screen lock
             </p>
           </div>
-          <div className='flex flex-col gap-4 text-center items-center flex-1 my-10 p-4 rounded'>
+          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
             <span>
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_4702_365)">
-                  <path d="M38.2041 0.979584H9.79594C4.92682 0.979584 0.979614 4.92679 0.979614 9.79591V38.2041C0.979614 43.0732 4.92682 47.0204 9.79594 47.0204H38.2041C43.0732 47.0204 47.0204 43.0732 47.0204 38.2041V9.79591C47.0204 4.92679 43.0732 0.979584 38.2041 0.979584Z" stroke="#323232" stroke-width="2" />
-                  <path d="M29.3877 18.6122H15.6734C14.5914 18.6122 13.7142 19.4894 13.7142 20.5714V28.4082C13.7142 29.4902 14.5914 30.3673 15.6734 30.3673H29.3877C30.4698 30.3673 31.3469 29.4902 31.3469 28.4082V20.5714C31.3469 19.4894 30.4698 18.6122 29.3877 18.6122Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M35.2653 25.4694V23.5102" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_4702_365)">
+                  <path
+                    d="M38.2041 0.979584H9.79594C4.92682 0.979584 0.979614 4.92679 0.979614 9.79591V38.2041C0.979614 43.0732 4.92682 47.0204 9.79594 47.0204H38.2041C43.0732 47.0204 47.0204 43.0732 47.0204 38.2041V9.79591C47.0204 4.92679 43.0732 0.979584 38.2041 0.979584Z"
+                    stroke="#323232"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M29.3877 18.6122H15.6734C14.5914 18.6122 13.7142 19.4894 13.7142 20.5714V28.4082C13.7142 29.4902 14.5914 30.3673 15.6734 30.3673H29.3877C30.4698 30.3673 31.3469 29.4902 31.3469 28.4082V20.5714C31.3469 19.4894 30.4698 18.6122 29.3877 18.6122Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M35.2653 25.4694V23.5102"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </g>
                 <defs>
                   <clipPath id="clip0_4702_365">
@@ -253,72 +484,157 @@ const Home: NextPage = () => {
                   </clipPath>
                 </defs>
               </svg>
-
-
             </span>
-            <span className='text-xl'>
-              Perfomance
-            </span>
-            <p className='font-thin leading-loose'>
-              Removes load on the processor as there is no re-rendering of the recorded video and is 5X faster.
+            <span className="text-xl">Perfomance</span>
+            <p className="font-thin leading-loose">
+              Removes load on the processor as there is no re-rendering of the
+              recorded video and is 5X faster.
             </p>
           </div>
         </div>
       </section>
-      <section className='mt-20 p-2' id="feedback">
-        <h2 className='text-3xl mt-10 text-center'>Feedback</h2>
-        <p className='font-thin text-xl text-center mt-5'>
+      <section className="mt-20 p-2" id="feedback">
+        <h2 className="mt-10 text-center text-3xl">Feedback</h2>
+        <p className="mt-5 text-center text-xl font-thin">
           Take our word for it or see what others are saying:
         </p>
-        <div className='flex justify-center gap-2 mt-5'>
-          <svg width="150" height="54" viewBox="0 0 150 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_4730_530)">
-              <path d="M94.7 14.2C94.7 18.1 92.9 18.0999 92 18.0999C91.1 18.0999 89.3 18.1 89.3 14.2V3.20001H84.7V14.9C84.7 19.4 87.7 22.5999 92 22.5999C96.3 22.5999 99.3 19.4 99.3 14.9V3.20001H94.7V14.2Z" fill="#F5BF41" />
-              <path d="M139.8 2.59991C134.2 2.59991 129.6 7.10011 129.6 12.8001C129.6 18.4001 134.2 23.0001 139.8 23.0001C145.4 23.0001 150 18.4001 150 12.8001C150 7.20011 145.4 2.59991 139.8 2.59991ZM139.8 18.3001C136.7 18.3001 134.3 15.8 134.3 12.7C134.3 9.70001 136.7 7.19991 139.7 7.09991C142.7 7.09991 145.2 9.50006 145.3 12.5001V12.5999C145.3 15.7999 142.8 18.3001 139.8 18.3001Z" fill="#F5BF41" />
-              <path d="M10.3 6.10352e-05L0 22.4H5.19995L7.19995 18.0999H13.3999L15.3999 22.4H20.6001L10.3 6.10352e-05ZM8.30005 14.3001L10.2 9.59991L12.1001 14.3001H8.30005Z" fill="#F5BF41" />
-              <path d="M32.5 3.30011H25V22.2H29.7V16.8001H32.2C36.8 16.8001 39.7 14.2001 39.7 10.0001V9.89996C39.8 5.79996 37 3.30011 32.5 3.30011ZM35 10.2C35 11.8 33.9001 12.8001 32.1001 12.8001H29.7V7.59991H32.1001C34.0001 7.49991 35 8.50001 35 10.2Z" fill="#F5BF41" />
-              <path d="M51.8999 3.30011H44.3999V22.2H49.1001V16.8001H51.6001C56.2001 16.8001 59.1001 14.2001 59.1001 10.0001V9.89996C59.2001 5.79996 56.3999 3.30011 51.8999 3.30011ZM54.3999 10.2C54.3999 11.8 53.3 12.8001 51.5 12.8001H49.1001V7.59991H51.5C53.4 7.49991 54.3999 8.50001 54.3999 10.2Z" fill="#F5BF41" />
-              <path d="M73.1001 9.30011C69.4001 8.30011 68.6001 7.89991 68.6001 6.59991V6.50006C68.6001 5.50006 69.6 4.80011 71.2 4.80011C73.2 4.90011 75.1 5.59996 76.7 6.89996L76.8 7.00006L79.3999 3.20001L79.3 3.09991C77 1.29991 74.1 0.30011 71.2 0.30011C66.7 0.30011 63.5 2.99996 63.5 6.89996V7.00006C63.5 11.5001 66.6 12.7 70.8 13.7C74.4 14.6 75 15.2001 75 16.3001V16.4C75 17.6 73.9001 18.3001 72.1001 18.3001C69.8001 18.2001 67.5 17.3 65.8 15.7L65.7 15.5999L62.7 19.2L62.8 19.3001C65.3 21.6001 68.6 22.8001 72 22.8001C77 22.8001 80.1001 20.2001 80.1001 16.0001V15.9C80.1001 11.9 77.3001 10.3001 73.1001 9.30011Z" fill="#F5BF41" />
-              <path d="M114.8 23.2L109.1 13.5999L107.4 22.5001H103.3L107.5 2.59991L114.9 15.0999L121.9 2.59991L126.1 22.5001H121.7L120.1 13.7L114.8 23.2Z" fill="#F5BF41" />
+        <div className="mt-5 flex justify-center gap-2">
+          <svg
+            width="150"
+            height="54"
+            viewBox="0 0 150 54"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clipPath="url(#clip0_4730_530)">
+              <path
+                d="M94.7 14.2C94.7 18.1 92.9 18.0999 92 18.0999C91.1 18.0999 89.3 18.1 89.3 14.2V3.20001H84.7V14.9C84.7 19.4 87.7 22.5999 92 22.5999C96.3 22.5999 99.3 19.4 99.3 14.9V3.20001H94.7V14.2Z"
+                fill="#F5BF41"
+              />
+              <path
+                d="M139.8 2.59991C134.2 2.59991 129.6 7.10011 129.6 12.8001C129.6 18.4001 134.2 23.0001 139.8 23.0001C145.4 23.0001 150 18.4001 150 12.8001C150 7.20011 145.4 2.59991 139.8 2.59991ZM139.8 18.3001C136.7 18.3001 134.3 15.8 134.3 12.7C134.3 9.70001 136.7 7.19991 139.7 7.09991C142.7 7.09991 145.2 9.50006 145.3 12.5001V12.5999C145.3 15.7999 142.8 18.3001 139.8 18.3001Z"
+                fill="#F5BF41"
+              />
+              <path
+                d="M10.3 6.10352e-05L0 22.4H5.19995L7.19995 18.0999H13.3999L15.3999 22.4H20.6001L10.3 6.10352e-05ZM8.30005 14.3001L10.2 9.59991L12.1001 14.3001H8.30005Z"
+                fill="#F5BF41"
+              />
+              <path
+                d="M32.5 3.30011H25V22.2H29.7V16.8001H32.2C36.8 16.8001 39.7 14.2001 39.7 10.0001V9.89996C39.8 5.79996 37 3.30011 32.5 3.30011ZM35 10.2C35 11.8 33.9001 12.8001 32.1001 12.8001H29.7V7.59991H32.1001C34.0001 7.49991 35 8.50001 35 10.2Z"
+                fill="#F5BF41"
+              />
+              <path
+                d="M51.8999 3.30011H44.3999V22.2H49.1001V16.8001H51.6001C56.2001 16.8001 59.1001 14.2001 59.1001 10.0001V9.89996C59.2001 5.79996 56.3999 3.30011 51.8999 3.30011ZM54.3999 10.2C54.3999 11.8 53.3 12.8001 51.5 12.8001H49.1001V7.59991H51.5C53.4 7.49991 54.3999 8.50001 54.3999 10.2Z"
+                fill="#F5BF41"
+              />
+              <path
+                d="M73.1001 9.30011C69.4001 8.30011 68.6001 7.89991 68.6001 6.59991V6.50006C68.6001 5.50006 69.6 4.80011 71.2 4.80011C73.2 4.90011 75.1 5.59996 76.7 6.89996L76.8 7.00006L79.3999 3.20001L79.3 3.09991C77 1.29991 74.1 0.30011 71.2 0.30011C66.7 0.30011 63.5 2.99996 63.5 6.89996V7.00006C63.5 11.5001 66.6 12.7 70.8 13.7C74.4 14.6 75 15.2001 75 16.3001V16.4C75 17.6 73.9001 18.3001 72.1001 18.3001C69.8001 18.2001 67.5 17.3 65.8 15.7L65.7 15.5999L62.7 19.2L62.8 19.3001C65.3 21.6001 68.6 22.8001 72 22.8001C77 22.8001 80.1001 20.2001 80.1001 16.0001V15.9C80.1001 11.9 77.3001 10.3001 73.1001 9.30011Z"
+                fill="#F5BF41"
+              />
+              <path
+                d="M114.8 23.2L109.1 13.5999L107.4 22.5001H103.3L107.5 2.59991L114.9 15.0999L121.9 2.59991L126.1 22.5001H121.7L120.1 13.7L114.8 23.2Z"
+                fill="#F5BF41"
+              />
             </g>
-            <g clip-path="url(#clip1_4730_530)">
-              <path d="M25.7277 51.913L11.6147 53.464C11.3956 53.4638 11.1813 53.4003 10.9975 53.2812C10.8136 53.1622 10.668 52.9926 10.5782 52.7928C10.4883 52.5931 10.458 52.3716 10.4909 52.1551C10.5238 51.9385 10.6185 51.7361 10.7637 51.572C13.3557 48.621 18.7637 42.207 23.7797 42.207C24.8179 42.2068 25.8349 42.5019 26.7117 43.058C29.8117 45.007 28.8497 48.506 27.9607 50.458C27.7652 50.8877 27.4513 51.2527 27.0558 51.5104C26.6604 51.7681 26.1996 51.9077 25.7277 51.913V51.913Z" fill="#FFBC00" />
-              <path d="M23.7615 40.695C18.4265 40.695 13.1445 46.54 10.1785 49.927C10.0444 49.7192 9.98279 49.4729 10.0034 49.2265C10.024 48.9801 10.1257 48.7475 10.2925 48.565C12.8835 45.613 18.2945 39.2 23.3075 39.2C24.3475 39.1988 25.3663 39.494 26.2445 40.051C27.0557 40.5424 27.6912 41.2773 28.0605 42.151C27.8917 42.0143 27.7147 41.8881 27.5305 41.773C26.4022 41.066 25.097 40.6923 23.7655 40.695" fill="#FFBC00" />
-              <path d="M53.0402 51.913L38.9272 53.464C38.7081 53.4638 38.4938 53.4003 38.31 53.2812C38.1261 53.1622 37.9805 52.9926 37.8907 52.7928C37.8008 52.5931 37.7705 52.3716 37.8034 52.1551C37.8363 51.9385 37.931 51.7361 38.0762 51.572C40.6682 48.621 46.0762 42.207 51.0922 42.207C52.1304 42.2068 53.1474 42.5019 54.0242 43.058C57.1242 45.007 56.1622 48.506 55.2732 50.458C55.0777 50.8877 54.7638 51.2527 54.3683 51.5104C53.9729 51.7681 53.5121 51.9077 53.0402 51.913V51.913Z" fill="#FFBC00" />
-              <path d="M51.074 40.695C45.739 40.695 40.457 46.54 37.491 49.927C37.3569 49.7192 37.2953 49.4729 37.3159 49.2265C37.3365 48.9801 37.4382 48.7475 37.605 48.565C40.196 45.613 45.607 39.2 50.62 39.2C51.66 39.1988 52.6788 39.494 53.557 40.051C54.3682 40.5424 55.0037 41.2773 55.373 42.151C55.2042 42.0143 55.0272 41.8881 54.843 41.773C53.7147 41.066 52.4095 40.6923 51.078 40.695" fill="#FFBC00" />
-              <path d="M80.3546 51.913L66.2416 53.464C66.0226 53.4638 65.8083 53.4003 65.6244 53.2812C65.4406 53.1622 65.295 52.9926 65.2051 52.7928C65.1153 52.5931 65.085 52.3716 65.1179 52.1551C65.1508 51.9385 65.2455 51.7361 65.3906 51.572C67.9826 48.621 73.3906 42.207 78.4066 42.207C79.4449 42.2068 80.4618 42.5019 81.3386 43.058C84.4386 45.007 83.4766 48.506 82.5876 50.458C82.3921 50.8877 82.0782 51.2527 81.6828 51.5104C81.2873 51.7681 80.8266 51.9077 80.3546 51.913V51.913Z" fill="#FFBC00" />
-              <path d="M78.3885 40.695C73.0535 40.695 67.7715 46.54 64.8055 49.927C64.6713 49.7192 64.6097 49.4729 64.6304 49.2265C64.651 48.9801 64.7527 48.7475 64.9195 48.565C67.5105 45.613 72.9215 39.2 77.9345 39.2C78.9744 39.1988 79.9932 39.494 80.8715 40.051C81.6827 40.5424 82.3182 41.2773 82.6875 42.151C82.5186 42.0143 82.3416 41.8881 82.1575 41.773C81.0291 41.066 79.724 40.6923 78.3925 40.695" fill="#FFBC00" />
-              <path d="M107.667 51.913L93.5541 53.464C93.3351 53.4638 93.1208 53.4003 92.9369 53.2812C92.7531 53.1622 92.6075 52.9926 92.5176 52.7928C92.4278 52.5931 92.3975 52.3716 92.4304 52.1551C92.4633 51.9385 92.558 51.7361 92.7031 51.572C95.2951 48.621 100.703 42.207 105.719 42.207C106.757 42.2068 107.774 42.5019 108.651 43.058C111.751 45.007 110.789 48.506 109.9 50.458C109.705 50.8877 109.391 51.2527 108.995 51.5104C108.6 51.7681 108.139 51.9077 107.667 51.913V51.913Z" fill="#FFBC00" />
-              <path d="M105.701 40.695C100.366 40.695 95.084 46.54 92.118 49.927C91.9838 49.7192 91.9222 49.4729 91.9429 49.2265C91.9635 48.9801 92.0652 48.7475 92.232 48.565C94.823 45.613 100.234 39.2 105.247 39.2C106.287 39.1988 107.306 39.494 108.184 40.051C108.995 40.5424 109.631 41.2773 110 42.151C109.831 42.0143 109.654 41.8881 109.47 41.773C108.342 41.066 107.036 40.6923 105.705 40.695" fill="#FFBC00" />
-              <path d="M134.98 51.913L120.867 53.464C120.648 53.4638 120.433 53.4003 120.249 53.2812C120.066 53.1622 119.92 52.9926 119.83 52.7928C119.74 52.5931 119.71 52.3716 119.743 52.1551C119.776 51.9385 119.87 51.7361 120.016 51.572C122.608 48.621 128.016 42.207 133.032 42.207C134.07 42.2068 135.087 42.5019 135.964 43.058C139.064 45.007 138.102 48.506 137.213 50.458C137.017 50.8877 136.703 51.2527 136.308 51.5104C135.912 51.7681 135.452 51.9077 134.98 51.913V51.913Z" fill="#FFBC00" />
-              <path d="M137.625 45.9452C135.289 38.7099 127.568 43.6004 124 46.9502L125.946 52.9796C130.812 53.6496 139.961 53.1806 137.625 45.9452Z" fill="#C4C4C4" />
-              <path d="M133.013 40.695C127.678 40.695 122.396 46.54 119.43 49.927C119.296 49.7192 119.235 49.4729 119.255 49.2265C119.276 48.9801 119.378 48.7475 119.544 48.565C122.135 45.613 127.546 39.2 132.559 39.2C133.599 39.1988 134.618 39.494 135.496 40.051C136.308 40.5424 136.943 41.2773 137.312 42.151C137.144 42.0143 136.967 41.8881 136.782 41.773C135.654 41.066 134.349 40.6923 133.017 40.695" fill="#FFBC00" />
+            <g clipPath="url(#clip1_4730_530)">
+              <path
+                d="M25.7277 51.913L11.6147 53.464C11.3956 53.4638 11.1813 53.4003 10.9975 53.2812C10.8136 53.1622 10.668 52.9926 10.5782 52.7928C10.4883 52.5931 10.458 52.3716 10.4909 52.1551C10.5238 51.9385 10.6185 51.7361 10.7637 51.572C13.3557 48.621 18.7637 42.207 23.7797 42.207C24.8179 42.2068 25.8349 42.5019 26.7117 43.058C29.8117 45.007 28.8497 48.506 27.9607 50.458C27.7652 50.8877 27.4513 51.2527 27.0558 51.5104C26.6604 51.7681 26.1996 51.9077 25.7277 51.913V51.913Z"
+                fill="#FFBC00"
+              />
+              <path
+                d="M23.7615 40.695C18.4265 40.695 13.1445 46.54 10.1785 49.927C10.0444 49.7192 9.98279 49.4729 10.0034 49.2265C10.024 48.9801 10.1257 48.7475 10.2925 48.565C12.8835 45.613 18.2945 39.2 23.3075 39.2C24.3475 39.1988 25.3663 39.494 26.2445 40.051C27.0557 40.5424 27.6912 41.2773 28.0605 42.151C27.8917 42.0143 27.7147 41.8881 27.5305 41.773C26.4022 41.066 25.097 40.6923 23.7655 40.695"
+                fill="#FFBC00"
+              />
+              <path
+                d="M53.0402 51.913L38.9272 53.464C38.7081 53.4638 38.4938 53.4003 38.31 53.2812C38.1261 53.1622 37.9805 52.9926 37.8907 52.7928C37.8008 52.5931 37.7705 52.3716 37.8034 52.1551C37.8363 51.9385 37.931 51.7361 38.0762 51.572C40.6682 48.621 46.0762 42.207 51.0922 42.207C52.1304 42.2068 53.1474 42.5019 54.0242 43.058C57.1242 45.007 56.1622 48.506 55.2732 50.458C55.0777 50.8877 54.7638 51.2527 54.3683 51.5104C53.9729 51.7681 53.5121 51.9077 53.0402 51.913V51.913Z"
+                fill="#FFBC00"
+              />
+              <path
+                d="M51.074 40.695C45.739 40.695 40.457 46.54 37.491 49.927C37.3569 49.7192 37.2953 49.4729 37.3159 49.2265C37.3365 48.9801 37.4382 48.7475 37.605 48.565C40.196 45.613 45.607 39.2 50.62 39.2C51.66 39.1988 52.6788 39.494 53.557 40.051C54.3682 40.5424 55.0037 41.2773 55.373 42.151C55.2042 42.0143 55.0272 41.8881 54.843 41.773C53.7147 41.066 52.4095 40.6923 51.078 40.695"
+                fill="#FFBC00"
+              />
+              <path
+                d="M80.3546 51.913L66.2416 53.464C66.0226 53.4638 65.8083 53.4003 65.6244 53.2812C65.4406 53.1622 65.295 52.9926 65.2051 52.7928C65.1153 52.5931 65.085 52.3716 65.1179 52.1551C65.1508 51.9385 65.2455 51.7361 65.3906 51.572C67.9826 48.621 73.3906 42.207 78.4066 42.207C79.4449 42.2068 80.4618 42.5019 81.3386 43.058C84.4386 45.007 83.4766 48.506 82.5876 50.458C82.3921 50.8877 82.0782 51.2527 81.6828 51.5104C81.2873 51.7681 80.8266 51.9077 80.3546 51.913V51.913Z"
+                fill="#FFBC00"
+              />
+              <path
+                d="M78.3885 40.695C73.0535 40.695 67.7715 46.54 64.8055 49.927C64.6713 49.7192 64.6097 49.4729 64.6304 49.2265C64.651 48.9801 64.7527 48.7475 64.9195 48.565C67.5105 45.613 72.9215 39.2 77.9345 39.2C78.9744 39.1988 79.9932 39.494 80.8715 40.051C81.6827 40.5424 82.3182 41.2773 82.6875 42.151C82.5186 42.0143 82.3416 41.8881 82.1575 41.773C81.0291 41.066 79.724 40.6923 78.3925 40.695"
+                fill="#FFBC00"
+              />
+              <path
+                d="M107.667 51.913L93.5541 53.464C93.3351 53.4638 93.1208 53.4003 92.9369 53.2812C92.7531 53.1622 92.6075 52.9926 92.5176 52.7928C92.4278 52.5931 92.3975 52.3716 92.4304 52.1551C92.4633 51.9385 92.558 51.7361 92.7031 51.572C95.2951 48.621 100.703 42.207 105.719 42.207C106.757 42.2068 107.774 42.5019 108.651 43.058C111.751 45.007 110.789 48.506 109.9 50.458C109.705 50.8877 109.391 51.2527 108.995 51.5104C108.6 51.7681 108.139 51.9077 107.667 51.913V51.913Z"
+                fill="#FFBC00"
+              />
+              <path
+                d="M105.701 40.695C100.366 40.695 95.084 46.54 92.118 49.927C91.9838 49.7192 91.9222 49.4729 91.9429 49.2265C91.9635 48.9801 92.0652 48.7475 92.232 48.565C94.823 45.613 100.234 39.2 105.247 39.2C106.287 39.1988 107.306 39.494 108.184 40.051C108.995 40.5424 109.631 41.2773 110 42.151C109.831 42.0143 109.654 41.8881 109.47 41.773C108.342 41.066 107.036 40.6923 105.705 40.695"
+                fill="#FFBC00"
+              />
+              <path
+                d="M134.98 51.913L120.867 53.464C120.648 53.4638 120.433 53.4003 120.249 53.2812C120.066 53.1622 119.92 52.9926 119.83 52.7928C119.74 52.5931 119.71 52.3716 119.743 52.1551C119.776 51.9385 119.87 51.7361 120.016 51.572C122.608 48.621 128.016 42.207 133.032 42.207C134.07 42.2068 135.087 42.5019 135.964 43.058C139.064 45.007 138.102 48.506 137.213 50.458C137.017 50.8877 136.703 51.2527 136.308 51.5104C135.912 51.7681 135.452 51.9077 134.98 51.913V51.913Z"
+                fill="#FFBC00"
+              />
+              <path
+                d="M137.625 45.9452C135.289 38.7099 127.568 43.6004 124 46.9502L125.946 52.9796C130.812 53.6496 139.961 53.1806 137.625 45.9452Z"
+                fill="#C4C4C4"
+              />
+              <path
+                d="M133.013 40.695C127.678 40.695 122.396 46.54 119.43 49.927C119.296 49.7192 119.235 49.4729 119.255 49.2265C119.276 48.9801 119.378 48.7475 119.544 48.565C122.135 45.613 127.546 39.2 132.559 39.2C133.599 39.1988 134.618 39.494 135.496 40.051C136.308 40.5424 136.943 41.2773 137.312 42.151C137.144 42.0143 136.967 41.8881 136.782 41.773C135.654 41.066 134.349 40.6923 133.017 40.695"
+                fill="#FFBC00"
+              />
             </g>
             <defs>
               <clipPath id="clip0_4730_530">
                 <rect width="150" height="23.2" fill="white" />
               </clipPath>
               <clipPath id="clip1_4730_530">
-                <rect width="128.088" height="14.264" fill="white" transform="translate(10 39.2)" />
+                <rect
+                  width="128.088"
+                  height="14.264"
+                  fill="white"
+                  transform="translate(10 39.2)"
+                />
               </clipPath>
             </defs>
           </svg>
-          <svg width="124" height="45" viewBox="0 0 124 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.9349 30.0251C23.8523 29.8033 23.704 29.612 23.5099 29.4767C23.3157 29.3413 23.0849 29.2685 22.8482 29.2678H18.1439C18.0638 29.2678 17.9858 29.243 17.9204 29.1968C17.8551 29.1505 17.8057 29.0851 17.7791 29.0096L16.0904 24.2234C16.0077 24.0021 15.8594 23.8115 15.6654 23.6768C15.4713 23.5422 15.2408 23.4701 15.0046 23.4701C14.7684 23.4701 14.5379 23.5422 14.3438 23.6768C14.1498 23.8115 14.0015 24.0021 13.9187 24.2234L13.9149 24.2357L12.2301 29.0096C12.2035 29.085 12.1543 29.1503 12.0891 29.1965C12.0239 29.2428 11.946 29.2677 11.8661 29.2678H7.16015C6.92197 29.2676 6.68951 29.3408 6.4944 29.4774C6.29929 29.614 6.15099 29.8074 6.06967 30.0312C5.98834 30.2551 5.97795 30.4986 6.0399 30.7285C6.10185 30.9585 6.23313 31.1638 6.41589 31.3166L10.4223 34.6398C10.4823 34.6896 10.5258 34.7563 10.5471 34.8311C10.5685 34.906 10.5668 34.9856 10.5421 35.0595L8.85887 40.107C8.78108 40.3404 8.77954 40.5924 8.85448 40.8267C8.92942 41.061 9.07695 41.2654 9.27574 41.4104C9.47452 41.5553 9.71425 41.6332 9.96025 41.6329C10.2062 41.6325 10.4458 41.5539 10.6441 41.4085L14.7758 38.3789C14.8421 38.3304 14.9221 38.3042 15.0042 38.3042C15.0863 38.3042 15.1663 38.3304 15.2326 38.3789L19.3627 41.4077C19.561 41.5537 19.8006 41.6327 20.0468 41.6333C20.293 41.634 20.5331 41.5562 20.7321 41.4113C20.9312 41.2664 21.079 41.0619 21.154 40.8274C21.229 40.5929 21.2275 40.3405 21.1495 40.107L19.4662 35.0564C19.4416 34.9825 19.4398 34.9029 19.4612 34.8281C19.4826 34.7532 19.5261 34.6865 19.586 34.6368L23.6002 31.3088C23.7806 31.1548 23.9095 30.9492 23.9693 30.7196C24.0291 30.49 24.0171 30.2477 23.9349 30.0251Z" fill="#FDD231" />
-            <path d="M47.9415 30.0251C47.859 29.8033 47.7107 29.612 47.5165 29.4767C47.3224 29.3413 47.0916 29.2685 46.8549 29.2678H42.1506C42.0705 29.2678 41.9924 29.243 41.9271 29.1968C41.8617 29.1505 41.8124 29.0851 41.7858 29.0096L40.0971 24.2234C40.0144 24.0021 39.8661 23.8115 39.672 23.6768C39.478 23.5422 39.2474 23.4701 39.0113 23.4701C38.7751 23.4701 38.5445 23.5422 38.3505 23.6768C38.1564 23.8115 38.0081 24.0021 37.9254 24.2234L37.9215 24.2357L36.2367 29.0096C36.2102 29.085 36.1609 29.1503 36.0957 29.1965C36.0306 29.2428 35.9526 29.2677 35.8727 29.2678H31.1668C30.9287 29.2676 30.6962 29.3408 30.5011 29.4774C30.306 29.614 30.1577 29.8074 30.0764 30.0312C29.995 30.2551 29.9846 30.4986 30.0466 30.7285C30.1085 30.9585 30.2398 31.1638 30.4226 31.3166L34.429 34.6398C34.489 34.6896 34.5325 34.7563 34.5538 34.8311C34.5752 34.906 34.5735 34.9856 34.5488 35.0595L32.8656 40.107C32.7878 40.3404 32.7862 40.5924 32.8612 40.8267C32.9361 41.061 33.0836 41.2654 33.2824 41.4104C33.4812 41.5553 33.7209 41.6332 33.9669 41.6329C34.2129 41.6325 34.4525 41.5539 34.6508 41.4085L38.7825 38.3789C38.8487 38.3304 38.9287 38.3042 39.0109 38.3042C39.093 38.3042 39.173 38.3304 39.2392 38.3789L43.3693 41.4077C43.5676 41.5537 43.8073 41.6327 44.0535 41.6333C44.2997 41.634 44.5397 41.5562 44.7388 41.4113C44.9379 41.2664 45.0856 41.0619 45.1607 40.8274C45.2357 40.5929 45.2341 40.3405 45.1562 40.107L43.4729 35.0564C43.4483 34.9825 43.4465 34.9029 43.4679 34.8281C43.4893 34.7532 43.5328 34.6865 43.5927 34.6368L47.6069 31.3088C47.7873 31.1548 47.9161 30.9492 47.976 30.7196C48.0358 30.49 48.0238 30.2477 47.9415 30.0251Z" fill="#FDD231" />
-            <path d="M71.9483 30.0251C71.8658 29.8033 71.7175 29.612 71.5233 29.4767C71.3292 29.3413 71.0984 29.2685 70.8617 29.2678H66.1574C66.0773 29.2678 65.9992 29.243 65.9339 29.1968C65.8685 29.1505 65.8191 29.0851 65.7926 29.0096L64.1039 24.2234C64.0212 24.0021 63.8729 23.8115 63.6788 23.6768C63.4848 23.5422 63.2542 23.4701 63.018 23.4701C62.7819 23.4701 62.5513 23.5422 62.3573 23.6768C62.1632 23.8115 62.0149 24.0021 61.9322 24.2234L61.9283 24.2357L60.2435 29.0096C60.217 29.085 60.1677 29.1503 60.1025 29.1965C60.0373 29.2428 59.9594 29.2677 59.8795 29.2678H55.1736C54.9355 29.2676 54.703 29.3408 54.5079 29.4774C54.3128 29.614 54.1645 29.8074 54.0832 30.0312C54.0018 30.2551 53.9914 30.4986 54.0534 30.7285C54.1153 30.9585 54.2466 31.1638 54.4294 31.3166L58.4358 34.6398C58.4958 34.6896 58.5393 34.7563 58.5606 34.8311C58.582 34.906 58.5803 34.9856 58.5556 35.0595L56.8724 40.107C56.7946 40.3404 56.793 40.5924 56.868 40.8267C56.9429 41.061 57.0904 41.2654 57.2892 41.4104C57.488 41.5553 57.7277 41.6332 57.9737 41.6329C58.2197 41.6325 58.4593 41.5539 58.6576 41.4085L62.7893 38.3789C62.8555 38.3304 62.9355 38.3042 63.0177 38.3042C63.0998 38.3042 63.1798 38.3304 63.246 38.3789L67.3761 41.4077C67.5744 41.5537 67.8141 41.6327 68.0603 41.6333C68.3065 41.634 68.5465 41.5562 68.7456 41.4113C68.9447 41.2664 69.0924 41.0619 69.1675 40.8274C69.2425 40.5929 69.2409 40.3405 69.163 40.107L67.4797 35.0564C67.4551 34.9825 67.4533 34.9029 67.4747 34.8281C67.4961 34.7532 67.5396 34.6865 67.5995 34.6368L71.6137 31.3088C71.7941 31.1548 71.9229 30.9492 71.9828 30.7196C72.0426 30.49 72.0306 30.2477 71.9483 30.0251Z" fill="#FDD231" />
-            <path d="M95.9551 30.0251C95.8726 29.8033 95.7243 29.612 95.5301 29.4767C95.336 29.3413 95.1052 29.2685 94.8685 29.2678H90.1642C90.0841 29.2678 90.006 29.243 89.9407 29.1968C89.8753 29.1505 89.826 29.0851 89.7994 29.0096L88.1107 24.2234C88.028 24.0021 87.8797 23.8115 87.6856 23.6768C87.4916 23.5422 87.261 23.4701 87.0248 23.4701C86.7887 23.4701 86.5581 23.5422 86.3641 23.6768C86.17 23.8115 86.0217 24.0021 85.939 24.2234L85.9351 24.2357L84.2503 29.0096C84.2238 29.085 84.1745 29.1503 84.1093 29.1965C84.0442 29.2428 83.9662 29.2677 83.8863 29.2678H79.1804C78.9423 29.2676 78.7098 29.3408 78.5147 29.4774C78.3196 29.614 78.1713 29.8074 78.09 30.0312C78.0086 30.2551 77.9982 30.4986 78.0602 30.7285C78.1221 30.9585 78.2534 31.1638 78.4362 31.3166L82.4426 34.6398C82.5026 34.6896 82.5461 34.7563 82.5674 34.8311C82.5888 34.906 82.5871 34.9856 82.5624 35.0595L80.8792 40.107C80.8014 40.3404 80.7998 40.5924 80.8748 40.8267C80.9497 41.061 81.0972 41.2654 81.296 41.4104C81.4948 41.5553 81.7345 41.6332 81.9805 41.6329C82.2265 41.6325 82.4661 41.5539 82.6644 41.4085L86.7961 38.3789C86.8623 38.3304 86.9423 38.3042 87.0245 38.3042C87.1066 38.3042 87.1866 38.3304 87.2528 38.3789L91.3829 41.4077C91.5812 41.5537 91.8209 41.6327 92.0671 41.6333C92.3133 41.634 92.5533 41.5562 92.7524 41.4113C92.9515 41.2664 93.0992 41.0619 93.1743 40.8274C93.2493 40.5929 93.2477 40.3405 93.1698 40.107L91.4865 35.0564C91.4619 34.9825 91.4601 34.9029 91.4815 34.8281C91.5029 34.7532 91.5464 34.6865 91.6063 34.6368L95.6205 31.3088C95.8009 31.1548 95.9297 30.9492 95.9896 30.7196C96.0494 30.49 96.0374 30.2477 95.9551 30.0251Z" fill="#FDD231" />
-            <path d="M119.962 30.0251C119.88 29.8033 119.731 29.612 119.537 29.4767C119.343 29.3413 119.112 29.2685 118.875 29.2678H114.171C114.091 29.2678 114.013 29.243 113.948 29.1968C113.882 29.1505 113.833 29.0851 113.806 29.0096L112.118 24.2234C112.035 24.0021 111.887 23.8115 111.693 23.6768C111.499 23.5422 111.268 23.4701 111.032 23.4701C110.796 23.4701 110.565 23.5422 110.371 23.6768C110.177 23.8115 110.029 24.0021 109.946 24.2234L109.942 24.2357L108.257 29.0096C108.231 29.085 108.181 29.1503 108.116 29.1965C108.051 29.2428 107.973 29.2677 107.893 29.2678H103.187C102.949 29.2676 102.717 29.3408 102.522 29.4774C102.327 29.614 102.178 29.8074 102.097 30.0312C102.016 30.2551 102.005 30.4986 102.067 30.7285C102.129 30.9585 102.26 31.1638 102.443 31.3166L106.45 34.6398C106.51 34.6896 106.553 34.7563 106.574 34.8311C106.596 34.906 106.594 34.9856 106.569 35.0595L104.886 40.107C104.808 40.3404 104.807 40.5924 104.882 40.8267C104.957 41.061 105.104 41.2654 105.303 41.4104C105.502 41.5553 105.741 41.6332 105.987 41.6329C106.233 41.6325 106.473 41.5539 106.671 41.4085L110.803 38.3789C110.869 38.3304 110.949 38.3042 111.031 38.3042C111.114 38.3042 111.194 38.3304 111.26 38.3789L115.39 41.4077C115.588 41.5537 115.828 41.6327 116.074 41.6333C116.32 41.634 116.56 41.5562 116.759 41.4113C116.958 41.2664 117.106 41.0619 117.181 40.8274C117.256 40.5929 117.255 40.3405 117.177 40.107L115.493 35.0564C115.469 34.9825 115.467 34.9029 115.488 34.8281C115.51 34.7532 115.553 34.6865 115.613 34.6368L119.627 31.3088C119.808 31.1548 119.937 30.9492 119.997 30.7196C120.056 30.49 120.044 30.2477 119.962 30.0251Z" fill="#FDD231" />
-            <path d="M15.5355 9.2301C15.5355 5.8991 13.4673 4 10.7678 4C8.05327 4 6 5.8991 6 9.2301C6 12.5461 8.05327 14.4602 10.7678 14.4602C13.4673 14.4602 15.5355 12.5611 15.5355 9.2301ZM13.353 9.2301C13.353 11.3878 12.3288 12.5561 10.7678 12.5561C9.20171 12.5561 8.18253 11.3878 8.18253 9.2301C8.18253 7.0724 9.20171 5.9041 10.7678 5.9041C12.3288 5.9041 13.353 7.0724 13.353 9.2301ZM19.2083 9.9062C19.2132 8.9219 19.7999 8.3451 20.655 8.3451C21.5052 8.3451 22.0172 8.902 22.0123 9.8366V14.321H24.1302V9.4588C24.1302 7.679 23.0861 6.5852 21.4952 6.5852C20.3617 6.5852 19.5414 7.142 19.1983 8.0319H19.1088V6.6846H17.0904V14.321H19.2083V9.9062ZM29.0794 14.321H31.2321V11.0199H33.0417C35.3833 11.0199 36.7456 9.6228 36.7456 7.5895C36.7456 5.566 35.4082 4.1392 33.0964 4.1392H29.0794V14.321ZM31.2321 9.2947V5.8991H32.6838C33.9267 5.8991 34.5282 6.5753 34.5282 7.5895C34.5282 8.5987 33.9267 9.2947 32.6937 9.2947H31.2321ZM38.1041 14.321H40.2219V10.0007C40.2219 9.0611 40.908 8.4148 41.8427 8.4148C42.136 8.4148 42.5387 8.4645 42.7376 8.5291V6.6498C42.5487 6.6051 42.2852 6.5753 42.0714 6.5753C41.2163 6.5753 40.5153 7.0724 40.2369 8.017H40.1573V6.6846H38.1041V14.321ZM46.9274 14.4701C49.2441 14.4701 50.6859 12.8842 50.6859 10.5326C50.6859 8.1662 49.2441 6.5852 46.9274 6.5852C44.6106 6.5852 43.1689 8.1662 43.1689 10.5326C43.1689 12.8842 44.6106 14.4701 46.9274 14.4701ZM46.9373 12.8295C45.8684 12.8295 45.3216 11.8501 45.3216 10.5177C45.3216 9.1853 45.8684 8.201 46.9373 8.201C47.9863 8.201 48.5332 9.1853 48.5332 10.5177C48.5332 11.8501 47.9863 12.8295 46.9373 12.8295ZM54.877 14.4453C56.1099 14.4453 56.7512 13.7344 57.0446 13.098H57.1341V14.321H59.2221V4.1392H57.1092V7.9673H57.0446C56.7612 7.3459 56.1497 6.5852 54.872 6.5852C53.1966 6.5852 51.7797 7.8878 51.7797 10.5128C51.7797 13.0682 53.1369 14.4453 54.877 14.4453ZM55.5481 12.7599C54.5091 12.7599 53.9423 11.8352 53.9423 10.5028C53.9423 9.1804 54.4991 8.2706 55.5481 8.2706C56.5772 8.2706 57.1539 9.1406 57.1539 10.5028C57.1539 11.865 56.5673 12.7599 55.5481 12.7599ZM65.8604 11.0696C65.8654 12.0937 65.1644 12.6307 64.4038 12.6307C63.6033 12.6307 63.0863 12.0689 63.0813 11.169V6.6846H60.9634V11.5469C60.9684 13.3317 62.0124 14.4204 63.5487 14.4204C64.6971 14.4204 65.5224 13.8288 65.8654 12.9339H65.945V14.321H67.9783V6.6846H65.8604V11.0696ZM73.1227 14.4701C75.1561 14.4701 76.4338 13.277 76.5332 11.522H74.5346C74.4103 12.3373 73.8734 12.7947 73.1476 12.7947C72.1582 12.7947 71.5169 11.9645 71.5169 10.5028C71.5169 9.0611 72.1632 8.2358 73.1476 8.2358C73.9231 8.2358 74.4203 8.7478 74.5346 9.5085H76.5332C76.4437 7.7436 75.1064 6.5852 73.1128 6.5852C70.796 6.5852 69.3642 8.191 69.3642 10.5326C69.3642 12.8544 70.7711 14.4701 73.1227 14.4701ZM81.951 6.6846H80.5142V4.8551H78.3963V6.6846H77.3523V8.2755H78.3963V12.2528C78.3864 13.7493 79.4055 14.49 80.9418 14.4254C81.4886 14.4055 81.8764 14.2961 82.0902 14.2265L81.7571 12.6505C81.6527 12.6704 81.429 12.7201 81.2301 12.7201C80.8075 12.7201 80.5142 12.5611 80.5142 11.9744V8.2755H81.951V6.6846ZM86.6106 14.321H88.7633V10.115H93.1333V14.321H95.2811V4.1392H93.1333V8.3402H88.7633V4.1392H86.6106V14.321ZM101.913 11.0696C101.918 12.0937 101.217 12.6307 100.456 12.6307C99.6561 12.6307 99.139 12.0689 99.1341 11.169V6.6846H97.0162V11.5469C97.0211 13.3317 98.0652 14.4204 99.6014 14.4204C100.75 14.4204 101.575 13.8288 101.918 12.9339H101.997V14.321H104.031V6.6846H101.913V11.0696ZM107.843 9.9062C107.848 8.9219 108.434 8.3451 109.29 8.3451C110.14 8.3451 110.652 8.902 110.647 9.8366V14.321H112.765V9.4588C112.765 7.679 111.721 6.5852 110.13 6.5852C108.996 6.5852 108.176 7.142 107.833 8.0319H107.743V6.6846H105.725V14.321H107.843V9.9062ZM118.496 6.6846H117.059V4.8551H114.941V6.6846H113.897V8.2755H114.941V12.2528C114.931 13.7493 115.95 14.49 117.486 14.4254C118.033 14.4055 118.421 14.2961 118.635 14.2265L118.302 12.6505C118.197 12.6704 117.974 12.7201 117.775 12.7201C117.352 12.7201 117.059 12.5611 117.059 11.9744V8.2755H118.496V6.6846Z" fill="#F2F2F2" />
+          <svg
+            width="124"
+            height="45"
+            viewBox="0 0 124 45"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M23.9349 30.0251C23.8523 29.8033 23.704 29.612 23.5099 29.4767C23.3157 29.3413 23.0849 29.2685 22.8482 29.2678H18.1439C18.0638 29.2678 17.9858 29.243 17.9204 29.1968C17.8551 29.1505 17.8057 29.0851 17.7791 29.0096L16.0904 24.2234C16.0077 24.0021 15.8594 23.8115 15.6654 23.6768C15.4713 23.5422 15.2408 23.4701 15.0046 23.4701C14.7684 23.4701 14.5379 23.5422 14.3438 23.6768C14.1498 23.8115 14.0015 24.0021 13.9187 24.2234L13.9149 24.2357L12.2301 29.0096C12.2035 29.085 12.1543 29.1503 12.0891 29.1965C12.0239 29.2428 11.946 29.2677 11.8661 29.2678H7.16015C6.92197 29.2676 6.68951 29.3408 6.4944 29.4774C6.29929 29.614 6.15099 29.8074 6.06967 30.0312C5.98834 30.2551 5.97795 30.4986 6.0399 30.7285C6.10185 30.9585 6.23313 31.1638 6.41589 31.3166L10.4223 34.6398C10.4823 34.6896 10.5258 34.7563 10.5471 34.8311C10.5685 34.906 10.5668 34.9856 10.5421 35.0595L8.85887 40.107C8.78108 40.3404 8.77954 40.5924 8.85448 40.8267C8.92942 41.061 9.07695 41.2654 9.27574 41.4104C9.47452 41.5553 9.71425 41.6332 9.96025 41.6329C10.2062 41.6325 10.4458 41.5539 10.6441 41.4085L14.7758 38.3789C14.8421 38.3304 14.9221 38.3042 15.0042 38.3042C15.0863 38.3042 15.1663 38.3304 15.2326 38.3789L19.3627 41.4077C19.561 41.5537 19.8006 41.6327 20.0468 41.6333C20.293 41.634 20.5331 41.5562 20.7321 41.4113C20.9312 41.2664 21.079 41.0619 21.154 40.8274C21.229 40.5929 21.2275 40.3405 21.1495 40.107L19.4662 35.0564C19.4416 34.9825 19.4398 34.9029 19.4612 34.8281C19.4826 34.7532 19.5261 34.6865 19.586 34.6368L23.6002 31.3088C23.7806 31.1548 23.9095 30.9492 23.9693 30.7196C24.0291 30.49 24.0171 30.2477 23.9349 30.0251Z"
+              fill="#FDD231"
+            />
+            <path
+              d="M47.9415 30.0251C47.859 29.8033 47.7107 29.612 47.5165 29.4767C47.3224 29.3413 47.0916 29.2685 46.8549 29.2678H42.1506C42.0705 29.2678 41.9924 29.243 41.9271 29.1968C41.8617 29.1505 41.8124 29.0851 41.7858 29.0096L40.0971 24.2234C40.0144 24.0021 39.8661 23.8115 39.672 23.6768C39.478 23.5422 39.2474 23.4701 39.0113 23.4701C38.7751 23.4701 38.5445 23.5422 38.3505 23.6768C38.1564 23.8115 38.0081 24.0021 37.9254 24.2234L37.9215 24.2357L36.2367 29.0096C36.2102 29.085 36.1609 29.1503 36.0957 29.1965C36.0306 29.2428 35.9526 29.2677 35.8727 29.2678H31.1668C30.9287 29.2676 30.6962 29.3408 30.5011 29.4774C30.306 29.614 30.1577 29.8074 30.0764 30.0312C29.995 30.2551 29.9846 30.4986 30.0466 30.7285C30.1085 30.9585 30.2398 31.1638 30.4226 31.3166L34.429 34.6398C34.489 34.6896 34.5325 34.7563 34.5538 34.8311C34.5752 34.906 34.5735 34.9856 34.5488 35.0595L32.8656 40.107C32.7878 40.3404 32.7862 40.5924 32.8612 40.8267C32.9361 41.061 33.0836 41.2654 33.2824 41.4104C33.4812 41.5553 33.7209 41.6332 33.9669 41.6329C34.2129 41.6325 34.4525 41.5539 34.6508 41.4085L38.7825 38.3789C38.8487 38.3304 38.9287 38.3042 39.0109 38.3042C39.093 38.3042 39.173 38.3304 39.2392 38.3789L43.3693 41.4077C43.5676 41.5537 43.8073 41.6327 44.0535 41.6333C44.2997 41.634 44.5397 41.5562 44.7388 41.4113C44.9379 41.2664 45.0856 41.0619 45.1607 40.8274C45.2357 40.5929 45.2341 40.3405 45.1562 40.107L43.4729 35.0564C43.4483 34.9825 43.4465 34.9029 43.4679 34.8281C43.4893 34.7532 43.5328 34.6865 43.5927 34.6368L47.6069 31.3088C47.7873 31.1548 47.9161 30.9492 47.976 30.7196C48.0358 30.49 48.0238 30.2477 47.9415 30.0251Z"
+              fill="#FDD231"
+            />
+            <path
+              d="M71.9483 30.0251C71.8658 29.8033 71.7175 29.612 71.5233 29.4767C71.3292 29.3413 71.0984 29.2685 70.8617 29.2678H66.1574C66.0773 29.2678 65.9992 29.243 65.9339 29.1968C65.8685 29.1505 65.8191 29.0851 65.7926 29.0096L64.1039 24.2234C64.0212 24.0021 63.8729 23.8115 63.6788 23.6768C63.4848 23.5422 63.2542 23.4701 63.018 23.4701C62.7819 23.4701 62.5513 23.5422 62.3573 23.6768C62.1632 23.8115 62.0149 24.0021 61.9322 24.2234L61.9283 24.2357L60.2435 29.0096C60.217 29.085 60.1677 29.1503 60.1025 29.1965C60.0373 29.2428 59.9594 29.2677 59.8795 29.2678H55.1736C54.9355 29.2676 54.703 29.3408 54.5079 29.4774C54.3128 29.614 54.1645 29.8074 54.0832 30.0312C54.0018 30.2551 53.9914 30.4986 54.0534 30.7285C54.1153 30.9585 54.2466 31.1638 54.4294 31.3166L58.4358 34.6398C58.4958 34.6896 58.5393 34.7563 58.5606 34.8311C58.582 34.906 58.5803 34.9856 58.5556 35.0595L56.8724 40.107C56.7946 40.3404 56.793 40.5924 56.868 40.8267C56.9429 41.061 57.0904 41.2654 57.2892 41.4104C57.488 41.5553 57.7277 41.6332 57.9737 41.6329C58.2197 41.6325 58.4593 41.5539 58.6576 41.4085L62.7893 38.3789C62.8555 38.3304 62.9355 38.3042 63.0177 38.3042C63.0998 38.3042 63.1798 38.3304 63.246 38.3789L67.3761 41.4077C67.5744 41.5537 67.8141 41.6327 68.0603 41.6333C68.3065 41.634 68.5465 41.5562 68.7456 41.4113C68.9447 41.2664 69.0924 41.0619 69.1675 40.8274C69.2425 40.5929 69.2409 40.3405 69.163 40.107L67.4797 35.0564C67.4551 34.9825 67.4533 34.9029 67.4747 34.8281C67.4961 34.7532 67.5396 34.6865 67.5995 34.6368L71.6137 31.3088C71.7941 31.1548 71.9229 30.9492 71.9828 30.7196C72.0426 30.49 72.0306 30.2477 71.9483 30.0251Z"
+              fill="#FDD231"
+            />
+            <path
+              d="M95.9551 30.0251C95.8726 29.8033 95.7243 29.612 95.5301 29.4767C95.336 29.3413 95.1052 29.2685 94.8685 29.2678H90.1642C90.0841 29.2678 90.006 29.243 89.9407 29.1968C89.8753 29.1505 89.826 29.0851 89.7994 29.0096L88.1107 24.2234C88.028 24.0021 87.8797 23.8115 87.6856 23.6768C87.4916 23.5422 87.261 23.4701 87.0248 23.4701C86.7887 23.4701 86.5581 23.5422 86.3641 23.6768C86.17 23.8115 86.0217 24.0021 85.939 24.2234L85.9351 24.2357L84.2503 29.0096C84.2238 29.085 84.1745 29.1503 84.1093 29.1965C84.0442 29.2428 83.9662 29.2677 83.8863 29.2678H79.1804C78.9423 29.2676 78.7098 29.3408 78.5147 29.4774C78.3196 29.614 78.1713 29.8074 78.09 30.0312C78.0086 30.2551 77.9982 30.4986 78.0602 30.7285C78.1221 30.9585 78.2534 31.1638 78.4362 31.3166L82.4426 34.6398C82.5026 34.6896 82.5461 34.7563 82.5674 34.8311C82.5888 34.906 82.5871 34.9856 82.5624 35.0595L80.8792 40.107C80.8014 40.3404 80.7998 40.5924 80.8748 40.8267C80.9497 41.061 81.0972 41.2654 81.296 41.4104C81.4948 41.5553 81.7345 41.6332 81.9805 41.6329C82.2265 41.6325 82.4661 41.5539 82.6644 41.4085L86.7961 38.3789C86.8623 38.3304 86.9423 38.3042 87.0245 38.3042C87.1066 38.3042 87.1866 38.3304 87.2528 38.3789L91.3829 41.4077C91.5812 41.5537 91.8209 41.6327 92.0671 41.6333C92.3133 41.634 92.5533 41.5562 92.7524 41.4113C92.9515 41.2664 93.0992 41.0619 93.1743 40.8274C93.2493 40.5929 93.2477 40.3405 93.1698 40.107L91.4865 35.0564C91.4619 34.9825 91.4601 34.9029 91.4815 34.8281C91.5029 34.7532 91.5464 34.6865 91.6063 34.6368L95.6205 31.3088C95.8009 31.1548 95.9297 30.9492 95.9896 30.7196C96.0494 30.49 96.0374 30.2477 95.9551 30.0251Z"
+              fill="#FDD231"
+            />
+            <path
+              d="M119.962 30.0251C119.88 29.8033 119.731 29.612 119.537 29.4767C119.343 29.3413 119.112 29.2685 118.875 29.2678H114.171C114.091 29.2678 114.013 29.243 113.948 29.1968C113.882 29.1505 113.833 29.0851 113.806 29.0096L112.118 24.2234C112.035 24.0021 111.887 23.8115 111.693 23.6768C111.499 23.5422 111.268 23.4701 111.032 23.4701C110.796 23.4701 110.565 23.5422 110.371 23.6768C110.177 23.8115 110.029 24.0021 109.946 24.2234L109.942 24.2357L108.257 29.0096C108.231 29.085 108.181 29.1503 108.116 29.1965C108.051 29.2428 107.973 29.2677 107.893 29.2678H103.187C102.949 29.2676 102.717 29.3408 102.522 29.4774C102.327 29.614 102.178 29.8074 102.097 30.0312C102.016 30.2551 102.005 30.4986 102.067 30.7285C102.129 30.9585 102.26 31.1638 102.443 31.3166L106.45 34.6398C106.51 34.6896 106.553 34.7563 106.574 34.8311C106.596 34.906 106.594 34.9856 106.569 35.0595L104.886 40.107C104.808 40.3404 104.807 40.5924 104.882 40.8267C104.957 41.061 105.104 41.2654 105.303 41.4104C105.502 41.5553 105.741 41.6332 105.987 41.6329C106.233 41.6325 106.473 41.5539 106.671 41.4085L110.803 38.3789C110.869 38.3304 110.949 38.3042 111.031 38.3042C111.114 38.3042 111.194 38.3304 111.26 38.3789L115.39 41.4077C115.588 41.5537 115.828 41.6327 116.074 41.6333C116.32 41.634 116.56 41.5562 116.759 41.4113C116.958 41.2664 117.106 41.0619 117.181 40.8274C117.256 40.5929 117.255 40.3405 117.177 40.107L115.493 35.0564C115.469 34.9825 115.467 34.9029 115.488 34.8281C115.51 34.7532 115.553 34.6865 115.613 34.6368L119.627 31.3088C119.808 31.1548 119.937 30.9492 119.997 30.7196C120.056 30.49 120.044 30.2477 119.962 30.0251Z"
+              fill="#FDD231"
+            />
+            <path
+              d="M15.5355 9.2301C15.5355 5.8991 13.4673 4 10.7678 4C8.05327 4 6 5.8991 6 9.2301C6 12.5461 8.05327 14.4602 10.7678 14.4602C13.4673 14.4602 15.5355 12.5611 15.5355 9.2301ZM13.353 9.2301C13.353 11.3878 12.3288 12.5561 10.7678 12.5561C9.20171 12.5561 8.18253 11.3878 8.18253 9.2301C8.18253 7.0724 9.20171 5.9041 10.7678 5.9041C12.3288 5.9041 13.353 7.0724 13.353 9.2301ZM19.2083 9.9062C19.2132 8.9219 19.7999 8.3451 20.655 8.3451C21.5052 8.3451 22.0172 8.902 22.0123 9.8366V14.321H24.1302V9.4588C24.1302 7.679 23.0861 6.5852 21.4952 6.5852C20.3617 6.5852 19.5414 7.142 19.1983 8.0319H19.1088V6.6846H17.0904V14.321H19.2083V9.9062ZM29.0794 14.321H31.2321V11.0199H33.0417C35.3833 11.0199 36.7456 9.6228 36.7456 7.5895C36.7456 5.566 35.4082 4.1392 33.0964 4.1392H29.0794V14.321ZM31.2321 9.2947V5.8991H32.6838C33.9267 5.8991 34.5282 6.5753 34.5282 7.5895C34.5282 8.5987 33.9267 9.2947 32.6937 9.2947H31.2321ZM38.1041 14.321H40.2219V10.0007C40.2219 9.0611 40.908 8.4148 41.8427 8.4148C42.136 8.4148 42.5387 8.4645 42.7376 8.5291V6.6498C42.5487 6.6051 42.2852 6.5753 42.0714 6.5753C41.2163 6.5753 40.5153 7.0724 40.2369 8.017H40.1573V6.6846H38.1041V14.321ZM46.9274 14.4701C49.2441 14.4701 50.6859 12.8842 50.6859 10.5326C50.6859 8.1662 49.2441 6.5852 46.9274 6.5852C44.6106 6.5852 43.1689 8.1662 43.1689 10.5326C43.1689 12.8842 44.6106 14.4701 46.9274 14.4701ZM46.9373 12.8295C45.8684 12.8295 45.3216 11.8501 45.3216 10.5177C45.3216 9.1853 45.8684 8.201 46.9373 8.201C47.9863 8.201 48.5332 9.1853 48.5332 10.5177C48.5332 11.8501 47.9863 12.8295 46.9373 12.8295ZM54.877 14.4453C56.1099 14.4453 56.7512 13.7344 57.0446 13.098H57.1341V14.321H59.2221V4.1392H57.1092V7.9673H57.0446C56.7612 7.3459 56.1497 6.5852 54.872 6.5852C53.1966 6.5852 51.7797 7.8878 51.7797 10.5128C51.7797 13.0682 53.1369 14.4453 54.877 14.4453ZM55.5481 12.7599C54.5091 12.7599 53.9423 11.8352 53.9423 10.5028C53.9423 9.1804 54.4991 8.2706 55.5481 8.2706C56.5772 8.2706 57.1539 9.1406 57.1539 10.5028C57.1539 11.865 56.5673 12.7599 55.5481 12.7599ZM65.8604 11.0696C65.8654 12.0937 65.1644 12.6307 64.4038 12.6307C63.6033 12.6307 63.0863 12.0689 63.0813 11.169V6.6846H60.9634V11.5469C60.9684 13.3317 62.0124 14.4204 63.5487 14.4204C64.6971 14.4204 65.5224 13.8288 65.8654 12.9339H65.945V14.321H67.9783V6.6846H65.8604V11.0696ZM73.1227 14.4701C75.1561 14.4701 76.4338 13.277 76.5332 11.522H74.5346C74.4103 12.3373 73.8734 12.7947 73.1476 12.7947C72.1582 12.7947 71.5169 11.9645 71.5169 10.5028C71.5169 9.0611 72.1632 8.2358 73.1476 8.2358C73.9231 8.2358 74.4203 8.7478 74.5346 9.5085H76.5332C76.4437 7.7436 75.1064 6.5852 73.1128 6.5852C70.796 6.5852 69.3642 8.191 69.3642 10.5326C69.3642 12.8544 70.7711 14.4701 73.1227 14.4701ZM81.951 6.6846H80.5142V4.8551H78.3963V6.6846H77.3523V8.2755H78.3963V12.2528C78.3864 13.7493 79.4055 14.49 80.9418 14.4254C81.4886 14.4055 81.8764 14.2961 82.0902 14.2265L81.7571 12.6505C81.6527 12.6704 81.429 12.7201 81.2301 12.7201C80.8075 12.7201 80.5142 12.5611 80.5142 11.9744V8.2755H81.951V6.6846ZM86.6106 14.321H88.7633V10.115H93.1333V14.321H95.2811V4.1392H93.1333V8.3402H88.7633V4.1392H86.6106V14.321ZM101.913 11.0696C101.918 12.0937 101.217 12.6307 100.456 12.6307C99.6561 12.6307 99.139 12.0689 99.1341 11.169V6.6846H97.0162V11.5469C97.0211 13.3317 98.0652 14.4204 99.6014 14.4204C100.75 14.4204 101.575 13.8288 101.918 12.9339H101.997V14.321H104.031V6.6846H101.913V11.0696ZM107.843 9.9062C107.848 8.9219 108.434 8.3451 109.29 8.3451C110.14 8.3451 110.652 8.902 110.647 9.8366V14.321H112.765V9.4588C112.765 7.679 111.721 6.5852 110.13 6.5852C108.996 6.5852 108.176 7.142 107.833 8.0319H107.743V6.6846H105.725V14.321H107.843V9.9062ZM118.496 6.6846H117.059V4.8551H114.941V6.6846H113.897V8.2755H114.941V12.2528C114.931 13.7493 115.95 14.49 117.486 14.4254C118.033 14.4055 118.421 14.2961 118.635 14.2265L118.302 12.6505C118.197 12.6704 117.974 12.7201 117.775 12.7201C117.352 12.7201 117.059 12.5611 117.059 11.9744V8.2755H118.496V6.6846Z"
+              fill="#F2F2F2"
+            />
           </svg>
-
         </div>
-        <div className='mt-5 flex flex-col lg:flex-row lg:px-10 gap-4 my-10 pt-[100px] text-center align-middle justify-center'>
-          <div className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'>
+        <div className="relative my-10 mt-5 flex flex-col justify-center gap-4 pt-[100px] text-center align-middle lg:flex-row lg:px-10">
+          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <div>
-              <span className='absolute top-[-50px] left-[40%]'>
+              <span>
                 <Image
-                  src={"/mikkel.jpg"}
+                  src={'/mikkel.jpg'}
                   height={100}
                   width={100}
                   className="rounded-full"
@@ -327,16 +643,19 @@ const Home: NextPage = () => {
             </div>
             <div>Mikkel</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className='font-thin p-2 leading-loose'>
-              it's great! 5 tacos for delivering exactly what is promised at a great price point. And I can see the developer cares and interacts even though the project is small.<br />
-
-              Thanks!<br />
+            <p className="p-2 font-thin leading-loose">
+              it's great! 5 tacos for delivering exactly what is promised at a
+              great price point. And I can see the developer cares and interacts
+              even though the project is small.
+              <br />
+              Thanks!
+              <br />
             </p>
           </div>
-          <div className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'>
-            <span className='absolute top-[-50px] left-[40%]'>
+          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+            <span>
               <Image
-                src={"/saasMaster.png"}
+                src={'/saasMaster.png'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -344,15 +663,23 @@ const Home: NextPage = () => {
             </span>
             <div>SaaS-Master</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className='font-thin p-2 leading-loose'>
-              You can record your workflow or your day work and display it in a quick video.
-              Video example <a href='https://youtu.be/EJJOjh8pZFM' target={'_blank'} className="underline">here</a><br />
+            <p className="p-2 font-thin leading-loose">
+              You can record your workflow or your day work and display it in a
+              quick video. Video example{' '}
+              <a
+                href="https://youtu.be/EJJOjh8pZFM"
+                target={'_blank'}
+                className="underline"
+              >
+                here
+              </a>
+              <br />
             </p>
           </div>
-          <div className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'>
-            <span className='absolute top-[-50px] left-[40%]'>
+          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+            <span>
               <Image
-                src={"/catz.jpg"}
+                src={'/catz.jpg'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -360,22 +687,23 @@ const Home: NextPage = () => {
             </span>
             <div>Catz</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className='font-thin p-2 leading-loose'>
-              it's great! 5 tacos for delivering exactly what is promised at a great price point. And I can see the developer cares and interacts even though the project is small.<br />
-
-              Thanks!<br />
+            <p className="p-2 font-thin leading-loose">
+              it's great! 5 tacos for delivering exactly what is promised at a
+              great price point. And I can see the developer cares and interacts
+              even though the project is small.
+              <br />
+              Thanks!
+              <br />
             </p>
           </div>
         </div>
 
-        <div className='mt-5 flex flex-col lg:flex-row md:px-10 gap-4 my-10 pt-[100px] text-center align-middle justify-center'>
-          <div
-            className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px] flex-1'
-          >
+        <div className="my-10 mt-5 flex flex-col justify-center gap-4 pt-[100px] text-center align-middle md:px-10 lg:flex-row">
+          <div className="mb-[70px] flex max-w-md flex-1 flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <div>
-              <span className='absolute top-[-50px] left-[40%]'>
+              <span>
                 <Image
-                  src={"/default.png"}
+                  src={'/default.png'}
                   height={100}
                   width={100}
                   className="rounded-full"
@@ -384,16 +712,15 @@ const Home: NextPage = () => {
             </div>
             <div>epitomi</div>
             <div>🌟🌟🌟🌟⭐️</div>
-            <p className='font-thin p-2 leading-loose'>
-              Good but needs more basic features like recording single app and a particular region on the screen.
+            <p className="p-2 font-thin leading-loose">
+              Good but needs more basic features like recording single app and a
+              particular region on the screen.
             </p>
           </div>
-          <div
-            className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px] '
-          >
-            <span className='absolute top-[-50px] left-[40%]'>
+          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg ">
+            <span>
               <Image
-                src={"/default.png"}
+                src={'/default.png'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -401,22 +728,20 @@ const Home: NextPage = () => {
             </span>
             <div>Tario</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className='font-thin p-2 leading-loose'>
-              I randomly found this app by accident. Turn out it's one of the apps I really need in my workflow.
-
-              If you do any projects and want to send your clients the entire process with sped-up timelapse clips, this app is for you!
-
-              Otherwise, I'd use Quicktime player or OBS to record my screen then speed up the footage in the post then export the video, which takes a while.
-
-              For the price.. I'd strongly recommend it!
+            <p className="p-2 font-thin leading-loose">
+              I randomly found this app by accident. Turn out it's one of the
+              apps I really need in my workflow. If you do any projects and want
+              to send your clients the entire process with sped-up timelapse
+              clips, this app is for you! Otherwise, I'd use Quicktime player or
+              OBS to record my screen then speed up the footage in the post then
+              export the video, which takes a while. For the price.. I'd
+              strongly recommend it!
             </p>
           </div>
-          <div
-            className='ring-1 ring-gray-900 flex flex-col gap-2 drop-shadow-lg max-w-md pt-[70px] p-4 rounded-lg mb-[70px]'
-          >
-            <span className='absolute top-[-50px] left-[40%]'>
+          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+            <span>
               <Image
-                src={"/default.png"}
+                src={'/default.png'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -424,97 +749,154 @@ const Home: NextPage = () => {
             </span>
             <div>flovv</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className='font-thin p-2 leading-loose'>
-              I love Lapse, It's a pretty cool piece of software. It works as advertised and the quality of footage is great. My only request would be to add a GIF convertor and dual screen recording (currently you can record on the active screen).
+            <p className="p-2 font-thin leading-loose">
+              I love Lapse, It's a pretty cool piece of software. It works as
+              advertised and the quality of footage is great. My only request
+              would be to add a GIF convertor and dual screen recording
+              (currently you can record on the active screen).
             </p>
           </div>
         </div>
       </section>
-      <section className='sm:px-20 px-4 relative'>
-        <h2 className='text-3xl mt-10 text-center'>FAQ</h2>
-        <div className="py-10 px-2 flex flex-col sm:flex-row">
-          <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-gray-400 flex-1 gap-2 sm:gap-0">
-            <div className='p-1'>
+      <section className="relative px-4 sm:px-20">
+        <h2 className="mt-10 text-center text-3xl">FAQ</h2>
+        <div className="flex flex-col py-10 px-2 sm:flex-row">
+          <div className="grid flex-1 grid-flow-row gap-2 text-gray-400 sm:grid-flow-col sm:grid-rows-3 sm:gap-0">
+            <div className="p-1">
               <details>
-                <summary className='py-1 text-xl'>Is there an option to select monitors?</summary>
-                <p className='font-thin max-w-xl p-2 px-4'>Yes you can select one of the external monitors to start recording.<br />However, the support for single app recording is in the roadmap.</p>
-              </details>
-            </div>
-            <div className='p-1'>
-              <details>
-                <summary className='py-1 text-xl'>Do you offer a trial?</summary>
-                <p className='font-thin max-w-xl p-2 px-4'>
-                  We didn’t implement a trial yet, but no worries—feel free to purchase the app.
-                  If you’re not happy send a short message. We’ll refund your order.<br />
+                <summary className="py-1 text-xl">
+                  Is there an option to select monitors?
+                </summary>
+                <p className="max-w-xl p-2 px-4 font-thin">
+                  Yes you can select one of the external monitors to start
+                  recording.
+                  <br />
+                  However, the support for single app recording is in the
+                  roadmap.
                 </p>
               </details>
             </div>
-            <div className='p-1'>
+            <div className="p-1">
               <details>
-                <summary className='py-1 text-xl'>The menubar app doesn’t work. What can I do?</summary>
-                <p className='font-thin max-w-xl p-2 px-4'>Lapse requires the screen Record permission in “System Preferences › Security & Privacy › Privacy › Screen Recording.
-                  For macOS 10.15 (Catalina) the screen recording permission in “System Preferences › Security & Privacy › Privacy › Screen Recording” is required too.</p>
+                <summary className="py-1 text-xl">
+                  Do you offer a trial?
+                </summary>
+                <p className="max-w-xl p-2 px-4 font-thin">
+                  We didn’t implement a trial yet, but no worries—feel free to
+                  purchase the app. If you’re not happy send a short message.
+                  We’ll refund your order.
+                  <br />
+                </p>
               </details>
             </div>
-            <div className='p-1'>
+            <div className="p-1">
               <details>
-                <summary className='py-1 text-xl'>Is there a Windows app?</summary>
-                <p className='font-thin max-w-xl p-2 px-4'>Yes we support for MacOs and windows.</p>
+                <summary className="py-1 text-xl">
+                  The menubar app doesn’t work. What can I do?
+                </summary>
+                <p className="max-w-xl p-2 px-4 font-thin">
+                  Lapse requires the screen Record permission in “System
+                  Preferences › Security & Privacy › Privacy › Screen Recording.
+                  For macOS 10.15 (Catalina) the screen recording permission in
+                  “System Preferences › Security & Privacy › Privacy › Screen
+                  Recording” is required too.
+                </p>
               </details>
             </div>
-            <div className='p-1'>
+            <div className="p-1">
               <details>
-                <summary className='py-1 text-xl'>Something’s wrong. How do I get in touch?</summary>
-                <p className='font-thin max-w-xl p-2 px-4'><a href="mailto:achuth.hadnoor123@gmail.com">Drop us a line</a>, we’ll be happy to help!</p>
+                <summary className="py-1 text-xl">
+                  Is there a Windows app?
+                </summary>
+                <p className="max-w-xl p-2 px-4 font-thin">
+                  Yes we support for MacOs and windows.
+                </p>
               </details>
             </div>
-            <div className='p-1'>
+            <div className="p-1">
               <details>
-                <summary className='py-1 text-xl'>Will you update Lapse?</summary>
-                <p className='font-thin max-w-xl p-2 px-4'>One year of updates with the licence purchaced.</p>
+                <summary className="py-1 text-xl">
+                  Something’s wrong. How do I get in touch?
+                </summary>
+                <p className="max-w-xl p-2 px-4 font-thin">
+                  <a href="mailto:achuth.hadnoor123@gmail.com">
+                    Drop us a line
+                  </a>
+                  , we’ll be happy to help!
+                </p>
               </details>
             </div>
-
+            <div className="p-1">
+              <details>
+                <summary className="py-1 text-xl">
+                  Will you update Lapse?
+                </summary>
+                <p className="max-w-xl p-2 px-4 font-thin">
+                  One year of updates with the licence purchaced.
+                </p>
+              </details>
+            </div>
           </div>
         </div>
       </section>
-      <section className='sm:px-20 px-4 relative'>
-        <h2 className='text-3xl mt-10 text-center'>Download</h2>
-        <div className='items-center justify-center flex mt-5 gap-2'>
+      <section className="relative px-4 sm:px-20">
+        <h2 className="mt-10 text-center text-3xl">Download</h2>
+        <div className="mt-5 flex items-center justify-center gap-2">
           {/* <Timer type="horizontal" /> */}
           <a href="https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10.dmg">
             <div className="flex flex-col">
-              <div className='flex align-middle items-center bg-gray-100 px-2 py-1 rounded-lg text-black gap-2'>
-                <span className='flex'>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.4656 13.3437C18.4375 10.4637 20.8134 9.08218 20.9219 9.01331C19.5853 7.05996 17.5036 6.79179 16.7627 6.76048C14.9919 6.58101 13.3078 7.8029 12.4083 7.8029C11.513 7.8029 10.1242 6.78657 8.65709 6.81266C6.72565 6.84292 4.94551 7.93542 3.95109 9.66443C1.9466 13.1433 3.43979 18.2991 5.39419 21.1237C6.34792 22.5042 7.48842 24.0558 8.98266 23.9985C10.4237 23.9421 10.9673 23.0677 12.7078 23.0677C14.4493 23.0677 14.9377 23.9985 16.4622 23.9703C18.0107 23.9432 18.9936 22.5637 19.9411 21.178C21.0388 19.5742 21.4896 18.0236 21.5167 17.9433C21.4812 17.9266 18.4959 16.7829 18.4656 13.3437Z" fill="black"></path>
-                    <path d="M15.7876 3.83263C16.6255 2.8163 17.191 1.40658 17.0376 0C15.8303 0.0490426 14.3674 0.802421 13.5013 1.81666C12.725 2.71613 12.0457 4.15089 12.2273 5.53138C13.5744 5.63573 14.9486 4.84583 15.7876 3.83263Z" fill="black"></path>
+              <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
+                <span className="flex">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.4656 13.3437C18.4375 10.4637 20.8134 9.08218 20.9219 9.01331C19.5853 7.05996 17.5036 6.79179 16.7627 6.76048C14.9919 6.58101 13.3078 7.8029 12.4083 7.8029C11.513 7.8029 10.1242 6.78657 8.65709 6.81266C6.72565 6.84292 4.94551 7.93542 3.95109 9.66443C1.9466 13.1433 3.43979 18.2991 5.39419 21.1237C6.34792 22.5042 7.48842 24.0558 8.98266 23.9985C10.4237 23.9421 10.9673 23.0677 12.7078 23.0677C14.4493 23.0677 14.9377 23.9985 16.4622 23.9703C18.0107 23.9432 18.9936 22.5637 19.9411 21.178C21.0388 19.5742 21.4896 18.0236 21.5167 17.9433C21.4812 17.9266 18.4959 16.7829 18.4656 13.3437Z"
+                      fill="black"
+                    ></path>
+                    <path
+                      d="M15.7876 3.83263C16.6255 2.8163 17.191 1.40658 17.0376 0C15.8303 0.0490426 14.3674 0.802421 13.5013 1.81666C12.725 2.71613 12.0457 4.15089 12.2273 5.53138C13.5744 5.63573 14.9486 4.84583 15.7876 3.83263Z"
+                      fill="black"
+                    ></path>
                   </svg>
                 </span>
-                <div className='flex flex-col'>
-                  <span className='text-sm font-semibold'>Download for </span>
-                  <span className='font-semibold'>macOS</span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-semibold">Download for </span>
+                  <span className="font-semibold">macOS</span>
                 </div>
               </div>
-              <div className='text-sm p-1 text-gray-500 mt-2'>
+              <div className="mt-2 p-1 text-sm text-gray-500">
                 macOS 10.13 or higher
               </div>
             </div>
           </a>
           <a href="https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe">
-            <div className='flex flex-col'>
-              <div className='flex align-middle items-center bg-gray-100 px-2 py-1 rounded-lg text-black gap-2'>
-                <span className='flex'>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 4.13676L9.99656 2.90616V11.5705H1V4.13676ZM11.0802 2.73539L23 1V11.4977H11.0802V2.73539ZM1 12.4872H9.99656V21.1767L1 19.921V12.4872ZM11.0802 12.6027H23V23L11.0802 21.3174" fill="black"></path>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
+                <span className="flex">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 4.13676L9.99656 2.90616V11.5705H1V4.13676ZM11.0802 2.73539L23 1V11.4977H11.0802V2.73539ZM1 12.4872H9.99656V21.1767L1 19.921V12.4872ZM11.0802 12.6027H23V23L11.0802 21.3174"
+                      fill="black"
+                    ></path>
                   </svg>
                 </span>
-                <div className='flex flex-col'>
-                  <span className='text-xs font-semibold'>Download for </span>
-                  <span className='font-semibold text-2xl'>windows</span>
+                <div className="flex flex-col">
+                  <span className="text-xs font-semibold">Download for </span>
+                  <span className="text-2xl font-semibold">windows</span>
                 </div>
               </div>
-              <div className='text-sm p-1 text-gray-500 mt-2 text-center '>
+              <div className="mt-2 p-1 text-center text-sm text-gray-500 ">
                 Windows 10
               </div>
             </div>
@@ -527,8 +909,8 @@ const Home: NextPage = () => {
 
 export default Home
 
-
-{/* <div className="py-10 px-2 flex flex-col sm:flex-row">
+{
+  /* <div className="py-10 px-2 flex flex-col sm:flex-row">
             <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-gray-400 flex-1 gap-2 sm:gap-0">
             <div>
               <details>
@@ -568,4 +950,5 @@ export default Home
             </div>
 
             </div>
-          </div> */}
+          </div> */
+}
