@@ -77,14 +77,6 @@ export default function Container(props: { [x: string]: any; children: any }) {
                 <script async src="https://cdn.splitbee.io/sb.js"></script>
             </Head>
             <Header />
-            <span className='fixed bottom-5 right-36 z-10'>
-                <a href="https://www.producthunt.com/posts/lapse?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-lapse" target="_blank">
-                    <img
-                        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=283140&theme=light"
-                        alt="lapse - Instant&#0032;time&#0045;lapse&#0032;video&#0032;with&#0032;no&#0032;re&#0045;rendering | Product Hunt"
-                        width="250" height="54" />
-                </a>
-            </span>
             {children}
             <Footer />
         </>
