@@ -89,8 +89,8 @@ const Timer = ({ type }: any) => {
                 <a href="https://gum.co/lapse_app" target="_blank">
                   <button className="outline-none px-4 py-2 bg-indigo-800 hover:bg-indigo-600 m-2 rounded-lg hover:ring-2 ring-indigo-900 text-xs sm:text-sm">
                     Get It for
-                    <span className="line-through stroke-indigo-300 text-indigo-300 font-bold px-1">$25</span>
-                    <span className="text-indigo-100">$15</span>
+                    <span className="line-through stroke-indigo-300 text-indigo-300 font-bold px-1">$35</span>
+                    <span className="text-indigo-100">$25</span>
                   </button>
                 </a>
               </div>
