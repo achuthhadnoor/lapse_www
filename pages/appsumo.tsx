@@ -33,6 +33,13 @@ const Appsumo = (props: any) => {
           )
           setLoading(false)
           return
+        } else if (os === 'macosM1') {
+          window.open(
+            'https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10-arm64.dmg',
+            '_blank'
+          )
+          setLoading(false)
+          return
         }
         window.open(
           'https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe'
@@ -160,7 +167,7 @@ const Appsumo = (props: any) => {
               <label htmlFor="windows">
                 <input
                   id="windows"
-                  name="fname"
+                  name="windows"
                   type="radio"
                   className="mx-2"
                   checked={os === 'windows' ? true : false}
@@ -173,7 +180,7 @@ const Appsumo = (props: any) => {
               <label htmlFor="macos">
                 <input
                   id="macos"
-                  name="fname"
+                  name="macos"
                   className="mx-2"
                   type="radio"
                   onClick={() => {
@@ -181,7 +188,20 @@ const Appsumo = (props: any) => {
                   }}
                   checked={os === 'macos' ? true : false}
                 />
-                Mac os
+                Mac
+              </label>
+              <label htmlFor="macosM1">
+                <input
+                  id="macosM1"
+                  name="macOsm1"
+                  className="mx-2"
+                  type="radio"
+                  onClick={() => {
+                    selectOs('macosM1')
+                  }}
+                  checked={os === 'macosM1' ? true : false}
+                />
+                Mac os M1( apple Sillicon)
               </label>
             </div>
             <span>
