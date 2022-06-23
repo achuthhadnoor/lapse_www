@@ -79,7 +79,8 @@ export default function Container(props: { [x: string]: any; children: any }) {
             <Header />
             <span className='fixed bottom-5 right-36 z-10'>
                 <a href="https://www.producthunt.com/posts/lapse-2?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-lapse&#0045;2" target="_blank">
-                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=349926&theme=neutral" alt="lapse - Save&#0032;instant&#0032;time&#0045;lapse&#0032;screen&#0032;recording&#0032;✨ | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=349926&theme=neutral" alt="lapse - Save&#0032;instant&#0032;time&#0045;lapse&#0032;screen&#0032;recording&#0032;✨ | Product Hunt"/>
+                </a>
             </span>
             {children}
             <Footer />
