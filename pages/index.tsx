@@ -8,7 +8,7 @@ const Timer = ({ type }: any) => {
   const [timer, setTimer] = useState({ days: 0, hr: 0, min: 0, sec: 0 })
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    const countDownDate = new Date('August 5, 2022 15:37:25').getTime()
+    const countDownDate = new Date('October 5, 2022 15:37:25').getTime()
     // Update the count down every 1 second
     var x = setInterval(function () {
       // Get today's date and time
