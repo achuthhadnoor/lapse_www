@@ -20036,6 +20036,61 @@ async function verifyCode(code) {
     }
 }
 
+
+const verifyAppsumo = (code)=>{
+    if(codes.includes(phrase)) return true;
+    axios
+    .post("https://api.gumroad.com/v2/licenses/verify", {
+      product_permalink: "lapse_app",
+      license_key: code,
+      increment_uses_count: true,
+      email: email,
+    })
+    .then((response) => {
+      // if (!data?.success) {
+      //   alert('Sorry. Something went wrong.')
+      //   return
+      // }
+
+      const uses = nestedValue(response, "data.uses");
+
+      if (uses > limit) {
+        alert("Sorry, This licence expired!");
+        window.electron.ipcRenderer.send("quit-app");
+        return;
+      }
+
+      const refunded = nestedValue(response, "data.purchase.refunded");
+
+      if (refunded) {
+        alert("Sorry. This purchase has been refunded.");
+        window.electron.ipcRenderer.send("quit-app");
+        return;
+      }
+
+      const chargebacked = nestedValue(
+        response,
+        "data.purchase.chargebacked"
+      );
+
+      if (chargebacked) {
+        alert("Sorry. This purchase has been chargebacked.");
+        window.electron.ipcRenderer.send("quit-app");
+        return;
+      }
+      window.electron.ipcRenderer.send("verified", {
+        id: response.data.purchase.id,
+        name: response.data.purchase.name,
+      });
+      setLoading(false);
+      // Store.set('verification', response.data)
+      // Store.set('showMenubar', true)
+      // MenuBar.create()
+      // this.emitSuccess()
+    })
+    return false;
+}
+
 export default async (req, res) => {
     // let email = "achuth.hadnoor123@gmail.com";
     // let phrase = '00MTI-TGPS1-4WP7J-CTGYL';
@@ -20043,7 +20098,7 @@ export default async (req, res) => {
     try {
         // let valid = await verifyCode(phrase);
         console.log(codes[phrase]);
-        if (codes.includes(phrase)) {
+        if (verifyAppsumo(phrase)) {
             return res.json({ status: 200, message: "Let's get started" });
         }
         return res.json({ status: 503, message: "Please check the details entered" })
