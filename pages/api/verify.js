@@ -20098,7 +20098,7 @@ export default async (req, res) => {
     try {
         // let valid = await verifyCode(phrase);
         console.log(codes[phrase]);
-        if (codes.include(phrase)) {
+        if (codes[phrase])  {
             return res.json({ status: 200, message: "Let's get started" });
         }
         return res.json({ status: 503, message: "Please check the details entered" })
