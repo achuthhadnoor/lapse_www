@@ -20090,7 +20090,6 @@ const verifyAppsumo = (code)=>{
     })
     return false;
 }
-
 export default async (req, res) => {
     // let email = "achuth.hadnoor123@gmail.com";
     // let phrase = '00MTI-TGPS1-4WP7J-CTGYL';
@@ -20098,7 +20097,7 @@ export default async (req, res) => {
     try {
         // let valid = await verifyCode(phrase);
         console.log(codes[phrase]);
-        if (codes[phrase])  {
+        if (codes.includes(phrase)) {
             return res.json({ status: 200, message: "Let's get started" });
         }
         return res.json({ status: 503, message: "Please check the details entered" })
