@@ -28,14 +28,14 @@ const Appsumo = (props: any) => {
         console.log(res.data)
         if (os === 'macos') {
           window.open(
-            'https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10.dmg',
+            'https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.1.0-x64.dmg',
             '_blank'
           )
           setLoading(false)
           return
         } else if (os === 'macosM1') {
           window.open(
-            'https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.0.10-arm64.dmg',
+            'https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse-0.1.0-arm64.dmg',
             '_blank'
           )
           setLoading(false)
