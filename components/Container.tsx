@@ -64,6 +64,7 @@ export default function Container(props: { [x: string]: any; children: any }) {
                 {meta.date && (
                     <meta property="article:published_time" content={meta.date} />
                 )}
+<script id="donate-for-turkiye" async="true" src="https://www.donateforturkiye.org/cdn/widget.js?type=one&position=bottom-left"></script>
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
