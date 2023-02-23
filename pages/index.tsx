@@ -25,7 +25,7 @@ const Timer = ({ type }: any) => {
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
       var seconds = Math.floor((distance % (1000 * 60)) / 1000)
       setTimer({ days: days, hr: hours, min: minutes, sec: seconds })
-      setIsLoading(false);
+      setIsLoading(false)
       // If the count down is finished, write some text
       if (distance < 0) {
         clearInterval(x)
@@ -637,6 +637,7 @@ const Home: NextPage = () => {
                   height={100}
                   width={100}
                   className="rounded-full"
+                  alt="mikkel"
                 />
               </span>
             </div>
@@ -658,6 +659,7 @@ const Home: NextPage = () => {
                 height={100}
                 width={100}
                 className="rounded-full"
+                alt="saasMaster"
               />
             </span>
             <div>SaaS-Master</div>
@@ -682,6 +684,7 @@ const Home: NextPage = () => {
                 height={100}
                 width={100}
                 className="rounded-full"
+                alt="catz"
               />
             </span>
             <div>Catz</div>
@@ -706,6 +709,7 @@ const Home: NextPage = () => {
                   height={100}
                   width={100}
                   className="rounded-full"
+                  alt="default"
                 />
               </span>
             </div>
@@ -723,6 +727,7 @@ const Home: NextPage = () => {
                 height={100}
                 width={100}
                 className="rounded-full"
+                alt="default"
               />
             </span>
             <div>Tario</div>
@@ -744,6 +749,7 @@ const Home: NextPage = () => {
                 height={100}
                 width={100}
                 className="rounded-full"
+                alt="default"
               />
             </span>
             <div>flovv</div>
