@@ -57,10 +57,12 @@ export default function Container(props: { [x: string]: any; children: any }) {
         {meta.date && (
           <meta property="article:published_time" content={meta.date} />
         )}
-        <Script
+        <script
           id="donate-for-turkiye"
-          src="https://www.donateforturkiye.org/cdn/widget.js?type=one&position=bottom-left"
-        ></Script>
+          src={
+            'https://www.donateforturkiye.org/cdn/widget.js?type=one&position=bottom-left'
+          }
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
