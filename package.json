@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.11",
     "axios": "^0.26.1",
     "classnames": "^2.3.1",
     "google-spreadsheet": "^3.2.0",
