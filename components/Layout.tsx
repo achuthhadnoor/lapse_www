@@ -27,7 +27,7 @@ export default function Layout({ children }: PropsWithChildren) {
             />
           </svg>
         </span>
-        <nav className="md:flex gap-4 font-light flex-wrap">
+        <nav className="md:flex gap-1 md:gap-4 font-light flex-wrap">
           {/* <nav className="flex flex-col relative top-10 left-10 bg-neutral-200 max-w-2xl w-full"> */}
           <Link
             href="/"
@@ -41,24 +41,24 @@ export default function Layout({ children }: PropsWithChildren) {
           >
             Download
           </Link>
-          {/* <Link
+          <Link
             href="/pricing"
             className="text-md hover:bg-neutral-700 px-4 py-1 rounded"
           >
             Pricing
-          </Link> */}
-          <Link
+          </Link>
+          {/* <Link
             href="/blog"
             className="text-md hover:bg-neutral-700 px-4 py-1 rounded"
           >
             Blog
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             href="/affiliate"
             className="text-md hover:bg-neutral-700 px-4 py-1 rounded"
           >
             Affiliate
-          </Link>
+          </Link> */}
           <Link
             href="/feedback"
             className="text-md hover:bg-neutral-700 px-4 py-1 rounded"
