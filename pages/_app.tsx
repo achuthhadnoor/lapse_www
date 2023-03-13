@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="container  h-screen mx-auto">
+    <div className="max-w-5xl leading-loose tracking-widest mx-auto">
       <Component {...pageProps} />
     </div>
   );
