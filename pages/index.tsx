@@ -848,7 +848,7 @@ const Home: NextPage = () => {
         <h2 className="mt-10 text-center text-3xl">Download</h2>
         <div className="mt-5 flex items-center justify-center gap-2">
           {/* <Timer type="horizontal" /> */}
-          <a href="https://github.com/achuthhadnoor/www/releases/download/1.0.1/Lapse-1.0.10.dmg">
+          <a href="https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-x64.dmg">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
                 <span className="flex">
@@ -879,7 +879,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </a>
-          <a href="https://github.com/achuthhadnoor/www/releases/download/1.0.1/Lapse-1.0.10-arm64.dmg">
+          <a href="https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-arm64.dmg">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
                 <span className="flex">
@@ -910,7 +910,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </a>
-          <a href="https://github.com/achuthhadnoor/www/releases/download/1.0.1/Lapse.Setup.1.0.10.exe">
+          <a href="https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
                 <span className="flex">

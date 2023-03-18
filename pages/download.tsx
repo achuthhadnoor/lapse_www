@@ -53,7 +53,7 @@ const Download = (props: any) => {
   }
   return (
     <Container
-      title={'Lapse | Appsumo '}
+      title={'Lapse | Download '}
       description="Download lapse for macOs"
     >
       <section className=" mx-auto mt-24 max-w-4xl">
@@ -105,7 +105,7 @@ const Download = (props: any) => {
             <input
               className="rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-indigo-500"
               type="text"
-              placeholder="Appsumo code"
+              placeholder="License code"
               required
               value={code === 'null' ? '' : code}
               onChange={({ target }) => {
