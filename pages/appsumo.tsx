@@ -164,7 +164,7 @@ const Appsumo = (props: any) => {
             <p className="text-xs text-gray-400">Paste the code from appsumo</p>
             <div className="flex flex-col">
               <span className="my-5 text-sm">Select operating system</span>
-              {/* <label htmlFor="windows">
+              <label htmlFor="windows">
                 <input
                   id="windows"
                   name="windows"
@@ -176,7 +176,7 @@ const Appsumo = (props: any) => {
                   }}
                 />
                 Windows
-              </label> */}
+              </label>
               <label htmlFor="macos">
                 <input
                   id="macos"
