@@ -8,7 +8,7 @@ const Timer = ({ type }: any) => {
   const [timer, setTimer] = useState({ days: 0, hr: 0, min: 0, sec: 0 })
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    const countDownDate = new Date('May 31, 2023 15:37:25').getTime()
+    const countDownDate = new Date('July 31, 2023 15:37:25').getTime()
     // Update the count down every 1 second
     var x = setInterval(function () {
       // Get today's date and time
@@ -61,9 +61,9 @@ const Timer = ({ type }: any) => {
                 <button className="mt-2 w-full rounded-lg bg-orange-500 px-4 py-2 text-xs ring-purple-900 hover:ring-2 sm:text-sm">
                   Get It for{' '}
                   <span className="stroke-orange-600 text-purple-300 line-through">
-                    $35
+                    $45
                   </span>{' '}
-                  <span className="ring-1 ring-gray-900">$25</span>
+                  <span className="ring-1 ring-gray-900">$35</span>
                 </button>
               </a>
             </div>
@@ -97,9 +97,9 @@ const Timer = ({ type }: any) => {
                     <button className="m-2 rounded-lg bg-indigo-800 px-4 py-2 text-xs outline-none ring-indigo-900 hover:bg-indigo-600 hover:ring-2 sm:text-sm">
                       Get It for
                       <span className="stroke-indigo-300 px-1 font-bold text-indigo-300 line-through">
-                        $35
+                        $45
                       </span>
-                      <span className="text-indigo-100">$25</span>
+                      <span className="text-indigo-100">$35</span>
                     </button>
                   </a>
                 </div>
