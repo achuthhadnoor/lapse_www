@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
-import Header from './header'
 import Footer from './Footer'
-import Script from 'next/script'
+import Header from './Header'
 
 const CrispWithNoSSR = dynamic(() => import('./crisp'), { ssr: false })
 
@@ -19,7 +18,7 @@ export default function Container(props: { [x: string]: any; children: any }) {
     ...customMeta,
   }
   return (
-    <>
+    <div className=" bg-gradient-to-b from-green-900/20 text-neutral-300">
       <CrispWithNoSSR />
       <Head>
         <title>{meta.title}</title>
@@ -87,8 +86,8 @@ export default function Container(props: { [x: string]: any; children: any }) {
           />
         </a>
       </span>
-      {children}
+      <main className="mx-auto max-w-6xl">{children}</main>
       <Footer />
-    </>
+    </div>
   )
 }

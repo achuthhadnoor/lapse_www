@@ -4,7 +4,7 @@ import Icon from 'react-icons-kit'
 import { twitter } from 'react-icons-kit/feather'
 // import NowPlaying from 'components/NowPlaying';
 
-const ExternalLink = ({ href, children }: any) => (
+export const ExternalLink = ({ href, children }: any) => (
   <a
     className="text-gray-500 transition hover:text-gray-600"
     target="_blank"
@@ -85,7 +85,7 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="mt-5 w-full rounded-md bg-indigo-500 px-4 py-2 sm:mt-0 sm:w-fit "
+              className="mt-5 w-full rounded-md bg-green-500 px-4 py-2 sm:mt-0 sm:w-fit "
             >
               Subscribe
             </button>

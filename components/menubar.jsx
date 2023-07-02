@@ -57,7 +57,7 @@ const Header = () => {
   }, [])
   return (
     <>
-      <header className="sticky top-0 z-50 hidden items-center justify-between bg-black/30 p-2 backdrop-blur-md md:flex">
+      <header className="sticky top-0 hidden items-center justify-between bg-black/30 p-2 backdrop-blur-md md:flex">
         <div className="flex items-center gap-2 align-middle">
           <span>
             <svg
@@ -117,9 +117,8 @@ const Header = () => {
               </defs>
             </svg>
           </span>
-          <span>Lapse</span>
         </div>
-        <div className="flex align-middle">
+        <div className="flex align-middle items-center">
           <span>
             <svg
               width="176"
@@ -298,7 +297,7 @@ const Header = () => {
               </defs>
             </svg>
           </span>
-          <span className="px-2 font-semibold">{timeStamp}</span>
+          <span className="px-2 text-sm">{timeStamp}</span>
         </div>
       </header>
     </>

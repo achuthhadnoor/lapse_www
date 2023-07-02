@@ -2,213 +2,103 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import Container from '../components/Container'
-import Header from './../components/header'
+import Timer from '../components/timer'
+import Menubar from '../components/menubar'
+import Try from '../components/Try'
 
-const Timer = ({ type }: any) => {
-  const [timer, setTimer] = useState({ days: 0, hr: 0, min: 0, sec: 0 })
-  const [isLoading, setIsLoading] = useState(true)
-  useEffect(() => {
-    const countDownDate = new Date('July 31, 2023 15:37:25').getTime()
-    // Update the count down every 1 second
-    var x = setInterval(function () {
-      // Get today's date and time
-      var now = new Date().getTime()
-
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24))
-      var hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      )
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000)
-      setTimer({ days: days, hr: hours, min: minutes, sec: seconds })
-      setIsLoading(false)
-      // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x)
-      }
-    }, 1000)
-  }, [])
-
-  switch (type) {
-    case 'vertical':
-      return (
-        <div id="timer" className="mt-5">
-          {!isLoading && (
-            <div className="bg-skin-secondary inline-block justify-center rounded-xl p-2 align-middle">
-              <div className="flex">
-                <span className="mr-4 flex flex-col p-2">
-                  <span>{timer.days}</span>
-                  <span className="text-xs text-indigo-500">Days</span>
-                </span>
-                <span className="mr-4 flex flex-col p-2">
-                  <span>{timer.hr}</span>
-                  <span className="text-xs text-indigo-500">Hrs</span>
-                </span>
-                <span className="mr-4 flex flex-col p-2">
-                  <span>{timer.min}</span>
-                  <span className="text-xs text-indigo-500">mins</span>
-                </span>
-                <span className="mr-4 flex flex-col p-2">
-                  <span>{timer.sec}</span>
-                  <span className="text-xs text-indigo-500">Sec</span>
-                </span>
-              </div>
-              <a href="https://achuthhadnoor.gumroad.com/l/learnvim">
-                <button className="mt-2 w-full rounded-lg bg-orange-500 px-4 py-2 text-xs ring-purple-900 hover:ring-2 sm:text-sm">
-                  Get It for{' '}
-                  <span className="stroke-orange-600 text-purple-300 line-through">
-                    $45
-                  </span>{' '}
-                  <span className="ring-1 ring-gray-900">$35</span>
-                </button>
-              </a>
-            </div>
-          )}
-        </div>
-      )
-    case 'horizontal':
-      return (
-        <div id="timer" className="mt-4">
-          {!isLoading && (
-            <div className="bg-skin-secondary inline-block justify-center rounded-xl align-middle">
-              <div className="bg-skin-secondary mt-5 inline-block justify-center rounded-xl px-2 align-middle ring ring-indigo-500">
-                <div className="flex">
-                  <span className="md:mr1 mr-2 flex flex-col p-2">
-                    <span>{timer.days}</span>
-                    <span className="text-xs text-indigo-300">Days</span>
-                  </span>
-                  <span className="md:mr1 mr-2 flex flex-col p-2">
-                    <span>{timer.hr}</span>
-                    <span className="text-xs text-indigo-300">Hrs</span>
-                  </span>
-                  <span className="md:mr1 mr-2 flex flex-col p-2">
-                    <span>{timer.min}</span>
-                    <span className="text-xs text-indigo-300">mins</span>
-                  </span>
-                  <span className="mr-4 flex flex-col p-2">
-                    <span>{timer.sec}</span>
-                    <span className="text-xs text-indigo-300">Sec</span>
-                  </span>
-                  <a href="https://gum.co/lapse_app" target="_blank">
-                    <button className="m-2 rounded-lg bg-indigo-800 px-4 py-2 text-xs outline-none ring-indigo-900 hover:bg-indigo-600 hover:ring-2 sm:text-sm">
-                      Get It for
-                      <span className="stroke-indigo-300 px-1 font-bold text-indigo-300 line-through">
-                        $45
-                      </span>
-                      <span className="text-indigo-100">$35</span>
-                    </button>
-                  </a>
-                </div>
-              </div>
-              <div className="mt-5 flex items-center justify-center gap-4 p-2 align-middle">
-                <span className="text-indigo-300">Avalilable on</span>
-                <span>
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 22 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12.861 4.55483C13.3623 3.95654 13.71 3.13997 13.71 2.31531C13.71 2.20212 13.7019 2.08893 13.6776 2C12.8772 2.03234 11.907 2.5336 11.3249 3.21273C10.8722 3.73017 10.4517 4.55483 10.4517 5.37948C10.4517 5.50884 10.4679 5.63012 10.4841 5.67054C10.5326 5.67863 10.6134 5.6948 10.6943 5.6948C11.4219 5.6948 12.3274 5.2097 12.861 4.55483ZM13.4351 5.86458C12.2223 5.86458 11.2441 6.6003 10.6134 6.6003C9.9424 6.6003 9.06923 5.91309 8.01819 5.91309C6.02122 5.91309 4 7.56241 4 10.667C4 12.6074 4.74381 14.6529 5.67357 15.9707C6.46589 17.0864 7.16119 18 8.15563 18C9.15008 18 9.58666 17.3451 10.8075 17.3451C12.0606 17.3451 12.3355 17.9838 13.4351 17.9838C14.5184 17.9838 15.238 16.9894 15.9171 16.0111C16.6852 14.8873 17.0005 13.7959 17.0167 13.7393C16.952 13.7231 14.8742 12.8742 14.8742 10.5053C14.8742 8.45174 16.5073 7.53007 16.5963 7.4573C15.5291 5.91309 13.8878 5.86458 13.4351 5.86458Z"
-                      fill="currentColor"
-                      fillOpacity="0.9"
-                    />
-                  </svg>
-                </span>
-                <span>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0)">
-                      <path
-                        d="M6.6607 8.98214V14.7946L0.571411 13.9554V8.98214H6.6607ZM6.6607 2.34821V8.23214H0.571411V3.1875L6.6607 2.34821ZM15.4286 8.98214V16L7.33034 14.8839V8.98214H15.4286ZM15.4286 1.14286V8.23214H7.33034V2.25893L15.4286 1.14286Z"
-                        fill="currentColor"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0">
-                        <rect width="16" height="16" fill="currentColor" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
-      )
-    default:
-      return null
-  }
-}
 const Home: NextPage = () => {
   const [hideVideo, setHideVideo] = useState(true)
   return (
     <Container>
-      <section className="flex flex-col items-center p-2 pt-10 text-center">
-        <span className="px-2 py-5">
-          <svg
-            width="54"
-            height="53"
-            viewBox="0 0 54 53"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.6959 2.5H44C48.1421 2.5 51.5 5.85786 51.5 10V42.3628C51.5 47.4304 46.5784 51.0393 41.7452 49.5158L14.1428 40.8151C11.6337 40.0242 9.72252 37.9765 9.10624 35.4189L3.40455 11.7569C2.26771 7.03904 5.84293 2.5 10.6959 2.5Z"
-              stroke="white"
-              strokeWidth="5"
-            />
-          </svg>
-        </span>
-        <h1 className="max-w-3xl py-5 text-2xl font-bold leading-loose lg:text-5xl">
-          Save instant time-lapse screen recording ✨.
-        </h1>
-        <p className="max-w-xl text-2xl font-thin text-gray-400">
-          A simple app to record screen in timelapse on MacOs and windows
-        </p>
-        <button
-          className="mt-5 flex items-center gap-2 align-middle text-xl hover:text-gray-400"
-          onClick={() => {
-            setHideVideo(false)
-          }}
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 18 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.99948 16.4999C13.1416 16.4999 16.4995 13.142 16.4995 8.99985C16.4995 4.85774 13.1416 1.49988 8.99948 1.49988C4.85737 1.49988 1.49951 4.85774 1.49951 8.99985C1.49951 13.142 4.85737 16.4999 8.99948 16.4999Z"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M7.50049 5.99988L12.0005 8.99985L7.50049 11.9999V5.99988Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          Watch now
-        </button>
-        <Timer type={'horizontal'} />
+      <section className="flex flex-col items-center p-2 pt-10 text-center ">
+        <div className="w-full  overflow-hidden rounded-xl md:border md:border-green-800 ">
+          <Menubar />
+          <div className="mx-auto my-10 flex max-w-2xl flex-col items-center justify-center gap-4">
+            {/* <span className="rounded-full bg-green-400/20 px-2 py-1">
+              What's new in lapse 3.0
+            </span> */}
+            <h1 className=" py-5 text-4xl font-bold leading-relaxed lg:text-6xl">
+              Save{' '}
+              <span className="bg-gradient-to-r from-green-300 to-green-700 bg-clip-text text-transparent">
+                instant time-lapse{' '}
+              </span>{' '}
+              screen recording ✨
+            </h1>
+            <p className="mx-auto max-w-md text-lg text-neutral-300 md:text-2xl">
+              A menubar app to record screen in time-
+              <span className="text-green-500">lapse</span> on MacOs and windows
+            </p>
+            <div className="flex justify-center gap-4">
+              <Try />
+              <button className="mt-5  flex items-center gap-2 rounded p-2 align-middle text-sm lg:hidden ">
+                <span className="md:hidden">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.75 11.25V14.25C15.75 14.6478 15.592 15.0294 15.3107 15.3107C15.0294 15.592 14.6478 15.75 14.25 15.75H3.75C3.35218 15.75 2.97064 15.592 2.68934 15.3107C2.40804 15.0294 2.25 14.6478 2.25 14.25V11.25"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M5.25 7.5L9 11.25L12.75 7.5"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M9 11.25V2.25"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>{' '}
+                Get it now{' '}
+              </button>
+              <button
+                className="mt-5 flex items-center gap-2 rounded p-2 align-middle text-sm ring-1 ring-green-400/60 "
+                onClick={() => {
+                  setHideVideo(!hideVideo)
+                }}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.99948 16.4999C13.1416 16.4999 16.4995 13.142 16.4995 8.99985C16.4995 4.85774 13.1416 1.49988 8.99948 1.49988C4.85737 1.49988 1.49951 4.85774 1.49951 8.99985C1.49951 13.142 4.85737 16.4999 8.99948 16.4999Z"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M7.50049 5.99988L12.0005 8.99985L7.50049 11.9999V5.99988Z"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                how it works!
+              </button>
+            </div>
+            <Timer type={'horizontal'} />
+          </div>
+        </div>
         {!hideVideo && (
-          <div className="fixed top-0 flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-black bg-opacity-70 align-middle">
+          <div className="fixed top-0 flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-black/20 align-middle backdrop-blur-md">
             <span
               className="my-5 cursor-pointer"
               onClick={() => {
@@ -250,7 +140,7 @@ const Home: NextPage = () => {
             <video
               controls={true}
               poster="/preview1.png"
-              className="w-[400px] md:w-[800px]"
+              className="w-[400px] rounded-md md:w-[800px]"
             >
               <source src="lapse.mp4" type="video/mp4" />
               Your browser does not support HTML video.
@@ -258,7 +148,7 @@ const Home: NextPage = () => {
           </div>
         )}
       </section>
-      <section className="mt-10 p-2">
+      <section className="mt-10 p-2" id="features">
         {/* <h2 className='text-4xl text-center p-4 font-bold'>Features</h2> */}
         <div className="flex flex-col gap-2 px-4 md:flex-row">
           <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
@@ -628,8 +518,8 @@ const Home: NextPage = () => {
             />
           </svg>
         </div>
-        <div className="relative my-10 mt-5 flex flex-col justify-center gap-4 pt-[100px] text-center align-middle lg:flex-row lg:px-10">
-          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+        <div className="grid-col-1 mt-10 grid justify-center gap-3 md:grid-cols-3">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <div>
               <span>
                 <Image
@@ -643,7 +533,7 @@ const Home: NextPage = () => {
             </div>
             <div>Mikkel</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className="p-2 font-thin leading-loose">
+            <p className=" font-thin leading-loose">
               it's great! 5 tacos for delivering exactly what is promised at a
               great price point. And I can see the developer cares and interacts
               even though the project is small.
@@ -652,10 +542,10 @@ const Home: NextPage = () => {
               <br />
             </p>
           </div>
-          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <span>
               <Image
-                src={'/saasMaster.png'}
+                src={'/avatars/saasMaster.png'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -664,7 +554,7 @@ const Home: NextPage = () => {
             </span>
             <div>SaaS-Master</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className="p-2 font-thin leading-loose">
+            <p className=" font-thin leading-loose">
               You can record your workflow or your day work and display it in a
               quick video. Video example{' '}
               <a
@@ -677,10 +567,10 @@ const Home: NextPage = () => {
               <br />
             </p>
           </div>
-          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <span>
               <Image
-                src={'/catz.jpg'}
+                src={'/avatars/catz.jpg'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -689,7 +579,7 @@ const Home: NextPage = () => {
             </span>
             <div>Catz</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className="p-2 font-thin leading-loose">
+            <p className=" font-thin leading-loose">
               it's great! 5 tacos for delivering exactly what is promised at a
               great price point. And I can see the developer cares and interacts
               even though the project is small.
@@ -698,10 +588,7 @@ const Home: NextPage = () => {
               <br />
             </p>
           </div>
-        </div>
-
-        <div className="my-10 mt-5 flex flex-col justify-center gap-4 pt-[100px] text-center align-middle md:px-10 lg:flex-row">
-          <div className="mb-[70px] flex max-w-md flex-1 flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-1 flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <div>
               <span>
                 <Image
@@ -715,15 +602,15 @@ const Home: NextPage = () => {
             </div>
             <div>epitomi</div>
             <div>🌟🌟🌟🌟⭐️</div>
-            <p className="p-2 font-thin leading-loose">
+            <p className=" font-thin leading-loose">
               Good but needs more basic features like recording single app and a
               particular region on the screen.
             </p>
           </div>
-          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg ">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg ">
             <span>
               <Image
-                src={'/default.png'}
+                src={'/avatars/default.png'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -732,7 +619,7 @@ const Home: NextPage = () => {
             </span>
             <div>Tario</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className="p-2 font-thin leading-loose">
+            <p className=" font-thin leading-loose">
               I randomly found this app by accident. Turn out it's one of the
               apps I really need in my workflow. If you do any projects and want
               to send your clients the entire process with sped-up timelapse
@@ -742,10 +629,10 @@ const Home: NextPage = () => {
               strongly recommend it!
             </p>
           </div>
-          <div className="mb-[70px] flex max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <span>
               <Image
-                src={'/default.png'}
+                src={'/avatars/default.png'}
                 height={100}
                 width={100}
                 className="rounded-full"
@@ -754,7 +641,7 @@ const Home: NextPage = () => {
             </span>
             <div>flovv</div>
             <div>🌟🌟🌟🌟🌟</div>
-            <p className="p-2 font-thin leading-loose">
+            <p className=" font-thin leading-loose">
               I love Lapse, It's a pretty cool piece of software. It works as
               advertised and the quality of footage is great. My only request
               would be to add a GIF convertor and dual screen recording
@@ -763,15 +650,15 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="relative px-4 sm:px-20">
+      <section className="relative px-4 sm:px-20" id="faq">
         <h2 className="mt-10 text-center text-3xl">FAQ</h2>
         <div className="flex flex-col py-10 px-2 sm:flex-row">
           <div className="grid flex-1 grid-flow-row gap-2 text-gray-400 sm:grid-flow-col sm:grid-rows-3 sm:gap-0">
             <div className="p-1">
-              <details>
-                <summary className="py-1 text-xl">
+              <div>
+                <div className="py-1 text-xl">
                   Is there an option to select monitors?
-                </summary>
+                </div>
                 <p className="max-w-xl p-2 px-4 font-thin">
                   Yes you can select one of the external monitors to start
                   recording.
@@ -779,26 +666,24 @@ const Home: NextPage = () => {
                   However, the support for single app recording is in the
                   roadmap.
                 </p>
-              </details>
+              </div>
             </div>
             <div className="p-1">
-              <details>
-                <summary className="py-1 text-xl">
-                  Do you offer a trial?
-                </summary>
+              <div>
+                <div className="py-1 text-xl">Do you offer a trial?</div>
                 <p className="max-w-xl p-2 px-4 font-thin">
                   We didn’t implement a trial yet, but no worries—feel free to
                   purchase the app. If you’re not happy send a short message.
                   We’ll refund your order.
                   <br />
                 </p>
-              </details>
+              </div>
             </div>
             <div className="p-1">
-              <details>
-                <summary className="py-1 text-xl">
+              <div>
+                <div className="py-1 text-xl">
                   The menubar app doesn’t work. What can I do?
-                </summary>
+                </div>
                 <p className="max-w-xl p-2 px-4 font-thin">
                   Lapse requires the screen Record permission in “System
                   Preferences › Security & Privacy › Privacy › Screen Recording.
@@ -806,45 +691,41 @@ const Home: NextPage = () => {
                   “System Preferences › Security & Privacy › Privacy › Screen
                   Recording” is required too.
                 </p>
-              </details>
+              </div>
             </div>
             <div className="p-1">
-              <details>
-                <summary className="py-1 text-xl">
-                  Is there a Windows app?
-                </summary>
+              <div>
+                <div className="py-1 text-xl">Is there a Windows app?</div>
                 <p className="max-w-xl p-2 px-4 font-thin">
                   Yes we support for MacOs and windows.
                 </p>
-              </details>
+              </div>
             </div>
             <div className="p-1">
-              <details>
-                <summary className="py-1 text-xl">
+              <div>
+                <div className="py-1 text-xl">
                   Something’s wrong. How do I get in touch?
-                </summary>
+                </div>
                 <p className="max-w-xl p-2 px-4 font-thin">
                   <a href="mailto:achuth.hadnoor123@gmail.com">
                     Drop us a line
                   </a>
                   , we’ll be happy to help!
                 </p>
-              </details>
+              </div>
             </div>
             <div className="p-1">
-              <details>
-                <summary className="py-1 text-xl">
-                  Will you update Lapse?
-                </summary>
+              <div>
+                <div className="py-1 text-xl">Will you update Lapse?</div>
                 <p className="max-w-xl p-2 px-4 font-thin">
                   One year of updates with the licence purchaced.
                 </p>
-              </details>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="relative px-4 sm:px-20">
+      <section className="relative px-4 sm:px-20" id="download">
         <h2 className="mt-10 text-center text-3xl">Download</h2>
         <div className="mt-5 flex items-center justify-center gap-2">
           {/* <Timer type="horizontal" /> */}
@@ -949,40 +830,40 @@ export default Home
   /* <div className="py-10 px-2 flex flex-col sm:flex-row">
             <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-gray-400 flex-1 gap-2 sm:gap-0">
             <div>
-              <details>
-                <summary>Title</summary>
+              <div>
+                <div>Title</div>
                 <p>body</p>
-              </details>
+              </div>
             </div>
             <div>
-              <details>
-                <summary>Title</summary>
+              <div>
+                <div>Title</div>
                 <p>body</p>
-              </details>
+              </div>
             </div>
             <div>
-              <details>
-                <summary>Title</summary>
+              <div>
+                <div>Title</div>
                 <p>body</p>
-              </details>
+              </div>
             </div>
             <div>
-              <details>
-                <summary>Title</summary>
+              <div>
+                <div>Title</div>
                 <p>body</p>
-              </details>
+              </div>
             </div>
             <div>
-              <details>
-                <summary>Title</summary>
+              <div>
+                <div>Title</div>
                 <p>body</p>
-              </details>
+              </div>
             </div>
             <div>
-              <details>
-                <summary>Title</summary>
+              <div>
+                <div>Title</div>
                 <p>body</p>
-              </details>
+              </div>
             </div>
 
             </div>

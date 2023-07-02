@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-    @apply bg-black text-gray-50 font-sans;
-    scroll-behavior: smooth;
+html {
+  @apply bg-black font-sans text-gray-50;
+}
+* {
+  scroll-behavior: smooth;
 }
 
 /* width */
@@ -24,7 +26,7 @@ html{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply rounded bg-indigo-700;
+  @apply rounded bg-green-700;
 }
 ::-webkit-search-cancel-button {
   @apply bg-orange-400;

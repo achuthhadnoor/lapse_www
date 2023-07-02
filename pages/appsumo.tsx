@@ -108,7 +108,7 @@ const Appsumo = (props: any) => {
           <p className="my-5 max-w-xl leading-loose">
             Please enter your name, email and Appsumo code below to download
             lapse and enjoy creating amazing time-lapse videos
-            <span className="mx-1 rounded bg-indigo-800 p-1 text-indigo-200">
+            <span className="mx-1 rounded bg-green-800 p-1 text-green-200">
               {' '}
               with life time access
             </span>
@@ -116,7 +116,7 @@ const Appsumo = (props: any) => {
           </p>
           <p className="my-5 max-w-xl leading-loose">
             After submission, you will receive the
-            <span className="mx-1 rounded bg-indigo-800 p-1 text-indigo-200">
+            <span className="mx-1 rounded bg-green-800 p-1 text-green-200">
               {' '}
               .dmg / .exe
             </span>
@@ -139,7 +139,7 @@ const Appsumo = (props: any) => {
             <input
               className={cn(
                 loading && 'cursor-not-allowed',
-                'rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-indigo-400'
+                'rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-400'
               )}
               type="email"
               placeholder="join@email.address"
@@ -151,7 +151,7 @@ const Appsumo = (props: any) => {
               disabled={loading}
             />
             <input
-              className="rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-indigo-500"
+              className="rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-500"
               type="text"
               placeholder="Appsumo code"
               required
@@ -211,7 +211,7 @@ const Appsumo = (props: any) => {
                   loading || code.length !== 19
                     ? 'cursor-not-allowed'
                     : 'cursor-pointer',
-                  'inline-flex items-center rounded-md bg-indigo-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-indigo-400 disabled:bg-gray-500'
+                  'inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-gray-500'
                 )}
                 disabled={code.length !== 19 ? true : false}
               >
