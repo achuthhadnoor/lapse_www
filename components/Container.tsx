@@ -4,7 +4,9 @@ import dynamic from 'next/dynamic'
 import Footer from './Footer'
 import Header from './Header'
 
-const CrispWithNoSSR = dynamic(() => import('./crisp'), { ssr: false })
+const CrispWithNoSSR: any = dynamic(() => import('./crisp'), {
+  ssr: false,
+})
 
 export default function Container(props: { [x: string]: any; children: any }) {
   const { children, ...customMeta } = props
