@@ -146,7 +146,7 @@ export default function Try() {
     <>
       {!isRecording && (
         <button
-          className="mt-5 flex items-center gap-2 rounded  p-2 align-middle text-sm outline-none ring-1 ring-neutral-200/20"
+          className="mt-5 hidden items-center gap-2 rounded p-2  align-middle text-sm outline-none ring-1 ring-neutral-200/20 lg:flex"
           onClick={startRecording}
         >
           ▶ Try Lapse now

@@ -5,6 +5,7 @@ import Container from '../components/Container'
 import Timer from '../components/timer'
 import Menubar from '../components/menubar'
 import Try from '../components/Try'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   const [hideVideo, setHideVideo] = useState(true)
@@ -30,40 +31,45 @@ const Home: NextPage = () => {
             </p>
             <div className="flex justify-center gap-4">
               <Try />
-              <button className="mt-5  flex items-center gap-2 rounded p-2 align-middle text-sm lg:hidden ">
-                <span className="md:hidden">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.75 11.25V14.25C15.75 14.6478 15.592 15.0294 15.3107 15.3107C15.0294 15.592 14.6478 15.75 14.25 15.75H3.75C3.35218 15.75 2.97064 15.592 2.68934 15.3107C2.40804 15.0294 2.25 14.6478 2.25 14.25V11.25"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M5.25 7.5L9 11.25L12.75 7.5"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M9 11.25V2.25"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>{' '}
-                Get it now{' '}
-              </button>
+              <Link
+                href="/download"
+                className="mt-5 items-center rounded p-2 align-middle text-sm lg:hidden "
+              >
+                <button className="flex gap-2">
+                  <span className="lg:hidden">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.75 11.25V14.25C15.75 14.6478 15.592 15.0294 15.3107 15.3107C15.0294 15.592 14.6478 15.75 14.25 15.75H3.75C3.35218 15.75 2.97064 15.592 2.68934 15.3107C2.40804 15.0294 2.25 14.6478 2.25 14.25V11.25"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M5.25 7.5L9 11.25L12.75 7.5"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M9 11.25V2.25"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>{' '}
+                  Get it now{' '}
+                </button>
+              </Link>
               <button
                 className="mt-5 flex items-center gap-2 rounded p-2 align-middle text-sm ring-1 ring-green-400/60 "
                 onClick={() => {
@@ -727,7 +733,7 @@ const Home: NextPage = () => {
       </section>
       <section className="relative px-4 sm:px-20" id="download">
         <h2 className="mt-10 text-center text-3xl">Download</h2>
-        <div className="mt-5 flex items-center justify-center gap-2">
+        <div className="mt-5 flex flex-col items-center justify-center gap-2 md:flex-row">
           {/* <Timer type="horizontal" /> */}
           <a href="https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-x64.dmg">
             <div className="flex flex-col">
@@ -814,7 +820,7 @@ const Home: NextPage = () => {
                 </div>
               </div>
               <div className="mt-2 p-1 text-center text-sm text-gray-500 ">
-                Windows 10
+                Windows 10 or 11
               </div>
             </div>
           </a>

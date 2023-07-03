@@ -19,8 +19,8 @@ export default function Footer() {
   const _date = new Date()
   return (
     <footer className="px-4 sm:px-20">
-      <div className="flex flex-col py-10 px-2 sm:flex-row">
-        <div className="grid flex-1 grid-flow-row gap-2 text-gray-400 sm:grid-flow-col sm:grid-rows-3 sm:gap-0">
+      <div className="flex flex-col justify-between gap-4 py-10 px-2 lg:flex-row">
+        <div className="grid flex-1 grid-flow-row gap-2 text-gray-400  md:grid-flow-col md:grid-rows-3">
           <Link href="#feedback">Feedback</Link>
           {/* <ExternalLink href="https://gum.co/lapse_app">Buy</ExternalLink> */}
           <ExternalLink href="https://achuth.notion.site/Changelog-4c898f8b4ec140abb1d6a6d2e9108a15">
@@ -39,15 +39,14 @@ export default function Footer() {
             Refund Policy
           </ExternalLink>
         </div>
-        <span className="flex-1" />
-        <div className="bg-skin-secondary mt-10 max-w-lg rounded-lg px-2 py-4 sm:mt-0  sm:px-10">
+        <div className="mt-10 max-w-lg rounded-lg bg-green-900/30 px-2 py-4 sm:mt-0  sm:px-10">
           <h3 className="mb-5 text-2xl">Be the first to know</h3>
           <p className="mb-5 text-sm text-gray-300">
             We’ll inform you about new tips, apps and deals. No spam, we
             promise.
           </p>
           <form
-            className="flex flex-col rounded-lg bg-gray-900 p-2 sm:flex-row"
+            className="flex flex-col rounded-lg bg-black/50 p-2 sm:flex-row"
             onSubmit={async (e) => {
               e.preventDefault()
               let { status, error }: any = await fetch('/api/subscribe', {
@@ -80,10 +79,11 @@ export default function Footer() {
               placeholder="join@email.addess"
               className="flex-1 bg-transparent px-4 py-2  outline-none"
               required
+              autoFocus={true}
             />
             <button
               type="submit"
-              className="mt-5 w-full rounded-md bg-green-500 px-4 py-2 sm:mt-0 sm:w-fit "
+              className="mt-5 w-full rounded-md bg-green-800 px-4 py-2 sm:mt-0 sm:w-fit "
             >
               Subscribe
             </button>
