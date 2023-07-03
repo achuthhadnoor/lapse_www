@@ -79,7 +79,6 @@ export default function Footer() {
               placeholder="join@email.addess"
               className="flex-1 bg-transparent px-4 py-2  outline-none"
               required
-              autoFocus={true}
             />
             <button
               type="submit"
