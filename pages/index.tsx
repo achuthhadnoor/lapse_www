@@ -11,6 +11,7 @@ const Home: NextPage = () => {
   const [hideVideo, setHideVideo] = useState(true)
   return (
     <Container>
+      {/* Hero Section */}
       <section className="flex flex-col items-center p-2 pt-10 text-center ">
         <div className="w-full  overflow-hidden rounded-xl md:border md:border-green-800 ">
           <Menubar />
@@ -154,8 +155,9 @@ const Home: NextPage = () => {
           </div>
         )}
       </section>
-      <section className="mt-10 p-2" id="features">
-        {/* <h2 className='text-4xl text-center p-4 font-bold'>Features</h2> */}
+      {/* Features */}
+      <section className="p-2 pt-24" id="features">
+        <h2 className="p-4 text-center text-4xl font-bold">Features</h2>
         <div className="flex flex-col gap-2 px-4 md:flex-row">
           <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
             <span>
@@ -388,7 +390,8 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="mt-20 p-2" id="feedback">
+      {/* Feedback */}
+      <section className="mt-20 p-2 pt-24" id="feedback">
         <h2 className="mt-10 text-center text-3xl">Feedback</h2>
         <p className="mt-5 text-center text-xl font-thin">
           Take our word for it or see what others are saying:
@@ -656,9 +659,10 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className="relative px-4 sm:px-20" id="faq">
+      {/* FAQ */}
+      <section className="relative px-4 pt-24 sm:px-20" id="faq">
         <h2 className="mt-10 text-center text-3xl">FAQ</h2>
-        <div className="flex flex-col py-10 px-2 sm:flex-row">
+        <div className="flex flex-col px-2 py-10 sm:flex-row">
           <div className="grid flex-1 grid-flow-row gap-2 text-gray-400 sm:grid-flow-col sm:grid-rows-3 sm:gap-0">
             <div className="p-1">
               <div>
@@ -731,6 +735,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
+      {/* Download */}
       <section className="relative px-4 sm:px-20" id="download">
         <h2 className="mt-10 text-center text-3xl">Download</h2>
         <div className="mt-5 flex flex-col items-center justify-center gap-2 md:flex-row">
