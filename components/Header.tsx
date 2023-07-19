@@ -5,7 +5,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   const NavMenu = () => (
-    <nav className="mt-24 flex h-full w-full flex-col items-end gap-10 rounded align-middle text-sm uppercase text-neutral-200 md:flex-row">
+    <nav className="flex h-full w-full flex-col items-end gap-10 rounded align-middle text-sm uppercase text-neutral-200 md:flex-row">
       <Link
         href={'/'}
         onClick={() => {
