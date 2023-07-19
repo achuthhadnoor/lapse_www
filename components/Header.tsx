@@ -12,7 +12,7 @@ export default function Header() {
           setOpen(false)
         }}
       >
-        <span className="px-2 py-1 text-3xl">Home</span>
+        <span className="px-2 py-1 text-sm">Home</span>
       </Link>
       <Link
         href={'#features'}
@@ -20,7 +20,7 @@ export default function Header() {
           setOpen(false)
         }}
       >
-        <span className="px-2 py-1 text-3xl">Features</span>
+        <span className="px-2 py-1 text-sm">Features</span>
       </Link>
       <Link
         href={'#faq'}
@@ -28,7 +28,7 @@ export default function Header() {
           setOpen(false)
         }}
       >
-        <span className="px-2 py-1 text-3xl">FAQ</span>
+        <span className="px-2 py-1 text-sm">FAQ</span>
       </Link>
       {/* <Link href={'/'} onClick={()=>{setOpen(false)}}>
         <span className="px-2 py-1">Pricing</span>
@@ -41,7 +41,7 @@ export default function Header() {
         href="https://achuth.notion.site/Changelog-4c898f8b4ec140abb1d6a6d2e9108a15"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-3xl"
+        className="text-sm"
       >
         Changelog
       </a>
@@ -51,7 +51,7 @@ export default function Header() {
           setOpen(false)
         }}
       >
-        <span className="px-2 py-1 text-3xl">Feedback</span>
+        <span className="px-2 py-1 text-sm">Feedback</span>
       </Link>
     </nav>
   )

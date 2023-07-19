@@ -28,7 +28,7 @@ const Home: NextPage = () => {
             </h1>
             <p className="mx-auto max-w-md text-lg text-neutral-300 md:text-2xl">
               A menubar app to record screen in time-
-              <span className="text-green-500">lapse</span> on MacOs and windows
+              <span className="text-green-500">lapse</span> on macOs and windows
             </p>
             <div className="flex justify-center gap-4">
               <Try />
@@ -158,7 +158,7 @@ const Home: NextPage = () => {
       {/* Features */}
       <section className="p-2 pt-24" id="features">
         <h2 className="p-4 text-center text-4xl font-bold">Features</h2>
-        <div className="flex flex-col gap-2 px-4 md:flex-row">
+        <div className="gap-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
             <span>
               <svg
@@ -528,11 +528,36 @@ const Home: NextPage = () => {
           </svg>
         </div>
         <div className="grid-col-1 mt-10 grid justify-center gap-3 md:grid-cols-3">
+        <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+            <div>
+              <span>
+                <Image
+                  src={'/avatars/krisatu.webp'}
+                  height={100}
+                  width={100}
+                  className="rounded-full"
+                  alt="krisatu"
+                />
+              </span>
+            </div>
+            <div>krisatu</div>
+            <div>🌟🌟🌟🌟🌟</div>
+            <p className=" font-thin leading-loose">
+            I've tried and this software runs smoothly.
+              <br/>
+            My process of making one illustration can take 6-12 hours, I once recorded a real-time time-lapse and the total file size is more than 100GB. Not to mention I have to edit and then render the speed up version. It wastes resources and time.
+              <br/>
+            Lapse will really help professionals in the creative industry who want to record the process of making their artwork. The software is simple, easy to use.
+              <br />
+              Thanks!
+              <br />
+            </p>
+          </div>
           <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <div>
               <span>
                 <Image
-                  src={'/mikkel.jpg'}
+                  src={'/avatars/mikkel.jpg'}
                   height={100}
                   width={100}
                   className="rounded-full"
@@ -601,7 +626,7 @@ const Home: NextPage = () => {
             <div>
               <span>
                 <Image
-                  src={'/default.png'}
+                  src={'/avatars/default.png'}
                   height={100}
                   width={100}
                   className="rounded-full"

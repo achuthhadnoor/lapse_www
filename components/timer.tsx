@@ -139,7 +139,7 @@ export default function Timer({ type }: { type: string }) {
               className="rounded-full ring-1 ring-green-400"
             />
           </span>
-          <span>+ thousands of designers, educators, gamers amd more!</span>
+          <span>+ thousands of designers, educators, gamers and more!</span>
         </div>
         {/* <div className="mt-5 flex items-center justify-center gap-4 p-2 align-middle">
                 <span className="text-green-300">Avalilable on</span>
