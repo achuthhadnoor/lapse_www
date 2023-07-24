@@ -28,14 +28,14 @@ const Appsumo = (props: any) => {
         console.log(res.data)
         if (os === 'macos') {
           window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-x64.dmg',
+            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-x64.dmg',
             '_blank'
           )
           setLoading(false)
           return
         } else if (os === 'macosM1') {
           window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-arm64.dmg',
+            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-arm64.dmg',
             '_blank'
           )
           setLoading(false)
@@ -103,7 +103,7 @@ const Appsumo = (props: any) => {
             </defs>
           </svg>
         </h1>
-        <div className="my-5 mx-auto mt-2">
+        <div className="mx-auto my-5 mt-2">
           <h2 className="text-lg font-semibold">Hello Sumo-links 👋</h2>
           <p className="my-5 max-w-xl leading-loose">
             Please enter your name, email and Appsumo code below to download
@@ -128,7 +128,7 @@ const Appsumo = (props: any) => {
             Achuth
           </a>
         </div>
-        <div className="my-5 mx-auto rounded-md bg-gray-900 px-4 py-5 shadow-md">
+        <div className="mx-auto my-5 rounded-md bg-neutral-900 px-4 py-5 shadow-md">
           <h3 className="mt-2 text-lg">
             Start recoding your amazing digital work in time-lapse
           </h3>
@@ -139,7 +139,7 @@ const Appsumo = (props: any) => {
             <input
               className={cn(
                 loading && 'cursor-not-allowed',
-                'rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-400'
+                'rounded bg-neutral-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-400'
               )}
               type="email"
               placeholder="join@email.address"
@@ -151,7 +151,7 @@ const Appsumo = (props: any) => {
               disabled={loading}
             />
             <input
-              className="rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-500"
+              className="rounded bg-neutral-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-500"
               type="text"
               placeholder="Appsumo code"
               required
@@ -161,7 +161,9 @@ const Appsumo = (props: any) => {
               }}
               disabled={loading || code.length === 19}
             />
-            <p className="text-xs text-gray-400">Paste the code from appsumo</p>
+            <p className="text-xs text-neutral-400">
+              Paste the code from appsumo
+            </p>
             <div className="flex flex-col">
               <span className="my-5 text-sm">Select operating system</span>
               <label htmlFor="windows">
@@ -211,7 +213,7 @@ const Appsumo = (props: any) => {
                   loading || code.length !== 19
                     ? 'cursor-not-allowed'
                     : 'cursor-pointer',
-                  'inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-gray-500'
+                  'inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-neutral-500'
                 )}
                 disabled={code.length !== 19 ? true : false}
               >

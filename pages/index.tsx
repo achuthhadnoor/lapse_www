@@ -158,8 +158,8 @@ const Home: NextPage = () => {
       {/* Features */}
       <section className="p-2 pt-24" id="features">
         <h2 className="p-4 text-center text-4xl font-bold">Features</h2>
-        <div className="gap-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2">
+          <div className="my-10 flex flex-1 flex-col gap-4 rounded p-4 ">
             <span>
               <svg
                 width="48"
@@ -224,7 +224,7 @@ const Home: NextPage = () => {
               normal screen recording.
             </p>
           </div>
-          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
+          <div className="my-10 flex flex-1 flex-col gap-4 rounded p-4 ">
             <span>
               <svg
                 width="48"
@@ -298,7 +298,7 @@ const Home: NextPage = () => {
               to low and further more by customizing the video output.
             </p>
           </div>
-          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
+          <div className="my-10 flex flex-1 flex-col gap-4 rounded p-4 ">
             <span>
               <svg
                 width="48"
@@ -345,7 +345,7 @@ const Home: NextPage = () => {
               shutdown and screen lock
             </p>
           </div>
-          <div className="my-10 flex flex-1 flex-col items-center gap-4 rounded p-4 text-center">
+          <div className="my-10 flex flex-1 flex-col gap-4 rounded p-4 ">
             <span>
               <svg
                 width="48"
@@ -528,7 +528,7 @@ const Home: NextPage = () => {
           </svg>
         </div>
         <div className="grid-col-1 mt-10 grid justify-center gap-3 md:grid-cols-3">
-        <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
             <div>
               <span>
                 <Image
@@ -543,11 +543,16 @@ const Home: NextPage = () => {
             <div>krisatu</div>
             <div>🌟🌟🌟🌟🌟</div>
             <p className=" font-thin leading-loose">
-            I've tried and this software runs smoothly.
-              <br/>
-            My process of making one illustration can take 6-12 hours, I once recorded a real-time time-lapse and the total file size is more than 100GB. Not to mention I have to edit and then render the speed up version. It wastes resources and time.
-              <br/>
-            Lapse will really help professionals in the creative industry who want to record the process of making their artwork. The software is simple, easy to use.
+              I've tried and this software runs smoothly.
+              <br />
+              My process of making one illustration can take 6-12 hours, I once
+              recorded a real-time time-lapse and the total file size is more
+              than 100GB. Not to mention I have to edit and then render the
+              speed up version. It wastes resources and time.
+              <br />
+              Lapse will really help professionals in the creative industry who
+              want to record the process of making their artwork. The software
+              is simple, easy to use.
               <br />
               Thanks!
               <br />
@@ -685,7 +690,7 @@ const Home: NextPage = () => {
         </div>
       </section>
       {/* FAQ */}
-      <section className="relative px-4 pt-24 sm:px-20" id="faq">
+      <section className="mt-20 p-2 pt-24" id="faq">
         <h2 className="mt-10 text-center text-3xl">FAQ</h2>
         <div className="flex flex-col px-2 py-10 sm:flex-row">
           <div className="grid flex-1 grid-flow-row gap-2 text-gray-400 sm:grid-flow-col sm:grid-rows-3 sm:gap-0">

@@ -18,8 +18,8 @@ export default function Footer() {
   const [successMessage, setSuccessMessage] = useState('')
   const _date = new Date()
   return (
-    <footer className="px-4 sm:px-20">
-      <div className="flex flex-col justify-between gap-4 py-10 px-2 lg:flex-row">
+    <footer className="mx-auto max-w-6xl px-4 sm:px-20">
+      <div className="flex flex-col justify-between gap-4 px-2 py-10 lg:flex-row">
         <div className="grid flex-1 grid-flow-row gap-2 text-gray-400  md:grid-flow-col md:grid-rows-3">
           <Link href="#feedback">Feedback</Link>
           {/* <ExternalLink href="https://gum.co/lapse_app">Buy</ExternalLink> */}
@@ -88,7 +88,7 @@ export default function Footer() {
             </button>
           </form>
           {successMessage && (
-            <div className="fixed top-10 right-0 flex items-center rounded bg-lime-100 px-2 text-green-600 ">
+            <div className="fixed right-0 top-10 flex items-center rounded bg-lime-100 px-2 text-green-600 ">
               {successMessage}
               <span
                 className="p-2"

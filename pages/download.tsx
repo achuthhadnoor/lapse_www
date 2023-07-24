@@ -28,14 +28,14 @@ const Download = (props: any) => {
         console.log(res.data)
         if (os === 'macos') {
           window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-x64.dmg',
+            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-x64.dmg',
             '_blank'
           )
           setLoading(false)
           return
         } else if (os === 'macosM1') {
           window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-arm64.dmg',
+            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-arm64.dmg',
             '_blank'
           )
           setLoading(false)
@@ -56,11 +56,11 @@ const Download = (props: any) => {
       title={'Lapse | Download '}
       description="Download lapse for macOs"
     >
-      <section className=" mx-auto mt-24 max-w-4xl">
+      <section className=" mx-auto mt-24 max-w-4xl p-4 md:p-0">
         <h1 className="flex justify-center align-middle text-3xl">
           Download Lapse
         </h1>
-        <div className="my-5 mx-auto mt-2">
+        <div className="mx-auto my-5 mt-2">
           <h2 className="text-lg font-semibold">👋 Hello</h2>
           <p className="my-5 max-w-xl leading-loose">
             Please enter your name, email and license code below to download
@@ -80,7 +80,7 @@ const Download = (props: any) => {
             Achuth
           </a>
         </div>
-        <div className="my-5 mx-auto rounded-md bg-gray-900 px-4 py-5 shadow-md">
+        <div className="mx-auto my-5 rounded-md bg-neutral-900 px-4 py-5 shadow-md">
           <h3 className="mt-2 text-lg">
             Start recoding your amazing digital work in time-lapse
           </h3>
@@ -91,7 +91,7 @@ const Download = (props: any) => {
             <input
               className={cn(
                 loading && 'cursor-not-allowed',
-                'rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-400'
+                'rounded bg-neutral-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-400'
               )}
               type="email"
               placeholder="join@email.address"
@@ -103,7 +103,7 @@ const Download = (props: any) => {
               disabled={loading}
             />
             <input
-              className="rounded bg-gray-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-500"
+              className="rounded bg-neutral-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-500"
               type="text"
               placeholder="License code"
               required
@@ -113,7 +113,7 @@ const Download = (props: any) => {
               }}
               disabled={loading || code.length === 19}
             />
-            <p className="text-xs text-gray-400">Paste the code</p>
+            <p className="text-xs text-neutral-400">Paste the code</p>
             <div className="flex flex-col">
               <span className="my-5 text-sm">Select operating system</span>
               {/* <label htmlFor="windows">
@@ -163,7 +163,7 @@ const Download = (props: any) => {
                   loading || code.length !== 19
                     ? 'cursor-not-allowed'
                     : 'cursor-pointer',
-                  'inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-gray-500'
+                  'inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-neutral-500'
                 )}
                 disabled={code.length !== 19 ? true : false}
               >
