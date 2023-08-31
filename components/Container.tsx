@@ -156,7 +156,7 @@ export default function Container(props: { [x: string]: any; children: any }) {
           </svg>
         </a>
       </span>
-      <main className="mx-auto max-w-6xl">{children}</main>
+      <main className="mx-auto max-w-6xl leading-loose ">{children}</main>
       <Footer />
     </div>
   )

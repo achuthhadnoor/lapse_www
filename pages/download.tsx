@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import cn from 'classnames'
 import Container from '../components/Container'
+import { currentVersion } from '../utils/constants'
 
 const Download = (props: any) => {
   const [email, setEmail] = useState('')
@@ -28,14 +29,14 @@ const Download = (props: any) => {
         console.log(res.data)
         if (os === 'macos') {
           window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-x64.dmg',
+            `https://github.com/achuthhadnoor/lapse_www/releases/download/${currentVersion}/Lapse-${currentVersion}-x64.dmg`,
             '_blank'
           )
           setLoading(false)
           return
         } else if (os === 'macosM1') {
           window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-arm64.dmg',
+            `https://github.com/achuthhadnoor/lapse_www/releases/download/${currentVersion}/Lapse-${currentVersion}-arm64.dmg`,
             '_blank'
           )
           setLoading(false)

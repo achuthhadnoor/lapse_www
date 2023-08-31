@@ -6,6 +6,7 @@ import Timer from '../components/timer'
 import Menubar from '../components/menubar'
 import Try from '../components/Try'
 import Link from 'next/link'
+import { currentVersion } from '../utils/constants'
 
 const Home: NextPage = () => {
   const [hideVideo, setHideVideo] = useState(true)
@@ -528,7 +529,7 @@ const Home: NextPage = () => {
           </svg>
         </div>
         <div className="grid-col-1 mt-10 grid justify-center gap-3 md:grid-cols-3">
-          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-neutral-900 drop-shadow-lg">
             <div>
               <span>
                 <Image
@@ -558,7 +559,7 @@ const Home: NextPage = () => {
               <br />
             </p>
           </div>
-          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-neutral-900 drop-shadow-lg">
             <div>
               <span>
                 <Image
@@ -581,7 +582,7 @@ const Home: NextPage = () => {
               <br />
             </p>
           </div>
-          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-neutral-900 drop-shadow-lg">
             <span>
               <Image
                 src={'/avatars/saasMaster.png'}
@@ -606,7 +607,7 @@ const Home: NextPage = () => {
               <br />
             </p>
           </div>
-          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-neutral-900 drop-shadow-lg">
             <span>
               <Image
                 src={'/avatars/catz.jpg'}
@@ -627,7 +628,7 @@ const Home: NextPage = () => {
               <br />
             </p>
           </div>
-          <div className="mb-[70px] flex  max-w-md flex-1 flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-1 flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-neutral-900 drop-shadow-lg">
             <div>
               <span>
                 <Image
@@ -646,7 +647,7 @@ const Home: NextPage = () => {
               particular region on the screen.
             </p>
           </div>
-          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg ">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-neutral-900 drop-shadow-lg ">
             <span>
               <Image
                 src={'/avatars/default.png'}
@@ -668,7 +669,7 @@ const Home: NextPage = () => {
               strongly recommend it!
             </p>
           </div>
-          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-gray-900 drop-shadow-lg">
+          <div className="mb-[70px] flex  max-w-md flex-col gap-2 rounded-lg p-4 pt-[70px] ring-1 ring-neutral-900 drop-shadow-lg">
             <span>
               <Image
                 src={'/avatars/default.png'}
@@ -693,7 +694,7 @@ const Home: NextPage = () => {
       <section className="mt-20 p-2 pt-24" id="faq">
         <h2 className="mt-10 text-center text-3xl">FAQ</h2>
         <div className="flex flex-col px-2 py-10 sm:flex-row">
-          <div className="grid flex-1 grid-flow-row gap-2 text-gray-400 sm:grid-flow-col sm:grid-rows-3 sm:gap-0">
+          <div className="grid flex-1 grid-flow-row gap-2 text-neutral-400 sm:grid-flow-col sm:grid-rows-3 sm:gap-0">
             <div className="p-1">
               <div>
                 <div className="py-1 text-xl">
@@ -770,9 +771,9 @@ const Home: NextPage = () => {
         <h2 className="mt-10 text-center text-3xl">Download</h2>
         <div className="mt-5 flex flex-col items-center justify-center gap-2 md:flex-row">
           {/* <Timer type="horizontal" /> */}
-          <a href="https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-x64.dmg">
+          <a href={`https://github.com/achuthhadnoor/lapse_www/releases/download/${currentVersion}/Lapse-${currentVersion}-x64.dmg`}>
             <div className="flex flex-col">
-              <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
+              <div className="flex items-center gap-2 rounded-lg bg-neutral-100 px-2 py-1 align-middle text-black">
                 <span className="flex">
                   <svg
                     width="24"
@@ -796,14 +797,14 @@ const Home: NextPage = () => {
                   <span className="font-semibold">macOS</span>
                 </div>
               </div>
-              <div className="mt-2 p-1 text-sm text-gray-500">
+              <div className="mt-2 p-1 text-sm text-neutral-500">
                 macOS 10.13 or higher
               </div>
             </div>
           </a>
-          <a href="https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.1/Lapse-1.0.1-arm64.dmg">
+          <a href={`https://github.com/achuthhadnoor/lapse_www/releases/download/${currentVersion}/Lapse-${currentVersion}-arm64.dmg`}>
             <div className="flex flex-col">
-              <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
+              <div className="flex items-center gap-2 rounded-lg bg-neutral-100 px-2 py-1 align-middle text-black">
                 <span className="flex">
                   <svg
                     width="24"
@@ -827,14 +828,14 @@ const Home: NextPage = () => {
                   <span className="font-semibold">macOS M1</span>
                 </div>
               </div>
-              <div className="mt-2 p-1 text-sm text-gray-500">
+              <div className="mt-2 p-1 text-sm text-neutral-500">
                 macOS 10.13 or higher
               </div>
             </div>
           </a>
           <a href="https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe">
             <div className="flex flex-col">
-              <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
+              <div className="flex items-center gap-2 rounded-lg bg-neutral-100 px-2 py-1 align-middle text-black">
                 <span className="flex">
                   <svg
                     width="24"
@@ -854,7 +855,7 @@ const Home: NextPage = () => {
                   <span className="text-2xl font-semibold">windows</span>
                 </div>
               </div>
-              <div className="mt-2 p-1 text-center text-sm text-gray-500 ">
+              <div className="mt-2 p-1 text-center text-sm text-neutral-500 ">
                 Windows 10 or 11
               </div>
             </div>
@@ -869,7 +870,7 @@ export default Home
 
 {
   /* <div className="py-10 px-2 flex flex-col sm:flex-row">
-            <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-gray-400 flex-1 gap-2 sm:gap-0">
+            <div className="grid sm:grid-rows-3 sm:grid-flow-col grid-flow-row text-neutral-400 flex-1 gap-2 sm:gap-0">
             <div>
               <div>
                 <div>Title</div>
