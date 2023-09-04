@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import cn from 'classnames'
 import Container from '../components/Container'
+import { currentVersion, versions } from '../utils/constants'
 
 const Download = (props: any) => {
   const [email, setEmail] = useState('')
   const [code, setCode] = useState('')
   const [os, setOs] = useState('macos')
   const [loading, setLoading] = useState(false)
+  const [version, setVersion] = useState(currentVersion)
 
   useEffect(() => {
     setCode(props.code)
@@ -17,14 +19,14 @@ const Download = (props: any) => {
     setLoading(true)
     if (os === 'macos') {
       window.open(
-        'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-x64.dmg',
+        `https://github.com/achuthhadnoor/lapse_www/releases/download/${version}/Lapse-${version}-x64.dmg`,
         '_blank'
       )
       setLoading(false)
       return
     } else if (os === 'macosM1') {
       window.open(
-        'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-arm64.dmg',
+        `https://github.com/achuthhadnoor/lapse_www/releases/download/${version}/Lapse-${version}-arm64.dmg`,
         '_blank'
       )
       setLoading(false)
@@ -142,6 +144,14 @@ const Download = (props: any) => {
                   checked={os === 'macosM1' ? true : false}
                 />
                 Mac os M1( apple Silicon)
+              </label>
+              <label htmlFor="versions">
+                Version{" "}
+                <select onChange={e => setVersion(e.target.value)} defaultValue={currentVersion} className='bg-transparent border-2 border-green-500 rounded m-4 outline-none'>
+                  {
+                    versions.map((version) => <option key={`version-${version}`} value={version}>{version}</option>)
+                  }
+                </select>
               </label>
             </div>
             <span>
