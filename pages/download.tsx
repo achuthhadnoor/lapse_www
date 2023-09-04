@@ -14,39 +14,27 @@ const Download = (props: any) => {
   }, [])
   const submitApi = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    if (code !== 'null' && code.length === 19) {
-      setLoading(true)
-
-      axios.post('api/verify', { email: email, phrase: code }).then((res) => {
-        if (res.data.status === 503) {
-          alert(res.data.message)
-          return
-        } else if (res.data.status === 403) {
-          alert(res.data.message)
-          return
-        }
-        console.log(res.data)
-        if (os === 'macos') {
-          window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-x64.dmg',
-            '_blank'
-          )
-          setLoading(false)
-          return
-        } else if (os === 'macosM1') {
-          window.open(
-            'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-arm64.dmg',
-            '_blank'
-          )
-          setLoading(false)
-          return
-        }
-        window.open(
-          'https://github.com/achuthhadnoor/www/releases/download/1.0.1/Lapse.Setup.1.0.10.exe'
-        )
-        setLoading(false)
-      })
+    setLoading(true)
+    if (os === 'macos') {
+      window.open(
+        'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-x64.dmg',
+        '_blank'
+      )
+      setLoading(false)
+      return
+    } else if (os === 'macosM1') {
+      window.open(
+        'https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.2/Lapse-1.0.2-arm64.dmg',
+        '_blank'
+      )
+      setLoading(false)
+      return
     }
+    window.open(
+      'https://github.com/achuthhadnoor/www/releases/download/1.0.1/Lapse.Setup.1.0.10.exe'
+    )
+    setLoading(false)
+
   }
   let selectOs = (os: any) => {
     setOs(os)
@@ -88,7 +76,7 @@ const Download = (props: any) => {
             className="flex max-w-md flex-col gap-4 py-4"
             onSubmit={submitApi}
           >
-            <input
+            {/* <input
               className={cn(
                 loading && 'cursor-not-allowed',
                 'rounded bg-neutral-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-400'
@@ -101,8 +89,8 @@ const Download = (props: any) => {
                 setEmail(target.value)
               }}
               disabled={loading}
-            />
-            <input
+            /> */}
+            {/* <input
               className="rounded bg-neutral-800 px-2 py-1 text-sm shadow outline-none focus:ring-2 focus:ring-green-500"
               type="text"
               placeholder="License code"
@@ -112,11 +100,11 @@ const Download = (props: any) => {
                 setCode(target.value)
               }}
               disabled={loading || code.length === 19}
-            />
-            <p className="text-xs text-neutral-400">Paste the code</p>
+            /> */}
+            {/* <p className="text-xs text-neutral-400">Paste the code</p> */}
             <div className="flex flex-col">
               <span className="my-5 text-sm">Select operating system</span>
-              {/* <label htmlFor="windows">
+              <label htmlFor="windows">
                 <input
                   id="windows"
                   name="windows"
@@ -128,7 +116,7 @@ const Download = (props: any) => {
                   }}
                 />
                 Windows
-              </label> */}
+              </label>
               <label htmlFor="macos">
                 <input
                   id="macos"
@@ -160,12 +148,9 @@ const Download = (props: any) => {
               <button
                 type="submit"
                 className={cn(
-                  loading || code.length !== 19
-                    ? 'cursor-not-allowed'
-                    : 'cursor-pointer',
-                  'inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-neutral-500'
+                  'cursor-pointer inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-neutral-500'
                 )}
-                disabled={code.length !== 19 ? true : false}
+              // disabled={code.length !== 19 ? true : false}
               >
                 {loading && (
                   <svg
