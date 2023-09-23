@@ -260,9 +260,6 @@ const Appsumo = (props: any) => {
 }
 
 Appsumo.getInitialProps = async (ctx: { query: { appsumocode: any } }) => {
-  console.log('====================================');
-  console.log(ctx.query);
-  console.log('====================================');
   if (ctx.query.appsumocode) {
     return { code: ctx.query.appsumocode }
   }
