@@ -1,49 +1,48 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import cn from 'classnames'
-import Container from '../components/Container'
-import { currentVersion, versions } from '../utils/constants'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import cn from "classnames";
+import Container from "../components/Container";
+import { currentVersion, versions } from "../utils/constants";
 
 const Download = (props: any) => {
-  const [email, setEmail] = useState('')
-  const [code, setCode] = useState('')
-  const [os, setOs] = useState('macos')
-  const [loading, setLoading] = useState(false)
-  const [version, setVersion] = useState(currentVersion)
+  const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
+  const [os, setOs] = useState("macos");
+  const [loading, setLoading] = useState(false);
+  const [version, setVersion] = useState(currentVersion);
 
   useEffect(() => {
-    setCode(props.code)
-  }, [])
+    setCode(props.code);
+  }, []);
   const submitApi = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    setLoading(true)
-    if (os === 'macos') {
+    e.preventDefault();
+    setLoading(true);
+    if (os === "macos") {
       window.open(
         `https://github.com/achuthhadnoor/lapse_www/releases/download/${version}/Lapse-${version}-x64.dmg`,
-        '_blank'
-      )
-      setLoading(false)
-      return
-    } else if (os === 'macosM1') {
+        "_blank"
+      );
+      setLoading(false);
+      return;
+    } else if (os === "macosM1") {
       window.open(
         `https://github.com/achuthhadnoor/lapse_www/releases/download/${version}/Lapse-${version}-arm64.dmg`,
-        '_blank'
-      )
-      setLoading(false)
-      return
+        "_blank"
+      );
+      setLoading(false);
+      return;
     }
     window.open(
-      'https://github.com/achuthhadnoor/www/releases/download/1.0.1/Lapse.Setup.1.0.10.exe'
-    )
-    setLoading(false)
-
-  }
+      "https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe"
+    );
+    setLoading(false);
+  };
   let selectOs = (os: any) => {
-    setOs(os)
-  }
+    setOs(os);
+  };
   return (
     <Container
-      title={'Lapse | Download '}
+      title={"Lapse | Download "}
       description="Download lapse for macOs"
     >
       <section className=" mx-auto mt-24 max-w-4xl p-4 md:p-0">
@@ -59,7 +58,7 @@ const Download = (props: any) => {
           <p className="my-5 max-w-xl leading-loose">
             After submission, you will recieve the
             <span className="mx-1 rounded bg-green-800 p-1 text-green-200">
-              {' '}
+              {" "}
               .dmg / .exe
             </span>
             file where you will have to enter both email and the code
@@ -112,9 +111,9 @@ const Download = (props: any) => {
                   name="windows"
                   type="radio"
                   className="mx-2"
-                  checked={os === 'windows' ? true : false}
+                  checked={os === "windows" ? true : false}
                   onClick={() => {
-                    selectOs('windows')
+                    selectOs("windows");
                   }}
                 />
                 Windows
@@ -126,9 +125,9 @@ const Download = (props: any) => {
                   className="mx-2"
                   type="radio"
                   onClick={() => {
-                    selectOs('macos')
+                    selectOs("macos");
                   }}
-                  checked={os === 'macos' ? true : false}
+                  checked={os === "macos" ? true : false}
                 />
                 Mac
               </label>
@@ -139,18 +138,24 @@ const Download = (props: any) => {
                   className="mx-2"
                   type="radio"
                   onClick={() => {
-                    selectOs('macosM1')
+                    selectOs("macosM1");
                   }}
-                  checked={os === 'macosM1' ? true : false}
+                  checked={os === "macosM1" ? true : false}
                 />
                 Mac os M1( apple Silicon)
               </label>
               <label htmlFor="versions">
                 Version{" "}
-                <select onChange={e => setVersion(e.target.value)} defaultValue={currentVersion} className='bg-transparent border-2 border-green-500 rounded m-4 outline-none'>
-                  {
-                    versions.map((version) => <option key={`version-${version}`} value={version}>{version}</option>)
-                  }
+                <select
+                  onChange={(e) => setVersion(e.target.value)}
+                  defaultValue={currentVersion}
+                  className="bg-transparent border-2 border-green-500 rounded m-4 outline-none"
+                >
+                  {versions.map((version) => (
+                    <option key={`version-${version}`} value={version}>
+                      {version}
+                    </option>
+                  ))}
                 </select>
               </label>
             </div>
@@ -158,9 +163,9 @@ const Download = (props: any) => {
               <button
                 type="submit"
                 className={cn(
-                  'cursor-pointer inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-neutral-500'
+                  "cursor-pointer inline-flex items-center rounded-md bg-green-500 px-4 py-2 text-sm font-semibold leading-6 text-white shadow transition duration-150 ease-in-out hover:bg-green-400 disabled:bg-neutral-500"
                 )}
-              // disabled={code.length !== 19 ? true : false}
+                // disabled={code.length !== 19 ? true : false}
               >
                 {loading && (
                   <svg
@@ -184,23 +189,23 @@ const Download = (props: any) => {
                     ></path>
                   </svg>
                 )}
-                {loading ? 'Processing..' : 'submit'}
+                {loading ? "Processing.." : "submit"}
               </button>
             </span>
           </form>
         </div>
       </section>
     </Container>
-  )
-}
+  );
+};
 
 Download.getInitialProps = async (ctx: {
-  query: { email: any; code: any }
+  query: { email: any; code: any };
 }) => {
   if (ctx.query.email && ctx.query.code) {
-    return { email: ctx.query.email, code: ctx.query.code }
+    return { email: ctx.query.email, code: ctx.query.code };
   }
-  return { code: 'null', email: 'null' }
-}
+  return { code: "null", email: "null" };
+};
 
-export default Download
+export default Download;
