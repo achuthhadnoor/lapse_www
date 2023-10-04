@@ -1,36 +1,36 @@
-import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 export default function Timer({ type }: { type: string }) {
-  const [timer, setTimer] = useState({ days: 0, hr: 0, min: 0, sec: 0 })
-  const [isLoading, setIsLoading] = useState(true)
+  const [timer, setTimer] = useState({ days: 0, hr: 0, min: 0, sec: 0 });
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const countDownDate = new Date('September 30, 2023 15:37:25').getTime()
+    const countDownDate = new Date("November 30, 2023 15:37:25").getTime();
     // Update the count down every 1 second
     let x = setInterval(function () {
       // Get today's date and time
-      let now = new Date().getTime()
+      let now = new Date().getTime();
       // const before = '25$';
       // const after = '15$'
       // Find the distance between now and the count down date
-      let distance = countDownDate - now
+      let distance = countDownDate - now;
 
       // Time calculations for days, hours, minutes and seconds
-      let days = Math.floor(distance / (1000 * 60 * 60 * 24))
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
       let hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      )
-      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-      let seconds = Math.floor((distance % (1000 * 60)) / 1000)
-      setTimer({ days: days, hr: hours, min: minutes, sec: seconds })
-      setIsLoading(false)
+      );
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      setTimer({ days: days, hr: hours, min: minutes, sec: seconds });
+      setIsLoading(false);
       // If the count down is finished, write some text
       if (distance < 0) {
-        clearInterval(x)
+        clearInterval(x);
       }
-    }, 1000)
-  }, [])
-  return type === 'vertical' ? (
+    }, 1000);
+  }, []);
+  return type === "vertical" ? (
     <div id="timer" className="mt-5">
       <div className="bg-skin-secondary inline-block justify-center rounded-xl p-2 align-middle">
         <div className="flex">
@@ -53,10 +53,10 @@ export default function Timer({ type }: { type: string }) {
         </div>
         <a href="https://achuthhadnoor.gumroad.com/l/learnvim">
           <button className="mt-2 w-full rounded-lg bg-green-500 px-4 py-2 text-xs ring-green-900 hover:ring-2 sm:text-sm">
-            Get It for{' '}
+            Get It for{" "}
             <span className="stroke-green-600 text-green-300 line-through">
               $25
-            </span>{' '}
+            </span>{" "}
             <span className="ring-1 ring-gray-900">$15</span>
           </button>
         </a>
@@ -183,5 +183,5 @@ export default function Timer({ type }: { type: string }) {
               </div> */}
       </div>
     </div>
-  )
+  );
 }
