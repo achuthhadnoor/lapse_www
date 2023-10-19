@@ -837,7 +837,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </a>
-          <a href="https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe">
+          <a href="https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.4/Lapse.Setup.1.0.3.exe">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 align-middle text-black">
                 <span className="flex">
