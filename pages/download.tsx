@@ -33,7 +33,7 @@ const Download = (props: any) => {
       return;
     }
     window.open(
-      "https://github.com/achuthhadnoor/www/releases/download/0.0.1/Lapse.Setup.0.0.10.exe"
+      "https://github.com/achuthhadnoor/lapse_www/releases/download/1.0.4/Lapse.Setup.1.0.3.exe"
     );
     setLoading(false);
   };
