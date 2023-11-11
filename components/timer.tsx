@@ -10,8 +10,8 @@ export default function Timer({ type }: { type: string }) {
     let x = setInterval(function () {
       // Get today's date and time
       let now = new Date().getTime();
-      // const before = '25$';
-      // const after = '15$'
+      // const before = '35$';
+      // const after = '25$'
       // Find the distance between now and the count down date
       let distance = countDownDate - now;
 
@@ -55,9 +55,9 @@ export default function Timer({ type }: { type: string }) {
           <button className="mt-2 w-full rounded-lg bg-green-500 px-4 py-2 text-xs ring-green-900 hover:ring-2 sm:text-sm">
             Get It for{" "}
             <span className="stroke-green-600 text-green-300 line-through">
-              $25
+              $35
             </span>{" "}
-            <span className="ring-1 ring-gray-900">$15</span>
+            <span className="ring-1 ring-gray-900">$25</span>
           </button>
         </a>
       </div>
@@ -87,9 +87,9 @@ export default function Timer({ type }: { type: string }) {
               <button className="m-2 rounded-lg bg-green-800 px-4 py-2 text-xs outline-none ring-green-900 hover:bg-green-600 hover:ring-2 sm:text-sm">
                 Get It for
                 <span className="stroke-green-300 px-1 font-bold text-green-300 line-through">
-                  $25
+                  $35
                 </span>
-                <span className="text-green-100">$15</span>
+                <span className="text-green-100">$25</span>
               </button>
             </a>
           </div>
