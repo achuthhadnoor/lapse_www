@@ -1262,10 +1262,10 @@ export default function Home() {
             />{" "}
             Achuth Hadnoor. All right reserved.
           </div>
-          <div>
+          <div className="mt-4">
             <Link
               href={
-                "https://www.notion.so/achuth/Refund-Policy-dd800e71934c4b9c85ce12bf504544f4?pvs=4"
+                "https://achuth.notion.site/Refund-Policy-dd800e71934c4b9c85ce12bf504544f4"
               }
               className="p-2 text-neutral-400 transition hover:text-neutral-100"
             >
@@ -1273,7 +1273,7 @@ export default function Home() {
             </Link>
             <Link
               href={
-                "https://www.notion.so/achuth/Press-Kit-1a3b994e395d43efbaf6727fed4429f1?pvs=4"
+                "https://achuth.notion.site/Press-Kit-1a3b994e395d43efbaf6727fed4429f1"
               }
               className="p-2 text-neutral-400 transition hover:text-neutral-100"
             >
@@ -1281,7 +1281,7 @@ export default function Home() {
             </Link>
             <Link
               href={
-                "https://www.notion.so/achuth/Terms-of-Service-cf16898198bd42eeb41f4a780f04ac94?pvs=4"
+                "https://achuth.notion.site/Terms-of-Service-cf16898198bd42eeb41f4a780f04ac94"
               }
               className="p-2 text-neutral-400 transition hover:text-neutral-100"
             >

@@ -67,7 +67,7 @@ export default function RootLayout({
           </Link> */}
               <Link
                 href={
-                  "https://www.notion.so/achuth/Changelog-4c898f8b4ec140abb1d6a6d2e9108a15?pvs=4"
+                  "https://achuth.notion.site/Changelog-4c898f8b4ec140abb1d6a6d2e9108a15"
                 }
                 className="p-2 text-neutral-400 transition hover:text-neutral-100"
               >
