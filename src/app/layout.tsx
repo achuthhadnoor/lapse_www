@@ -51,14 +51,14 @@ export default function RootLayout({
       <body
         className={cl(
           inter.className,
-          "bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100"
+          "bg-neutral-50 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
         )}
       >
         {" "}
-        <nav className="fixed top-0 left-0 text-right z-50 w-full">
-          <div className=" p-2 mx-auto w-full flex max-w-7xl justify-center md:justify-between">
+        <nav className="fixed left-0 top-0 z-50 w-full text-right">
+          <div className=" mx-auto flex w-full max-w-7xl justify-center p-2 md:justify-between">
             <div></div>
-            <div className="flex px-2 py-1 gap-4 backdrop-blur-sm bg-neutral-100/80 dark:bg-neutral-800/80 rounded-full ">
+            <div className="flex gap-4 rounded-full bg-neutral-100/80 px-2 py-1 backdrop-blur-sm dark:bg-neutral-800/80 ">
               {/* <Link
             href={"/docs"}
             className="p-2 text-neutral-400 hover:text-neutral-100 transition"
@@ -66,14 +66,16 @@ export default function RootLayout({
             Referral
           </Link> */}
               <Link
-                href={"/changelog"}
-                className="p-2 text-neutral-400 hover:text-neutral-100 transition"
+                href={
+                  "https://www.notion.so/achuth/Changelog-4c898f8b4ec140abb1d6a6d2e9108a15?pvs=4"
+                }
+                className="p-2 text-neutral-400 transition hover:text-neutral-100"
               >
                 Changelog
               </Link>
               <Link
                 href={"/download"}
-                className="p-2 text-neutral-400 hover:text-neutral-100 transition"
+                className="p-2 text-neutral-400 transition hover:text-neutral-100"
               >
                 <svg
                   width="18"

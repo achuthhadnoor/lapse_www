@@ -7,7 +7,7 @@ import { currentVersion } from "@/lib/constants";
 import Try from "@/components/Try";
 const LapseLogo = () => (
   <div className="absolute mt-5 flex items-end">
-    <span className="pt-4 absolute -left-8">Lapse</span>
+    <span className="absolute -left-8 pt-4">Lapse</span>
     <svg
       width="53"
       height="27"
@@ -64,15 +64,15 @@ export default function Home() {
     },
   ];
   return (
-    <main className="mx-4 md:mx-12 pt-20 text-sm">
-      <section className=" mb-24 flex flex-col gap-5 items-center justify-center">
-        <span className=" hidden p-1 bg-green-50 dark:bg-green-950 dark:text-green-300 border border-green-300 w-auto rounded-md flex gap-2 items-center text-green-800">
-          <em className="bg-green-400 py-1 px-2 rounded-md text-green-800">
+    <main className="mx-4 pt-20 text-sm md:mx-12">
+      <section className=" mb-24 flex flex-col items-center justify-center gap-5">
+        <span className=" flex hidden w-auto items-center gap-2 rounded-md border border-green-300 bg-green-50 p-1 text-green-800 dark:bg-green-950 dark:text-green-300">
+          <em className="rounded-md bg-green-400 px-2 py-1 text-green-800">
             New
           </em>
           Announcing Lapse 3.0! ✨
         </span>
-        <div className="p-2 flex flex-col items-center">
+        <div className="flex flex-col items-center p-2">
           <svg
             width="80"
             height="80"
@@ -135,12 +135,12 @@ export default function Home() {
               </clipPath>
             </defs>
           </svg>
-          <div className="text-xl font-bold text-center mt-2 my-12">
+          <div className="my-12 mt-2 text-center text-xl font-bold">
             Lapse.app
           </div>
         </div>
-        <div className="flex flex-col md:flex-row w-full max-w-3xl gap-5 md:gap-2 mb-10 items-center">
-          <div className="  flex-1 macOs px-4 border border-neutral-700  rounded-md flex justify-between items-center w-full max-w-3xl">
+        <div className="mb-10 flex w-full max-w-3xl flex-col items-center gap-5 md:flex-row md:gap-2">
+          <div className="  macOs flex w-full max-w-3xl flex-1  items-center justify-between rounded-md border border-neutral-700 px-4">
             <svg
               width="24"
               height="24"
@@ -154,7 +154,7 @@ export default function Home() {
                 fillOpacity="0.9"
               />
             </svg>
-            <div className="flex gap-2 align-middle items-center p-2">
+            <div className="flex items-center gap-2 p-2 align-middle">
               <span className="flex flex-col items-end">
                 <svg
                   width="14"
@@ -228,7 +228,7 @@ export default function Home() {
             </div>
           </div>
           OR
-          <div className="  flex-1 windows px-4 border border-neutral-700  rounded-md flex justify-between items-center w-full max-w-3xl">
+          <div className="  windows flex w-full max-w-3xl flex-1  items-center justify-between rounded-md border border-neutral-700 px-4">
             <svg
               width="15"
               height="16"
@@ -241,7 +241,7 @@ export default function Home() {
                 fill="currentColor"
               />
             </svg>
-            <div className="p-2 justify-center items-center flex gap-4 ">
+            <div className="flex items-center justify-center gap-4 p-2 ">
               {/* <span className="text-2xl">^</span> */}
               <span className="flex flex-col items-end">
                 <svg
@@ -276,22 +276,22 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold max-w-3xl text-center">
+        <h1 className="max-w-3xl text-center text-5xl font-bold md:text-6xl">
           Save instant time-lapse screen recording ✨
         </h1>
-        <p className="text-lg md:text-xl text-center font-light text-neutral-400">
+        <p className="text-center text-lg font-light text-neutral-400 md:text-xl">
           A menubar app to record screen in time-lapse on macOs and windows
         </p>
-        <div className="flex  gap-2 md:gap-5 mt-5 text-center">
+        <div className="mt-5  flex gap-2 text-center md:gap-5">
           <Link
             href={"/"}
-            className="px-4 py-2 bg-gradient-to-r from-green-500 to-green-800 font-bold rounded-full text-green-900 hover:ring-2 ring-green-300 transition ease-linear"
+            className="rounded-full bg-gradient-to-r from-green-500 to-green-800 px-4 py-2 font-bold text-green-900 ring-green-300 transition ease-linear hover:ring-2"
           >
             Buy 25$ <del className="font-normal text-green-200">35$</del>
           </Link>
           <Link
             href={"#download"}
-            className="hidden md:block px-4 py-2 bg-neutral-800 text-neutral-300  rounded-full hover:ring-2 ring-neutral-500 transition ease-linear"
+            className="hidden rounded-full bg-neutral-800 px-4 py-2 text-neutral-300  ring-neutral-500 transition ease-linear hover:ring-2 md:block"
           >
             Download
           </Link>
@@ -367,23 +367,23 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
       </section>
-      <section className=" mb-24 flex flex-col items-center mt-24 max-w-3xl mx-auto ">
-        <h2 className="text-4xl font-bold mt-5 mb-10">How it works</h2>
-        <div className="flex flex-col-reverse md:flex-row gap-4 leading-loose">
-          <p className=" md:block flex flex-col md:flex-row leading-loose text-center text-lg">
-            <i className="p-2 bg-neutral-200 dark:bg-neutral-800 rounded-md ">
+      <section className=" mx-auto mb-24 mt-24 flex max-w-3xl flex-col items-center ">
+        <h2 className="mb-10 mt-5 text-4xl font-bold">How it works</h2>
+        <div className="flex flex-col-reverse gap-4 leading-loose md:flex-row">
+          <p className=" flex flex-col text-center text-lg leading-loose md:block md:flex-row">
+            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
               Start Recording
             </i>
             <i className="rotate-90 md:rotate-0">→</i>{" "}
-            <i className="p-2 bg-neutral-200 dark:bg-neutral-800 rounded-md ">
+            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
               Pause / Resume
             </i>{" "}
             <i className="rotate-90 md:rotate-0">→</i>
-            <i className="p-2 bg-neutral-200 dark:bg-neutral-800 rounded-md ">
+            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
               Stop Recording
             </i>{" "}
             <i className="rotate-90 md:rotate-0">→</i>
-            <i className="p-2 bg-neutral-200 dark:bg-neutral-800 rounded-md ">
+            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
               Save video
             </i>{" "}
             <br />
@@ -393,9 +393,9 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className=" mb-24 flex flex-col md:flex-row items-center mt-24 justify-center max-w-5xl mx-auto ">
-        <div className="flex-1 w-full text-left">
-          <h2 className="text-4xl font-bold mt-5 mb-10">
+      <section className=" mx-auto mb-24 mt-24 flex max-w-5xl flex-col items-center justify-center md:flex-row ">
+        <div className="w-full flex-1 text-left">
+          <h2 className="mb-10 mt-5 text-4xl font-bold">
             Capture a screen or an app
           </h2>
           <p className="text-neutral-400">
@@ -415,9 +415,9 @@ export default function Home() {
           placeholder="blur" // Optional blur-up while loading
         />
       </section>
-      <section className=" mb-24 flex flex-col gap-10 md:flex-row-reverse  mt-24 max-w-6xl mx-auto items-center text-center">
+      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl  flex-col items-center gap-10 text-center md:flex-row-reverse">
         <div className="text-left">
-          <h2 className="text-4xl font-bold mt-5 mb-10">
+          <h2 className="mb-10 mt-5 text-4xl font-bold">
             Ultra high-definition. 4K & 8K support. Sharp details.
           </h2>
           <p className="text-neutral-400">
@@ -440,9 +440,9 @@ export default function Home() {
           placeholder="blur" // Optional blur-up while loading
         />
       </section>
-      <section className=" mb-24 flex flex-col md:flex-row items-center mt-24 max-w-6xl mx-auto  ">
+      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl flex-col items-center md:flex-row  ">
         <div className="">
-          <h2 className="text-4xl font-bold mt-5 mb-10">
+          <h2 className="mb-10 mt-5 text-4xl font-bold">
             Pause and resume your time-lapse anytime
           </h2>
           <p>
@@ -461,9 +461,9 @@ export default function Home() {
           placeholder="blur" // Optional blur-up while loading
         />
       </section>
-      <section className=" mb-24 flex flex-col gap-10 md:flex-row-reverse  mt-24 max-w-6xl mx-auto items-center ">
+      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl  flex-col items-center gap-10 md:flex-row-reverse ">
         <div>
-          <h2 className="text-4xl font-bold mt-5 mb-10">
+          <h2 className="mb-10 mt-5 text-4xl font-bold">
             Control speed of the recording.
           </h2>
           <p>
@@ -485,9 +485,9 @@ export default function Home() {
           placeholder="blur" // Optional blur-up while loading
         />
       </section>
-      <section className=" mb-24 flex flex-col gap-10 md:flex-row-reverse  mt-24 max-w-6xl mx-auto items-center justify-center">
+      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl  flex-col items-center justify-center gap-10 md:flex-row-reverse">
         <div className="max-w-3xl">
-          <h2 className="text-4xl font-bold mt-5 mb-10">
+          <h2 className="mb-10 mt-5 text-4xl font-bold">
             Auto pausing - helps to remove unwanted shots
           </h2>
           <p>
@@ -507,14 +507,14 @@ export default function Home() {
           </p>
         </div> */}
       </section>
-      <section className=" mb-24 flex flex-col gap-10  mt-24 max-w-6xl mx-auto items-center justify-center">
-        <h2 className="text-6xl font-bold mt-5 mb-10">Feedback</h2>
+      <section className=" mx-auto mb-24 mt-24 flex  max-w-6xl flex-col items-center justify-center gap-10">
+        <h2 className="mb-10 mt-5 text-6xl font-bold">Feedback</h2>
         <p className="text-neutral-500">
           Take our word for it or see what others are saying:
         </p>
-        <div className="grid grid-col-1 lg:grid-cols-3 md:grid-cols-2 gap-7">
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  shadow-none dark:bg-neutral-800 bg-neural-400 p-4">
-            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8  shadow-none">
+        <div className="grid-col-1 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          <div className="bg-neural-400 relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent  bg-clip-border p-4 shadow-none dark:bg-neutral-800">
+            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pb-8 pt-0  shadow-none">
               <Image
                 className="rounded-md"
                 src={"/avatars/default.png"}
@@ -526,7 +526,7 @@ export default function Home() {
               />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
-                  <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  <h5 className="text-blue-gray-900 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                     Medias
                   </h5>
                   <div className="5 flex items-center gap-0">
@@ -597,7 +597,7 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                <p className="block font-sans text-base font-light leading-relaxed text-blue-gray-900 antialiased">
+                <p className="text-blue-gray-900 block font-sans text-base font-light leading-relaxed antialiased">
                   Great timesaver!
                 </p>
               </div>
@@ -612,8 +612,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  shadow-none dark:bg-neutral-800 p-4">
-            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8  shadow-none">
+          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  p-4 shadow-none dark:bg-neutral-800">
+            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pb-8 pt-0  shadow-none">
               <Image
                 className="rounded-full"
                 src={"/avatars/mikkel.jpg"}
@@ -625,7 +625,7 @@ export default function Home() {
               />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
-                  <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  <h5 className="text-blue-gray-900 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                     Mikkel
                   </h5>
                   <div className="5 flex items-center gap-0">
@@ -696,7 +696,7 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                <p className="block font-sans text-base font-light leading-relaxed text-blue-gray-900 antialiased">
+                <p className="text-blue-gray-900 block font-sans text-base font-light leading-relaxed antialiased">
                   Appsumo user
                 </p>
               </div>
@@ -709,8 +709,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  shadow-none dark:bg-neutral-800 p-4">
-            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8  shadow-none">
+          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  p-4 shadow-none dark:bg-neutral-800">
+            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pb-8 pt-0  shadow-none">
               <Image
                 className="rounded-full"
                 src={"/avatars/saasMaster.png"}
@@ -722,7 +722,7 @@ export default function Home() {
               />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
-                  <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  <h5 className="text-blue-gray-900 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                     SaasMaster
                   </h5>
                   <div className="5 flex items-center gap-0">
@@ -793,7 +793,7 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                <p className="block font-sans text-base font-light leading-relaxed text-blue-gray-900 antialiased">
+                <p className="text-blue-gray-900 block font-sans text-base font-light leading-relaxed antialiased">
                   Exactly as advertised
                 </p>
               </div>
@@ -818,8 +818,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  shadow-none dark:bg-neutral-800 p-4">
-            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8  shadow-none">
+          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  p-4 shadow-none dark:bg-neutral-800">
+            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pb-8 pt-0  shadow-none">
               <Image
                 className="rounded-full"
                 src={"/avatars/epitomi.png"}
@@ -831,7 +831,7 @@ export default function Home() {
               />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
-                  <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  <h5 className="text-blue-gray-900 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                     Epitomi
                   </h5>
                   <div className="5 flex items-center gap-0">
@@ -902,7 +902,7 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                <p className="block font-sans text-base font-light leading-relaxed text-blue-gray-900 antialiased">
+                <p className="text-blue-gray-900 block font-sans text-base font-light leading-relaxed antialiased">
                   Good but needs more basic features
                 </p>
               </div>
@@ -916,8 +916,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  shadow-none dark:bg-neutral-800 p-4">
-            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pt-0 pb-8  shadow-none">
+          <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border  p-4 shadow-none dark:bg-neutral-800">
+            <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pb-8 pt-0  shadow-none">
               <Image
                 className="rounded-full"
                 src={"/avatars/default.png"}
@@ -929,7 +929,7 @@ export default function Home() {
               />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
-                  <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                  <h5 className="text-blue-gray-900 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                     Xeferus
                   </h5>
                   <div className="5 flex items-center gap-0">
@@ -1000,7 +1000,7 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                <p className="block font-sans text-base font-light leading-relaxed text-blue-gray-900 antialiased">
+                <p className="text-blue-gray-900 block font-sans text-base font-light leading-relaxed antialiased">
                   Works great!
                 </p>
               </div>
@@ -1016,9 +1016,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" mb-24 flex flex-col gap-10  mt-24 max-w-6xl mx-auto items-center justify-center">
-        <h2 className="text-6xl font-bold mt-5 mb-10">FAQ</h2>
-        <ul className="max-w-3xl max-w-auto w-full bg-neutral-200 dark:bg-neutral-800 rounded-lg">
+      <section className=" mx-auto mb-24 mt-24 flex  max-w-6xl flex-col items-center justify-center gap-10">
+        <h2 className="mb-10 mt-5 text-6xl font-bold">FAQ</h2>
+        <ul className="max-w-auto w-full max-w-3xl rounded-lg bg-neutral-200 dark:bg-neutral-800">
           {faqs.map((faq, index) => (
             <li
               key={index}
@@ -1027,9 +1027,9 @@ export default function Home() {
                 setActiveFQA(index);
               }}
             >
-              <div className=" px-4 py-2 flex justify-between">
+              <div className=" flex justify-between px-4 py-2">
                 <h3 className="text-lg">{faq.title}</h3>
-                <span className="p-2 flex items-center">
+                <span className="flex items-center p-2">
                   <svg
                     width="16"
                     height="16"
@@ -1048,7 +1048,7 @@ export default function Home() {
               <p
                 className={cl(
                   activeFQA !== index && "hidden",
-                  "transition ease-linear px-4 py-2 dark:text-neutral-400 text-neutral-600"
+                  "px-4 py-2 text-neutral-600 transition ease-linear dark:text-neutral-400"
                 )}
               >
                 {faq.des}
@@ -1058,10 +1058,10 @@ export default function Home() {
         </ul>
       </section>
       <section
-        className=" py-5 flex flex-col gap-10  mt-24 max-w-6xl mx-auto items-center justify-center"
+        className=" mx-auto mt-24 flex max-w-6xl  flex-col items-center justify-center gap-10 py-5"
         id="download"
       >
-        <div className="p-2 flex flex-col items-center">
+        <div className="flex flex-col items-center p-2">
           <svg
             width="80"
             height="80"
@@ -1124,7 +1124,7 @@ export default function Home() {
               </clipPath>
             </defs>
           </svg>
-          <div className="text-xl font-bold text-center mt-2 my-12">
+          <div className="my-12 mt-2 text-center text-xl font-bold">
             Lapse.app
           </div>
           <div className="mt-5 flex flex-col items-center justify-center gap-2 md:flex-row">
@@ -1223,7 +1223,7 @@ export default function Home() {
               </div>
             </a>
           </div>
-          <div className="flex  gap-2 md:gap-5 mt-5 text-center">
+          <div className="mt-5  flex gap-2 text-center md:gap-5">
             <Link href="https://twitter.com/achuth_hadnoor" target="_blank">
               <svg
                 width="24"
@@ -1249,7 +1249,7 @@ export default function Home() {
               </svg>
             </Link>
           </div>
-          <div className="flex  gap-2 md:gap-5 mt-5 text-center dark:text-neutral-600 text-neutral-400">
+          <div className="mt-5  flex gap-2 text-center text-neutral-400 dark:text-neutral-600 md:gap-5">
             Made by{" "}
             <Image
               className="rounded-full"
@@ -1261,6 +1261,32 @@ export default function Home() {
               placeholder="blur" // Optional blur-up while loading
             />{" "}
             Achuth Hadnoor. All right reserved.
+          </div>
+          <div>
+            <Link
+              href={
+                "https://www.notion.so/achuth/Refund-Policy-dd800e71934c4b9c85ce12bf504544f4?pvs=4"
+              }
+              className="p-2 text-neutral-400 transition hover:text-neutral-100"
+            >
+              Refund
+            </Link>
+            <Link
+              href={
+                "https://www.notion.so/achuth/Press-Kit-1a3b994e395d43efbaf6727fed4429f1?pvs=4"
+              }
+              className="p-2 text-neutral-400 transition hover:text-neutral-100"
+            >
+              Press kit
+            </Link>
+            <Link
+              href={
+                "https://www.notion.so/achuth/Terms-of-Service-cf16898198bd42eeb41f4a780f04ac94?pvs=4"
+              }
+              className="p-2 text-neutral-400 transition hover:text-neutral-100"
+            >
+              Terms of service
+            </Link>
           </div>
         </div>
       </section>
