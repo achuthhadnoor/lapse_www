@@ -284,7 +284,7 @@ export default function Home() {
         </p>
         <div className="mt-5  flex gap-2 text-center md:gap-5">
           <Link
-            href={"/"}
+            href={'https://achuthhadnoor.gumroad.com/l/lapse_app'}
             className="rounded-full bg-gradient-to-r from-green-500 to-green-800 px-4 py-2 font-bold text-green-900 ring-green-300 transition ease-linear hover:ring-2"
           >
             Buy 25$ <del className="font-normal text-green-200">35$</del>
