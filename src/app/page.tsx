@@ -1258,7 +1258,6 @@ export default function Home() {
               width={24}
               height={24}
               blurDataURL="data:..."
-              placeholder="blur" // Optional blur-up while loading
             />{" "}
             Achuth Hadnoor. All right reserved.
           </div>

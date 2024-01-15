@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Crisp from "@/components/crisp";
 import Link from "next/link";
-
+import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -54,7 +54,6 @@ export default function RootLayout({
           "bg-neutral-50 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
         )}
       >
-        {" "}
         <nav className="fixed left-0 top-0 z-50 w-full text-right">
           <div className=" mx-auto flex w-full max-w-7xl justify-center p-2 md:justify-between">
             <div></div>
@@ -112,6 +111,7 @@ export default function RootLayout({
         </nav>
         {children}
         <Crisp />
+        <Analytics />
       </body>
     </html>
   );
