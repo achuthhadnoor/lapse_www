@@ -64,9 +64,9 @@ export default function Home() {
     },
   ];
   return (
-    <main className="mx-4 pt-20 text-sm md:mx-12">
-      <section className=" mb-24 flex flex-col items-center justify-center gap-5">
-        <span className=" flex hidden w-auto items-center gap-2 rounded-md border border-green-300 bg-green-50 p-1 text-green-800 dark:bg-green-950 dark:text-green-300">
+    <main className="pt-20 text-sm max-w-3xl mx-4 md:mx-auto">
+      <section className="text-center">
+        <span className=" hidden py-2 w-auto items-center gap-2 rounded-md border border-green-300 bg-green-50 p-1 text-green-800 dark:bg-green-950 dark:text-green-300">
           <em className="rounded-md bg-green-400 px-2 py-1 text-green-800">
             New
           </em>
@@ -282,7 +282,7 @@ export default function Home() {
         <p className="text-center text-lg font-light text-neutral-400 md:text-xl">
           A menubar app to record screen in time-lapse on macOs and windows
         </p>
-        <div className="mt-5  flex gap-2 text-center md:gap-5">
+        <div className="my-5 justify-center flex gap-2 text-center md:gap-5">
           <Link
             href={'https://achuthhadnoor.gumroad.com/l/lapse_app'}
             className="rounded-full bg-gradient-to-r from-green-500 to-green-800 px-4 py-2 font-bold text-green-900 ring-green-300 transition ease-linear hover:ring-2"
@@ -356,163 +356,121 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <video
-          width="640"
-          height="360"
-          controls
-          poster=""
-          className="rounded-md"
-        >
-          <source src="/lapse.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
       </section>
-      <section className=" mx-auto mb-24 mt-24 flex max-w-3xl flex-col items-center ">
-        <h2 className="mb-10 mt-5 text-4xl font-bold">How it works</h2>
-        <div className="flex flex-col-reverse gap-4 leading-loose md:flex-row">
-          <p className=" flex flex-col text-center text-lg leading-loose md:block md:flex-row">
-            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
-              Start Recording
-            </i>
-            <i className="rotate-90 md:rotate-0">→</i>{" "}
-            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
-              Pause / Resume
-            </i>{" "}
-            <i className="rotate-90 md:rotate-0">→</i>
-            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
-              Stop Recording
-            </i>{" "}
-            <i className="rotate-90 md:rotate-0">→</i>
-            <i className="rounded-md bg-neutral-200 p-2 dark:bg-neutral-800 ">
-              Save video
-            </i>{" "}
-            <br />
-            <span className="mt-4 text-sm text-neutral-400">
-              * You do not have to re-render the entire video again!
-            </span>
-          </p>
+      <section className="flex flex-col pt-20 gap-1">
+        <div className="flex">
+          <div className="flex flex-row ">
+            <div className="h-full px-2 flex flex-col items-center gap-1 ">
+              <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
+              <div className="rounded w-1 bg-neutral-500 flex-1"></div>
+            </div>
+            <div className="flex-1 h-full">
+              <h3 className="text-neutral-400 pb-2 text-xl ">Stays on your menubar / taskbar and is triggered via globalShortcut</h3>
+              <video
+                width="640"
+                height="360"
+                controls
+                poster=""
+                className="border-2 rounded-2xl my-4"
+              >
+                <source src="/lapse.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
-      </section>
-      <section className=" mx-auto mb-24 mt-24 flex max-w-5xl flex-col items-center justify-center md:flex-row ">
-        <div className="w-full flex-1 text-left">
-          <h2 className="mb-10 mt-5 text-4xl font-bold">
-            Capture a screen or an app
-          </h2>
-          <p className="text-neutral-400">
-            Capture the essence of a single app with Lapse, your dedicated
-            time-lapse companion. Choose your focus, whether it's seamlessly
-            switching between tabs or navigating between applications like
-            Photoshop and your browser.
-          </p>
+
+        <div className="flex">
+          <div className="flex flex-row ">
+            <div className="h-full px-2 flex flex-col items-center gap-1 ">
+              <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
+              <div className="rounded w-1 bg-neutral-500 flex-1"></div>
+            </div>
+            <div className="flex-1 h-full">
+              <h3 className="text-neutral-400 pb-2 text-xl ">Main menu in the tray</h3>
+              <p className="text-sm">Helps you adjust the recorder settings before you start recording</p>
+              <Image
+                className="border-2 rounded-2xl my-4"
+                src={"/frameRate.png"}
+                alt={"Screen recording"}
+                width={500}
+                height={500}
+                blurDataURL="data:..."
+                placeholder="blur" // Optional blur-up while loading
+              />
+            </div>
+          </div>
         </div>
-        <Image
-          className="rounded-md"
-          src={"/app_sel.png"}
-          alt={"Screen recording"}
-          width={500}
-          height={500}
-          blurDataURL="data:..."
-          placeholder="blur" // Optional blur-up while loading
-        />
-      </section>
-      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl  flex-col items-center gap-10 text-center md:flex-row-reverse">
-        <div className="text-left">
-          <h2 className="mb-10 mt-5 text-4xl font-bold">
-            Ultra high-definition. 4K & 8K support. Sharp details.
-          </h2>
-          <p className="text-neutral-400">
-            Sharp, expansive, and cutting-edge, Lapse introduces compatibility
-            with the latest ultra-high-definition video. With export
-            capabilities up to 8K resolution, experience unparalleled clarity,
-            ensuring each pixel is captured with precision for remarkably sharp
-            and clear time-lapses.
-          </p>
+        <div className="flex">
+          <div className="flex flex-row ">
+            <div className="h-full px-2 flex flex-col items-center gap-1 ">
+              <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
+              <div className="rounded w-1 bg-neutral-500 flex-1"></div>
+            </div>
+            <div className="flex-1 h-full">
+              <h3 className="text-neutral-400 pb-2 text-xl ">App selection...!</h3>
+              <p className="text-sm">When you click on start recording. You select the App / Screen to record. This is same as your normal screen recording app.</p>
+              <Image
+                className="border-2 rounded-2xl my-4"
+                src={"/quality.png"}
+                alt={"Screen recording"}
+                width={500}
+                height={500}
+                blurDataURL="data:..."
+                placeholder="blur" // Optional blur-up while loading
+              />
+            </div>
+          </div>
         </div>
-        <Image
-          className="rounded-md"
-          src={"/quality.png"}
-          alt={"Screen recording"}
-          // height={400}
-          // width={200}
-          width={500}
-          height={500}
-          blurDataURL="data:..."
-          placeholder="blur" // Optional blur-up while loading
-        />
-      </section>
-      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl flex-col items-center md:flex-row  ">
-        <div className="">
-          <h2 className="mb-10 mt-5 text-4xl font-bold">
-            Pause and resume your time-lapse anytime
-          </h2>
-          <p>
-            You might work for long hours and your system might go into sleep
-            and there is a possibility of recording empty frames, Lapse auto
-            pauses and resumes for you.
-          </p>
+        <div className="flex">
+          <div className="flex flex-row ">
+            <div className="h-full px-2 flex flex-col items-center gap-1 ">
+              <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
+              <div className="rounded w-1 bg-neutral-500 flex-1"></div>
+            </div>
+            <div className="flex-1 h-full">
+              <h3 className="text-neutral-400 pb-2 text-xl ">Here's how it works...!</h3>
+              <p className="text-sm">Start by adjusting the screen-intervals, framerate, quality and format</p>
+              <Image
+                className="border-2 rounded-2xl my-4"
+                src={"/app_sel.png"}
+                alt={"Screen recording"}
+                width={500}
+                height={500}
+                blurDataURL="data:..."
+                placeholder="blur" // Optional blur-up while loading
+              />
+            </div>
+          </div>
         </div>
-        <Image
-          className="rounded-md"
-          src={"/pause.png"}
-          alt={"Screen recording"}
-          width={500}
-          height={500}
-          blurDataURL="data:..."
-          placeholder="blur" // Optional blur-up while loading
-        />
-      </section>
-      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl  flex-col items-center gap-10 md:flex-row-reverse ">
-        <div>
-          <h2 className="mb-10 mt-5 text-4xl font-bold">
-            Control speed of the recording.
-          </h2>
-          <p>
-            Tailor the time-lapse duration by customizing the output video
-            format and selecting the export time. Adjust the frames per second
-            (FPS) to determine the length of your time-lapse—whether you prefer
-            a 4-minute video at 12fps, a 1.5-minute clip at 30fps, or a swift
-            48-second sequence at 60fps. The flexibility is yours to condense it
-            as much as you desire!
-          </p>
+        <div className="flex">
+          <div className="flex flex-row ">
+            <div className="h-full px-2 flex flex-col items-center gap-1 ">
+              <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
+              <div className="rounded w-1 bg-neutral-500 flex-1"></div>
+            </div>
+            <div className="flex-1 h-full">
+              <h3 className="text-neutral-400 pb-2 text-xl ">Play/ pause \ Resume </h3>
+              <p className="text-sm">You can play pause and resume any time and it also auto-pauses when your system goes to sleep.</p>
+              <Image
+                className="border-2 rounded-2xl my-4"
+                src={"/pause.png"}
+                alt={"Screen recording"}
+                width={500}
+                height={500}
+                blurDataURL="data:..."
+                placeholder="blur" // Optional blur-up while loading
+              />
+            </div>
+          </div>
         </div>
-        <Image
-          className="rounded-md"
-          src={"/frameRate.png"}
-          alt={"Screen recording"}
-          width={500}
-          height={500}
-          blurDataURL="data:..."
-          placeholder="blur" // Optional blur-up while loading
-        />
-      </section>
-      <section className=" mx-auto mb-24 mt-24 flex max-w-6xl  flex-col items-center justify-center gap-10 md:flex-row-reverse">
-        <div className="max-w-3xl">
-          <h2 className="mb-10 mt-5 text-4xl font-bold">
-            Auto pausing - helps to remove unwanted shots
-          </h2>
-          <p>
-            You don't want to record screen when you are inactive to prevent
-            further edits lapse auto pauses and resumes when depending on your
-            idle activity.
-          </p>
-        </div>
-        {/* <div>
-          <h2 className="text-4xl font-bold mt-5 mb-10">
-            Auto pausing - helps to remove unwanted shots
-          </h2>
-          <p>
-            You don't want to record screen when you are inactive to prevent
-            further edits lapse auto pauses and resumes when depending on your
-            idle activity.
-          </p>
-        </div> */}
       </section>
       <section className=" mx-auto mb-24 mt-24 flex  max-w-6xl flex-col items-center justify-center gap-10">
         <h2 className="mb-10 mt-5 text-6xl font-bold">Feedback</h2>
         <p className="text-neutral-500">
           Take our word for it or see what others are saying:
         </p>
-        <div className="grid-col-1 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid-col-1 grid gap-7 md:grid-cols-2">
           <div className="bg-neural-400 relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent  bg-clip-border p-4 shadow-none dark:bg-neutral-800">
             <div className="relative mx-0 mt-4 flex items-center gap-4 overflow-hidden rounded-xl bg-transparent bg-clip-border pb-8 pt-0  shadow-none">
               <Image
@@ -1016,8 +974,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" mx-auto mb-24 mt-24 flex  max-w-6xl flex-col items-center justify-center gap-10">
-        <h2 className="mb-10 mt-5 text-6xl font-bold">FAQ</h2>
+      <section className="flex flex-col gap-2 my-10">
+        <h2 className="mb-10 mt-5 text-6xl font-bold text-center">FAQ</h2>
         <ul className="max-w-auto w-full max-w-3xl rounded-lg bg-neutral-200 dark:bg-neutral-800">
           {faqs.map((faq, index) => (
             <li
