@@ -3,10 +3,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import cl from "classnames";
+import { motion } from 'framer-motion';
 import { currentVersion } from "@/lib/constants";
 import Try from "@/components/Try";
 const LapseLogo = () => (
-  <div className="absolute mt-5 flex items-end">
+  <motion.div className="absolute mt-5 flex items-end"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+  >
     <span className="absolute -left-8 pt-4">Lapse</span>
     <svg
       width="53"
@@ -28,7 +32,7 @@ const LapseLogo = () => (
         strokeLinecap="round"
       />
     </svg>
-  </div>
+  </motion.div>
 );
 
 export default function Home() {
@@ -64,7 +68,10 @@ export default function Home() {
     },
   ];
   return (
-    <main className="pt-20 text-sm max-w-3xl mx-4 md:mx-auto">
+    <motion.main className="pt-20 text-sm max-w-3xl mx-4 md:mx-auto"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
       <section className="text-center">
         <span className=" hidden py-2 w-auto items-center gap-2 rounded-md border border-green-300 bg-green-50 p-1 text-green-800 dark:bg-green-950 dark:text-green-300">
           <em className="rounded-md bg-green-400 px-2 py-1 text-green-800">
@@ -72,7 +79,8 @@ export default function Home() {
           </em>
           Announcing Lapse 3.0! ✨
         </span>
-        <div className="flex flex-col items-center p-2">
+        <motion.div className="flex flex-col items-center p-2" initial={{ opacity: 0, translateY: -50, skewY: 10 }}
+          whileInView={{ opacity: 1, translateY: 0, skewY: 0, transitionDuration: '.15s' }}>
           <svg
             width="80"
             height="80"
@@ -138,9 +146,13 @@ export default function Home() {
           <div className="my-12 mt-2 text-center text-xl font-bold">
             Lapse.app
           </div>
-        </div>
-        <div className="mb-10 flex w-full max-w-3xl flex-col items-center gap-5 md:flex-row md:gap-2">
-          <div className="  macOs flex w-full max-w-3xl flex-1  items-center justify-between rounded-md border border-neutral-700 px-4">
+        </motion.div>
+        <motion.div className="mb-10 flex w-full max-w-3xl flex-col items-center gap-5 md:flex-row md:gap-2"
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '.15s' }}
+        >
+          <div
+            className="  macOs flex w-full max-w-3xl flex-1  items-center justify-between rounded-md border border-neutral-700 px-4">
             <svg
               width="24"
               height="24"
@@ -228,7 +240,8 @@ export default function Home() {
             </div>
           </div>
           OR
-          <div className="  windows flex w-full max-w-3xl flex-1  items-center justify-between rounded-md border border-neutral-700 px-4">
+          <div
+            className="  windows flex w-full max-w-3xl flex-1  items-center justify-between rounded-md border border-neutral-700 px-4">
             <svg
               width="15"
               height="16"
@@ -275,14 +288,23 @@ export default function Home() {
               </svg>
             </div>
           </div>
-        </div>
-        <h1 className="max-w-3xl text-center text-5xl font-bold md:text-6xl">
+        </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '.15s' }}
+          className="max-w-3xl text-center text-5xl font-bold md:text-6xl">
           Save instant time-lapse screen recording ✨
-        </h1>
-        <p className="text-center text-lg font-light text-neutral-400 md:text-xl">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '.15s' }}
+          className="text-center text-lg font-light text-neutral-400 md:text-xl">
           A menubar app to record screen in time-lapse on macOs and windows
-        </p>
-        <div className="my-5 justify-center flex gap-2 text-center md:gap-5">
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '.15s' }}
+          className="my-5 justify-center flex gap-2 text-center md:gap-5">
           <Link
             href={'https://achuthhadnoor.gumroad.com/l/lapse_app'}
             className="rounded-full bg-gradient-to-r from-green-500 to-green-800 px-4 py-2 font-bold text-green-900 ring-green-300 transition ease-linear hover:ring-2"
@@ -302,8 +324,11 @@ export default function Home() {
             Try now in browser
           </Link> */}
           <Try />
-        </div>
-        <div className="flex flex-col items-center gap-1">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '.15s' }}
+          className="flex flex-col items-center gap-1">
           <span>⭐ ⭐ ⭐ ⭐ ⭐ 4.8</span>
           <div className="my-2 flex flex-col items-center gap-2 text-sm sm:flex-row">
             <span>Used by </span>
@@ -355,10 +380,16 @@ export default function Home() {
               + thousands of designers, educators, gamers and more!
             </span>
           </div>
-        </div>
+        </motion.div>
       </section>
-      <section className="flex flex-col pt-20 gap-1">
-        <div className="flex">
+      <motion.section
+        initial={{ opacity: 0, translateY: 50, }}
+        whileInView={{ opacity: 1, translateY: 0, transitionDuration: '0.15s' }}
+        className="flex flex-col pt-20 gap-1">
+        <motion.div
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '0.15s' }}
+          className="flex">
           <div className="flex flex-row ">
             <div className="h-full px-2 flex flex-col items-center gap-1 ">
               <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
@@ -378,9 +409,12 @@ export default function Home() {
               </video>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex">
+        <motion.div
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '0.15s' }}
+          className="flex">
           <div className="flex flex-row ">
             <div className="h-full px-2 flex flex-col items-center gap-1 ">
               <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
@@ -400,8 +434,11 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
-        <div className="flex">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '0.15s' }}
+          className="flex">
           <div className="flex flex-row ">
             <div className="h-full px-2 flex flex-col items-center gap-1 ">
               <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
@@ -421,8 +458,11 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
-        <div className="flex">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '0.15s' }}
+          className="flex">
           <div className="flex flex-row ">
             <div className="h-full px-2 flex flex-col items-center gap-1 ">
               <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
@@ -442,8 +482,11 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
-        <div className="flex">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, translateY: 50, }}
+          whileInView={{ opacity: 1, translateY: 0, transitionDuration: '0.15s' }}
+          className="flex">
           <div className="flex flex-row ">
             <div className="h-full px-2 flex flex-col items-center gap-1 ">
               <span className="h-7 w-7 rounded-full bg-neutral-500 relative inline-block"></span>
@@ -463,9 +506,12 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
-      </section>
-      <section className=" mx-auto mb-24 mt-24 flex  max-w-6xl flex-col items-center justify-center gap-10">
+        </motion.div>
+      </motion.section>
+      <motion.section
+        initial={{ opacity: 0, translateY: 50, }}
+        whileInView={{ opacity: 1, translateY: 0, transitionDuration: '0.15s' }}
+        className=" mx-auto mb-24 mt-24 flex  max-w-6xl flex-col items-center justify-center gap-10">
         <h2 className="mb-10 mt-5 text-6xl font-bold">Feedback</h2>
         <p className="text-neutral-500">
           Take our word for it or see what others are saying:
@@ -973,7 +1019,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
       <section className="flex flex-col gap-2 my-10">
         <h2 className="mb-10 mt-5 text-6xl font-bold text-center">FAQ</h2>
         <ul className="max-w-auto w-full max-w-3xl rounded-lg bg-neutral-200 dark:bg-neutral-800">
@@ -1247,6 +1293,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 }

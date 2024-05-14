@@ -12,7 +12,8 @@
     "@ffmpeg/ffmpeg": "^0.9.3",
     "@vercel/analytics": "^1.1.1",
     "axios": "^1.6.2",
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
+    "framer-motion": "^11.1.9",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
