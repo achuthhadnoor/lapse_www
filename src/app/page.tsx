@@ -45,7 +45,7 @@ export default function Home() {
       >
         {/* Announcement Banner */}
         <div className="text-xs text-center py-1 bg-green-900/30  border-2 border-green-950  px-4 rounded-lg text-neutral-400">
-          Announcing lifetime deal on Appsumo.{" "}
+          Announcing lifetime deal.{" "}
           <a href="#" className="font-semibold text-green-400 hover:underline">
             Read more &rarr;
           </a>
@@ -563,8 +563,11 @@ export default function Home() {
         initial={{ opacity: 0, translateY: 50 }}
         whileInView={{ opacity: 1, translateY: 0, transitionDuration: "0.15s" }}
         className=" mx-auto mb-24 mt-24 flex  max-w-6xl flex-col items-center justify-center gap-10 px-4"
+        id="feedback"
       >
-        <h2 className="mb-10 mt-5 text-6xl font-bold">Feedback</h2>
+        <h3 className="mb-10 mt-5 text-center text-7xl font-bold bg-gradient-to-b from-[#FAF7FF] to-[#C3C3C7] bg-clip-text text-transparent sm:text-4xl">
+          Feedback
+        </h3>
         <p className="text-neutral-500">
           Take our word for it or see what others are saying:
         </p>
@@ -1073,20 +1076,170 @@ export default function Home() {
         </div>
       </motion.section>
       <motion.section
+        initial={{ opacity: 0, translateY: 50 }}
+        whileInView={{ opacity: 1, translateY: 0, transitionDuration: "0.15s" }}
+        id="features"
+      >
+        <div className="py-12">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <h3 className="mb-10 mt-5 text-center text-7xl font-bold bg-gradient-to-b from-[#FAF7FF] to-[#C3C3C7] bg-clip-text text-transparent sm:text-4xl">
+                Features
+              </h3>
+            </div>
+          </div>
+          <div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
+            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
+              <div className="relative pl-9">
+                <dt className="inline font-semibold text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="absolute left-1 top-1 h-5 w-5 text-green-500"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 1a.75.75 0 0 1 .75.75V6h-1.5V1.75A.75.75 0 0 1 8 1Zm-.75 5v3.296l-.943-1.048a.75.75 0 1 0-1.114 1.004l2.25 2.5a.75.75 0 0 0 1.114 0l2.25-2.5a.75.75 0 0 0-1.114-1.004L8.75 9.296V6h2A2.25 2.25 0 0 1 13 8.25v4.5A2.25 2.25 0 0 1 10.75 15h-5.5A2.25 2.25 0 0 1 3 12.75v-4.5A2.25 2.25 0 0 1 5.25 6h2ZM7 16.75v-.25h3.75a3.75 3.75 0 0 0 3.75-3.75V10h.25A2.25 2.25 0 0 1 17 12.25v4.5A2.25 2.25 0 0 1 14.75 19h-5.5A2.25 2.25 0 0 1 7 16.75Z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Up to 10X faster
+                </dt>{" "}
+                <dd className="inline">
+                  You have controls just like a normal screen recording app.
+                </dd>
+              </div>
+              <div className="relative pl-9">
+                <dt className="inline font-semibold text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="absolute left-1 top-1 h-5 w-5 text-green-500"
+                  >
+                    <path d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path>
+                    <path
+                      fill-rule="evenodd"
+                      d="M.664 10.59a1.651 1.651 0 0 1 0-1.186A10.004 10.004 0 0 1 10 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0 1 10 17c-4.257 0-7.893-2.66-9.336-6.41ZM14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  View the logs where the screenshots are saved temporarily.
+                </dt>{" "}
+                <dd className="inline">
+                  Adjust the time between each screenshots
+                </dd>
+              </div>
+              <div className="relative pl-9">
+                <dt className="inline font-semibold text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="absolute left-1 top-1 h-5 w-5 text-green-500"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.53 3.47a.75.75 0 0 0-1.06 0L6.22 6.72a.75.75 0 0 0 1.06 1.06L10 5.06l2.72 2.72a.75.75 0 1 0 1.06-1.06l-3.25-3.25Zm-4.31 9.81 3.25 3.25a.75.75 0 0 0 1.06 0l3.25-3.25a.75.75 0 1 0-1.06-1.06L10 14.94l-2.72-2.72a.75.75 0 0 0-1.06 1.06Z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Support Export options.
+                </dt>{" "}
+                <dd className="inline">
+                  Further control the video generated by using the cusomisation
+                  to control the output.
+                </dd>
+              </div>
+              <div className="relative pl-9">
+                <dt className="inline font-semibold text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="absolute left-1 top-1 h-5 w-5 text-green-500"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 4.75C1 3.784 1.784 3 2.75 3h14.5c.966 0 1.75.784 1.75 1.75v10.515a1.75 1.75 0 0 1-1.75 1.75h-1.5c-.078 0-.155-.005-.23-.015H4.48c-.075.01-.152.015-.23.015h-1.5A1.75 1.75 0 0 1 1 15.265V4.75Zm16.5 7.385V11.01a.25.25 0 0 0-.25-.25h-1.5a.25.25 0 0 0-.25.25v1.125c0 .138.112.25.25.25h1.5a.25.25 0 0 0 .25-.25Zm0 2.005a.25.25 0 0 0-.25-.25h-1.5a.25.25 0 0 0-.25.25v1.125c0 .108.069.2.165.235h1.585a.25.25 0 0 0 .25-.25v-1.11Zm-15 1.11v-1.11a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v1.125a.25.25 0 0 1-.164.235H2.75a.25.25 0 0 1-.25-.25Zm2-4.24v1.125a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25V11.01a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25Zm13-2.005V7.88a.25.25 0 0 0-.25-.25h-1.5a.25.25 0 0 0-.25.25v1.125c0 .138.112.25.25.25h1.5a.25.25 0 0 0 .25-.25ZM4.25 7.63a.25.25 0 0 1 .25.25v1.125a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25V7.88a.25.25 0 0 1 .25-.25h1.5Zm0-3.13a.25.25 0 0 1 .25.25v1.125a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25V4.75a.25.25 0 0 1 .25-.25h1.5Zm11.5 1.625a.25.25 0 0 1-.25-.25V4.75a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v1.125a.25.25 0 0 1-.25.25h-1.5Zm-9 3.125a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Export to MP4, WebM, and WebP.
+                </dt>{" "}
+                <dd className="inline">
+                  Export the compressed file in different formats like MP4,
+                  WebM, WebP, or maintain the current format.
+                </dd>
+              </div>
+              <div className="relative pl-9">
+                <dt className="inline font-semibold text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="absolute left-1 top-1 h-5 w-5 text-green-500"
+                  >
+                    <path d="M5.127 3.502 5.25 3.5h9.5c.041 0 .082 0 .123.002A2.251 2.251 0 0 0 12.75 2h-5.5a2.25 2.25 0 0 0-2.123 1.502ZM1 10.25A2.25 2.25 0 0 1 3.25 8h13.5A2.25 2.25 0 0 1 19 10.25v5.5A2.25 2.25 0 0 1 16.75 18H3.25A2.25 2.25 0 0 1 1 15.75v-5.5ZM3.25 6.5c-.04 0-.082 0-.123.002A2.25 2.25 0 0 1 5.25 5h9.5c.98 0 1.814.627 2.123 1.502a3.819 3.819 0 0 0-.123-.002H3.25Z"></path>
+                  </svg>
+                  Start / Pause / Resume
+                </dt>{" "}
+                <dd className="inline">
+                  Increase your productivity by autopausing the recording when
+                  the system goes to sleep.
+                </dd>
+              </div>
+              <div className="relative pl-9">
+                <dt className="inline font-semibold text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    data-slot="icon"
+                    className="absolute left-1 top-1 h-5 w-5 text-green-500"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2 4.25A2.25 2.25 0 0 1 4.25 2h11.5A2.25 2.25 0 0 1 18 4.25v8.5A2.25 2.25 0 0 1 15.75 15h-3.105a3.501 3.501 0 0 0 1.1 1.677A.75.75 0 0 1 13.26 18H6.74a.75.75 0 0 1-.484-1.323A3.501 3.501 0 0 0 7.355 15H4.25A2.25 2.25 0 0 1 2 12.75v-8.5Zm1.5 0a.75.75 0 0 1 .75-.75h11.5a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75v-7.5Z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  Work 100% offline.
+                </dt>{" "}
+                <dd className="inline">
+                  Your files never leave your computer.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </motion.section>
+      <motion.section
         id="faq"
         className="flex flex-col gap-2 my-10 items-center px-4"
         initial={{ opacity: 0, translateY: 50 }}
         whileInView={{ opacity: 1, translateY: 0, transitionDuration: "0.15s" }}
       >
-        <h2 className="mb-10 mt-5 text-6xl font-bold text-center">FAQ</h2>
-        <ul className="flex flex-col gap-2 max-w-auto w-full max-w-3xl rounded-lg bg-neutral-800">
+        <h3 className="mb-10 mt-5 text-center text-7xl font-bold bg-gradient-to-b from-[#FAF7FF] to-[#C3C3C7] bg-clip-text text-transparent sm:text-4xl">
+          FAQ
+        </h3>
+        <ul className="flex flex-col gap-2 max-w-auto w-full max-w-3xl rounded-lg ">
           {faqs.map((faq, index) => (
             <details
               key={index}
               className="border-b-[1px] border-b-neutral-900 transition ease-linear"
-              // onClick={() => {
-              //   setActiveFQA(index);
-              // }}
             >
               <summary className=" flex justify-between px-4 py-2  transition ease-linear">
                 <h3 className="text-lg">{faq.title}</h3>

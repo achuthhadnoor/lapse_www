@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import cl from "classnames";
 import { currentVersion } from "@/lib/constants";
+
 export default function Home() {
   const [activeFQA, setActiveFQA] = useState(0);
   const faqs = [
@@ -135,20 +137,24 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section className="flex flex-col gap-10  mt-24 max-w-6xl mx-auto items-center justify-center">
-        <h2 className="text-6xl font-bold mt-5 mb-10">FAQ</h2>
-        <ul className="max-w-3xl max-w-auto w-full bg-neutral-200 dark:bg-neutral-800 rounded-lg">
+      <motion.section
+        id="faq"
+        className="flex flex-col gap-2 my-10 items-center px-4"
+        initial={{ opacity: 0, translateY: 50 }}
+        whileInView={{ opacity: 1, translateY: 0, transitionDuration: "0.15s" }}
+      >
+        <h3 className="mb-10 mt-5 text-center text-7xl font-bold bg-gradient-to-b from-[#FAF7FF] to-[#C3C3C7] bg-clip-text text-transparent sm:text-4xl">
+          FAQ
+        </h3>
+        <ul className="flex flex-col gap-2 max-w-auto w-full max-w-3xl rounded-lg ">
           {faqs.map((faq, index) => (
-            <li
+            <details
               key={index}
-              className="mb-2 border-b-[1px] border-b-neutral-900"
-              onClick={() => {
-                setActiveFQA(index);
-              }}
+              className="border-b-[1px] border-b-neutral-900 transition ease-linear"
             >
-              <div className=" px-4 py-2 flex justify-between">
+              <summary className=" flex justify-between px-4 py-2  transition ease-linear">
                 <h3 className="text-lg">{faq.title}</h3>
-                <span className="p-2 flex items-center">
+                <span className="flex items-center p-2">
                   <svg
                     width="16"
                     height="16"
@@ -163,19 +169,19 @@ export default function Home() {
                     ></path>
                   </svg>
                 </span>
-              </div>
+              </summary>
               <p
                 className={cl(
-                  activeFQA !== index && "hidden",
-                  "transition ease-linear px-4 py-2 dark:text-neutral-400 text-neutral-600"
+                  // activeFQA !== index && "hidden",
+                  "px-4 py-2 transition ease-linear text-neutral-400"
                 )}
               >
                 {faq.des}
               </p>
-            </li>
+            </details>
           ))}
         </ul>
-      </section>
+      </motion.section>
     </main>
   );
 }

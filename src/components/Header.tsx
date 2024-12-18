@@ -4,6 +4,32 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 export default function Header() {
+    const links = [
+        {
+            name: "Product",
+            href: "#",
+        },
+        {
+            name: "Features",
+            href: "#features",
+        },
+        // {
+        //   name: "Case Studies",
+        //   href: "#feedback",
+        // },
+        {
+            name: "Testimonials",
+            href: "#feedback",
+        },
+        {
+            name: "Download",
+            href: "/download",
+        },
+        {
+            name: "Changelog",
+            href: "#",
+        },
+    ];
     return (
         <motion.header
             className="px-2 py-1 text-sm"
@@ -41,26 +67,19 @@ export default function Header() {
                     </svg>
                 </span>
                 <ul className="md:flex py-4 flex-wrap space-x-2 hidden   text-neutral-500">
-                    <li className="px-4 py-1 transition ease-linear hover:bg-neutral-800/70 rounded hover:text-neutral-50">
-                        Product
-                    </li>
-                    <li className="px-4 py-1 transition ease-linear hover:bg-neutral-800/70 rounded hover:text-neutral-50">
-                        Features
-                    </li>
-                    <li className="px-4 py-1 transition ease-linear hover:bg-neutral-800/70 rounded hover:text-neutral-50">
-                        Case Studies
-                    </li>
-                    <li className="px-4 py-1 transition ease-linear hover:bg-neutral-800/70 rounded hover:text-neutral-50">
-                        Testimonials{" "}
-                    </li>
-                    <li className="px-4 py-1 transition ease-linear hover:bg-neutral-800/70 rounded hover:text-neutral-50">
-                        Pricing
-                    </li>
-                    <li className="px-4 py-1 transition ease-linear hover:bg-neutral-800/70 rounded hover:text-neutral-50">
-                        Changelog
-                    </li>
+                    {links.map((link) => (
+                        <li
+                            key={link.name}
+                            className="px-4 py-1 transition ease-linear hover:bg-neutral-800/70 rounded hover:text-neutral-50"
+                        >
+                            <Link href={link.href}>{link.name}</Link>
+                        </li>
+                    ))}
                 </ul>
-                <button className="flex items-center space-x-2 px-4 py-1 transition ease-linear text-neutral-200 bg-green-900/20 rounded-lg border border-green-700/30">
+                <Link
+                    href={"https://achuthhadnoor.gumroad.com/l/lapse_app"}
+                    className="flex items-center space-x-2 px-4 py-1 transition ease-linear text-neutral-200 bg-green-900/20 rounded-lg border border-green-700/30"
+                >
                     <span className="">
                         <svg
                             width="24"
@@ -76,7 +95,7 @@ export default function Header() {
                         </svg>
                     </span>
                     <span className="md:block hidden">Download</span>
-                </button>
+                </Link>
             </div>
         </motion.header>
     );
