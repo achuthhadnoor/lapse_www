@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 html {
-  @apply bg-black font-sans text-neutral-50;
 }
 * {
   scroll-behavior: smooth;
