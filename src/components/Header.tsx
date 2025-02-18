@@ -22,8 +22,8 @@ export default function Header() {
             href: "#feedback",
         },
         {
-            name: "Download",
-            href: "/download",
+            name: "Pricing",
+            href: "/pricing",
         },
         {
             name: "Changelog",
@@ -37,7 +37,7 @@ export default function Header() {
             whileInView={{ opacity: 1, translateY: 0, transitionDuration: ".2s" }}
         >
             <div className="flex items-center container mx-auto justify-between">
-                <button className="md:hidden flex">
+                <button className="hidden">
                     <svg
                         width="24"
                         height="24"
@@ -51,7 +51,7 @@ export default function Header() {
                         />
                     </svg>
                 </button>
-                <span className="flex items-center space-x-2">
+                <Link href='/' className="flex items-center space-x-2">
                     <svg
                         width="24"
                         height="25"
@@ -65,7 +65,7 @@ export default function Header() {
                             stroke-width="2"
                         />
                     </svg>
-                </span>
+                </Link>
                 <ul className="md:flex py-4 flex-wrap space-x-2 hidden   text-neutral-500">
                     {links.map((link) => (
                         <li
